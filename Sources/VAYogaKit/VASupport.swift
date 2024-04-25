@@ -7,8 +7,8 @@
 
 import Foundation
 
-@inline(__always) func assertMain() {
+@inline(__always) func assertMain(file: StaticString = #file, line: UInt = #line) {
     #if DEBUG
-    assert(Thread.isMainThread, "This method must be called on the main thread.")
+    assert(Thread.isMainThread, "This method must be called on the main thread.", file: file, line: line)
     #endif
 }
