@@ -8,8 +8,8 @@
 import Foundation
 import yoga
 
-extension YGNodeRef {
-    
+public extension YGNodeRef {
+
     func removeAllChildren() {
         YGNodeRemoveAllChildren(self)
     }
