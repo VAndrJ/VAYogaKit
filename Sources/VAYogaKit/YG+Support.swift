@@ -8,3 +8,8 @@
 import Foundation
 import yoga
 
+extension YGDirection {
+    static let ltr: YGDirection = YGDirectionLTR
+    static let rtl: YGDirection = YGDirectionRTL
+    static let inherit: YGDirection = YGDirectionInherit
+}
