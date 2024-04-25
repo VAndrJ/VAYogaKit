@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "E07BD2B1-1B63-403E-AFC9-3C202F34716C",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "VAYogaKitTests",
+        "name" : "VAYogaKitTests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -13,6 +13,7 @@
 		A38DDC422BDAC86B00B34C34 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A38DDC412BDAC86B00B34C34 /* Base */; };
 		A38DDC442BDAC86C00B34C34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A38DDC432BDAC86C00B34C34 /* Assets.xcassets */; };
 		A38DDC472BDAC86C00B34C34 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A38DDC462BDAC86C00B34C34 /* Base */; };
+		A38DDC512BDAD70000B34C34 /* VAYogaKit in Frameworks */ = {isa = PBXBuildFile; productRef = A38DDC502BDAD70000B34C34 /* VAYogaKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		A38DDC462BDAC86C00B34C34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A38DDC482BDAC86C00B34C34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A38DDC4E2BDAC8FC00B34C34 /* VAYogaKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = VAYogaKit; path = ..; sourceTree = "<group>"; };
+		A38DDC522BDAD78C00B34C34 /* VAYogaKitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = VAYogaKitTests.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A38DDC512BDAD70000B34C34 /* VAYogaKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,9 +44,11 @@
 		A38DDC2E2BDAC86B00B34C34 = {
 			isa = PBXGroup;
 			children = (
+				A38DDC522BDAD78C00B34C34 /* VAYogaKitTests.xctestplan */,
 				A38DDC4E2BDAC8FC00B34C34 /* VAYogaKit */,
 				A38DDC392BDAC86B00B34C34 /* VAYogaKitExample */,
 				A38DDC382BDAC86B00B34C34 /* Products */,
+				A38DDC4F2BDAD70000B34C34 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +74,13 @@
 			path = VAYogaKitExample;
 			sourceTree = "<group>";
 		};
+		A38DDC4F2BDAD70000B34C34 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -85,6 +97,9 @@
 			dependencies = (
 			);
 			name = VAYogaKitExample;
+			packageProductDependencies = (
+				A38DDC502BDAD70000B34C34 /* VAYogaKit */,
+			);
 			productName = VAYogaKitExample;
 			productReference = A38DDC372BDAC86B00B34C34 /* VAYogaKitExample.app */;
 			productType = "com.apple.product-type.application";
@@ -364,6 +379,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A38DDC502BDAD70000B34C34 /* VAYogaKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = VAYogaKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A38DDC2F2BDAC86B00B34C34 /* Project object */;
 }
