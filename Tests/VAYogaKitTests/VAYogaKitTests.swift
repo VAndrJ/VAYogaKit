@@ -9,4 +9,16 @@ final class VAYogaKitTests: XCTestCase {
         XCTAssertEqual(YGDirectionRTL, .rtl)
         XCTAssertEqual(YGDirectionInherit, .inherit)
     }
+
+    func test_constants_edge() {
+        XCTAssertEqual(YGEdgeAll, .all)
+        XCTAssertEqual(YGEdgeLeft, .left)
+        XCTAssertEqual(YGEdgeTop, .top)
+        XCTAssertEqual(YGEdgeRight, .right)
+        XCTAssertEqual(YGEdgeBottom, .bottom)
+        XCTAssertEqual(YGEdgeStart, .start)
+        XCTAssertEqual(YGEdgeEnd, .end)
+        XCTAssertEqual(YGEdgeHorizontal, .horizontal)
+        XCTAssertEqual(YGEdgeVertical, .vertical)
+    }
 }
