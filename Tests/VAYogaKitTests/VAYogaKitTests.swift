@@ -4,6 +4,13 @@ import yoga
 
 final class VAYogaKitTests: XCTestCase {
 
+    func test_constants_flexDirection() {
+        XCTAssertEqual(YGFlexDirectionRow, .row)
+        XCTAssertEqual(YGFlexDirectionRowReverse, .rowReverse)
+        XCTAssertEqual(YGFlexDirectionColumn, .column)
+        XCTAssertEqual(YGFlexDirectionColumnReverse, .columnReverse)
+    }
+
     func test_constants_direction() {
         XCTAssertEqual(YGDirectionLTR, .ltr)
         XCTAssertEqual(YGDirectionRTL, .rtl)
