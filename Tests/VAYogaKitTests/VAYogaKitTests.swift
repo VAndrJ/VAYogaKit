@@ -4,6 +4,15 @@ import yoga
 
 final class VAYogaKitTests: XCTestCase {
 
+    func test_ygvalue_point() {
+        let value: Float = 10
+        let expected: YGValue = .init(value: value, unit: .point)
+        let sut: YGValue = .point(value: value)
+
+        XCTAssertEqual(expected.value, sut.value)
+        XCTAssertEqual(expected.unit, sut.unit)
+    }
+
     func test_constants_unit() {
         XCTAssertEqual(YGUnitAuto, .auto)
         XCTAssertEqual(YGUnitPoint, .point)
