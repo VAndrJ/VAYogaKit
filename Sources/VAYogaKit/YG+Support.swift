@@ -8,6 +8,13 @@
 import Foundation
 import yoga
 
+extension YGUnit {
+    static let point: YGUnit = YGUnitPoint
+    static let undefined: YGUnit = YGUnitUndefined
+    static let percent: YGUnit = YGUnitPercent
+    static let auto: YGUnit = YGUnitAuto
+}
+
 extension YGJustify {
     static let start: YGJustify = YGJustifyFlexStart
     static let center: YGJustify = YGJustifyCenter
