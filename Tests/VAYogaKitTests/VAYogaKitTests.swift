@@ -20,6 +20,18 @@ final class VAYogaKitTests: XCTestCase {
         XCTAssertEqual(expected, sut)
     }
 
+    func test_constants_align() {
+        XCTAssertEqual(YGAlignAuto, .auto)
+        XCTAssertEqual(YGAlignFlexStart, .start)
+        XCTAssertEqual(YGAlignCenter, .center)
+        XCTAssertEqual(YGAlignFlexEnd, .end)
+        XCTAssertEqual(YGAlignStretch, .stretch)
+        XCTAssertEqual(YGAlignBaseline, .baseline)
+        XCTAssertEqual(YGAlignSpaceBetween, .spaceBetween)
+        XCTAssertEqual(YGAlignSpaceAround, .spaceAround)
+        XCTAssertEqual(YGAlignSpaceEvenly, .spaceEvently)
+    }
+
     func test_constants_unit() {
         XCTAssertEqual(YGUnitAuto, .auto)
         XCTAssertEqual(YGUnitPoint, .point)
