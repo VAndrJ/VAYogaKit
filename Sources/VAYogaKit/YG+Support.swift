@@ -42,6 +42,18 @@ public extension YGJustify {
     static let spaceEvently: YGJustify = YGJustifySpaceEvenly
 }
 
+public extension YGAlign {
+    static let auto: YGAlign = YGAlignAuto
+    static let start: YGAlign = YGAlignFlexStart
+    static let center: YGAlign = YGAlignCenter
+    static let end: YGAlign = YGAlignFlexEnd
+    static let stretch: YGAlign = YGAlignStretch
+    static let baseline: YGAlign = YGAlignBaseline
+    static let spaceBetween: YGAlign = YGAlignSpaceBetween
+    static let spaceAround: YGAlign = YGAlignSpaceAround
+    static let spaceEvently: YGAlign = YGAlignSpaceEvenly
+}
+
 public extension YGFlexDirection {
     static let column: YGFlexDirection = YGFlexDirectionColumn
     static let columnReverse: YGFlexDirection = YGFlexDirectionColumnReverse
