@@ -9,8 +9,15 @@ final class VAYogaKitTests: XCTestCase {
         let expected: YGValue = .init(value: value, unit: .point)
         let sut: YGValue = .point(value: value)
 
-        XCTAssertEqual(expected.value, sut.value)
-        XCTAssertEqual(expected.unit, sut.unit)
+        XCTAssertEqual(expected, sut)
+    }
+
+    func test_ygvalue_percent() {
+        let value: Float = 10
+        let expected: YGValue = .init(value: value, unit: .percent)
+        let sut: YGValue = .percent(value: value)
+
+        XCTAssertEqual(expected, sut)
     }
 
     func test_constants_unit() {
