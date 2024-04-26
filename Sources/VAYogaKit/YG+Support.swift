@@ -8,6 +8,15 @@
 import Foundation
 import yoga
 
+extension YGJustify {
+    static let flexStart: YGJustify = YGJustifyFlexStart
+    static let center: YGJustify = YGJustifyCenter
+    static let flexEnd: YGJustify = YGJustifyFlexEnd
+    static let spaceBetween: YGJustify = YGJustifySpaceBetween
+    static let spaceAround: YGJustify = YGJustifySpaceAround
+    static let spaceEvently: YGJustify = YGJustifySpaceEvenly
+}
+
 extension YGFlexDirection {
     static let column: YGFlexDirection = YGFlexDirectionColumn
     static let columnReverse: YGFlexDirection = YGFlexDirectionColumnReverse
