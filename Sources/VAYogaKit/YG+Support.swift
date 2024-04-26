@@ -9,9 +9,9 @@ import Foundation
 import yoga
 
 extension YGJustify {
-    static let flexStart: YGJustify = YGJustifyFlexStart
+    static let start: YGJustify = YGJustifyFlexStart
     static let center: YGJustify = YGJustifyCenter
-    static let flexEnd: YGJustify = YGJustifyFlexEnd
+    static let end: YGJustify = YGJustifyFlexEnd
     static let spaceBetween: YGJustify = YGJustifySpaceBetween
     static let spaceAround: YGJustify = YGJustifySpaceAround
     static let spaceEvently: YGJustify = YGJustifySpaceEvenly

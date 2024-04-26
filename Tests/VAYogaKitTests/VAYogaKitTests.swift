@@ -4,6 +4,15 @@ import yoga
 
 final class VAYogaKitTests: XCTestCase {
 
+    func test_constants_justify() {
+        XCTAssertEqual(YGJustifyFlexStart, .start)
+        XCTAssertEqual(YGJustifyCenter, .center)
+        XCTAssertEqual(YGJustifyFlexEnd, .end)
+        XCTAssertEqual(YGJustifySpaceBetween, .spaceBetween)
+        XCTAssertEqual(YGJustifySpaceAround, .spaceAround)
+        XCTAssertEqual(YGJustifySpaceEvenly, .spaceEvently)
+    }
+
     func test_constants_flexDirection() {
         XCTAssertEqual(YGFlexDirectionRow, .row)
         XCTAssertEqual(YGFlexDirectionRowReverse, .rowReverse)
