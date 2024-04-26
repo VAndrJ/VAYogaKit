@@ -4,6 +4,13 @@ import yoga
 
 final class VAYogaKitTests: XCTestCase {
 
+    func test_constants_unit() {
+        XCTAssertEqual(YGUnitAuto, .auto)
+        XCTAssertEqual(YGUnitPoint, .point)
+        XCTAssertEqual(YGUnitUndefined, .undefined)
+        XCTAssertEqual(YGUnitPercent, .percent)
+    }
+
     func test_constants_justify() {
         XCTAssertEqual(YGJustifyFlexStart, .start)
         XCTAssertEqual(YGJustifyCenter, .center)
