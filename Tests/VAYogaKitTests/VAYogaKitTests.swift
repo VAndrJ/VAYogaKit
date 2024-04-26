@@ -72,4 +72,9 @@ final class VAYogaKitTests: XCTestCase {
         XCTAssertEqual(YGEdgeHorizontal, .horizontal)
         XCTAssertEqual(YGEdgeVertical, .vertical)
     }
+
+    @MainActor
+    func test_config_scale() {
+        XCTAssertEqual(UIScreen.main.scale, VAYogaConfig.scale)
+    }
 }

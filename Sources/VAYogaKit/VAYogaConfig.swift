@@ -8,6 +8,6 @@
 import UIKit
 import yoga
 
-public enum YogaConfig {
+public enum VAYogaConfig {
     @MainActor static let scale = CGFloat(UIScreen.main.scale)
 }
