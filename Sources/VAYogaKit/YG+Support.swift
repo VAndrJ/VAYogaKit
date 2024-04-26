@@ -8,14 +8,25 @@
 import Foundation
 import yoga
 
-extension YGUnit {
+public extension YGValue {
+
+    @inline(__always) static func point(value: Float) -> YGValue {
+        YGValue(value: value, unit: .point)
+    }
+
+    @inline(__always) static func percent(value: Float) -> YGValue {
+        YGValue(value: value, unit: .percent)
+    }
+}
+
+public extension YGUnit {
     static let point: YGUnit = YGUnitPoint
     static let undefined: YGUnit = YGUnitUndefined
     static let percent: YGUnit = YGUnitPercent
     static let auto: YGUnit = YGUnitAuto
 }
 
-extension YGJustify {
+public extension YGJustify {
     static let start: YGJustify = YGJustifyFlexStart
     static let center: YGJustify = YGJustifyCenter
     static let end: YGJustify = YGJustifyFlexEnd
@@ -24,14 +35,14 @@ extension YGJustify {
     static let spaceEvently: YGJustify = YGJustifySpaceEvenly
 }
 
-extension YGFlexDirection {
+public extension YGFlexDirection {
     static let column: YGFlexDirection = YGFlexDirectionColumn
     static let columnReverse: YGFlexDirection = YGFlexDirectionColumnReverse
     static let row: YGFlexDirection = YGFlexDirectionRow
     static let rowReverse: YGFlexDirection = YGFlexDirectionRowReverse
 }
 
-extension YGEdge {
+public extension YGEdge {
     static let all: YGEdge = YGEdgeAll
     static let left: YGEdge = YGEdgeLeft
     static let top: YGEdge = YGEdgeTop
@@ -43,7 +54,7 @@ extension YGEdge {
     static let vertical: YGEdge = YGEdgeVertical
 }
 
-extension YGDirection {
+public extension YGDirection {
     static let ltr: YGDirection = YGDirectionLTR
     static let rtl: YGDirection = YGDirectionRTL
     static let inherit: YGDirection = YGDirectionInherit
