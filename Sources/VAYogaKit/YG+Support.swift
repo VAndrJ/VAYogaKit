@@ -19,6 +19,13 @@ public extension YGValue {
     }
 }
 
+extension YGValue: Equatable {
+
+    public static func == (lhs: YGValue, rhs: YGValue) -> Bool {
+        lhs.value.isEqual(to: rhs.value) && lhs.unit == rhs.unit
+    }
+}
+
 public extension YGUnit {
     static let point: YGUnit = YGUnitPoint
     static let undefined: YGUnit = YGUnitUndefined
