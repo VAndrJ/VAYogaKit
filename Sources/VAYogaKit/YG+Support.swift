@@ -8,6 +8,13 @@
 import Foundation
 import yoga
 
+extension YGFlexDirection {
+    static let column: YGFlexDirection = YGFlexDirectionColumn
+    static let columnReverse: YGFlexDirection = YGFlexDirectionColumnReverse
+    static let row: YGFlexDirection = YGFlexDirectionRow
+    static let rowReverse: YGFlexDirection = YGFlexDirectionRowReverse
+}
+
 extension YGEdge {
     static let all: YGEdge = YGEdgeAll
     static let left: YGEdge = YGEdgeLeft
