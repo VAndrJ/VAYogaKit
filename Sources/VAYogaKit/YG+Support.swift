@@ -41,6 +41,12 @@ public extension YGUnit {
     static let auto: YGUnit = YGUnitAuto
 }
 
+public extension YGMeasureMode {
+    static let undefined: YGMeasureMode = YGMeasureModeUndefined
+    static let exactly: YGMeasureMode = YGMeasureModeExactly
+    static let atMost: YGMeasureMode = YGMeasureModeAtMost
+}
+
 public extension YGJustify {
     static let start: YGJustify = YGJustifyFlexStart
     static let center: YGJustify = YGJustifyCenter
