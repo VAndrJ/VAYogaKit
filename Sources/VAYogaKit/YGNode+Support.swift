@@ -28,4 +28,8 @@ public extension YGNodeRef {
     @inline(__always) func removeAllChildren() {
         YGNodeRemoveAllChildren(self)
     }
+
+    func getGhild(at index: Int) -> YGNodeRef? {
+        YGNodeGetChild(self, index)
+    }
 }
