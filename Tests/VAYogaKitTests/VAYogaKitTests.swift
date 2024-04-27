@@ -40,6 +40,11 @@ final class VAYogaKitTests: XCTestCase {
         XCTAssertEqual(YGAlignSpaceEvenly, .spaceEvently)
     }
 
+    func test_constants_dismension() {
+        XCTAssertEqual(YGDimensionWidth, .width)
+        XCTAssertEqual(YGDimensionHeight, .height)
+    }
+
     func test_constants_unit() {
         XCTAssertEqual(YGUnitAuto, .auto)
         XCTAssertEqual(YGUnitPoint, .point)
