@@ -52,6 +52,12 @@ final class VAYogaKitTests: XCTestCase {
         XCTAssertEqual(YGUnitPercent, .percent)
     }
 
+    func test_constants_measureMode() {
+        XCTAssertEqual(YGMeasureModeUndefined, .undefined)
+        XCTAssertEqual(YGMeasureModeExactly, .exactly)
+        XCTAssertEqual(YGMeasureModeAtMost, .atMost)
+    }
+
     func test_constants_justify() {
         XCTAssertEqual(YGJustifyFlexStart, .start)
         XCTAssertEqual(YGJustifyCenter, .center)
