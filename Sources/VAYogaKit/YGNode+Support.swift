@@ -10,7 +10,7 @@ import yoga
 
 public extension YGNodeRef {
 
-    func removeAllChildren() {
+    @inline(__always) func removeAllChildren() {
         YGNodeRemoveAllChildren(self)
     }
 }
