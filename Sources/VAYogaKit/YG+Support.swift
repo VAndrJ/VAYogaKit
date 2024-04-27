@@ -9,6 +9,9 @@ import Foundation
 import yoga
 
 public extension YGValue {
+    static let zero: YGValue = .point(value: 0)
+    static let undefined: YGValue = .init(value: .nan, unit: .undefined)
+    static let auto: YGValue = .init(value: .nan, unit: .auto)
 
     @inline(__always) static func point(value: Float) -> YGValue {
         YGValue(value: value, unit: .point)
@@ -26,11 +29,22 @@ extension YGValue: Equatable {
     }
 }
 
+public extension YGDimension {
+    static let width: YGDimension = YGDimensionWidth
+    static let height: YGDimension = YGDimensionHeight
+}
+
 public extension YGUnit {
     static let point: YGUnit = YGUnitPoint
     static let undefined: YGUnit = YGUnitUndefined
     static let percent: YGUnit = YGUnitPercent
     static let auto: YGUnit = YGUnitAuto
+}
+
+public extension YGMeasureMode {
+    static let undefined: YGMeasureMode = YGMeasureModeUndefined
+    static let exactly: YGMeasureMode = YGMeasureModeExactly
+    static let atMost: YGMeasureMode = YGMeasureModeAtMost
 }
 
 public extension YGJustify {
@@ -40,6 +54,18 @@ public extension YGJustify {
     static let spaceBetween: YGJustify = YGJustifySpaceBetween
     static let spaceAround: YGJustify = YGJustifySpaceAround
     static let spaceEvently: YGJustify = YGJustifySpaceEvenly
+}
+
+public extension YGAlign {
+    static let auto: YGAlign = YGAlignAuto
+    static let start: YGAlign = YGAlignFlexStart
+    static let center: YGAlign = YGAlignCenter
+    static let end: YGAlign = YGAlignFlexEnd
+    static let stretch: YGAlign = YGAlignStretch
+    static let baseline: YGAlign = YGAlignBaseline
+    static let spaceBetween: YGAlign = YGAlignSpaceBetween
+    static let spaceAround: YGAlign = YGAlignSpaceAround
+    static let spaceEvently: YGAlign = YGAlignSpaceEvenly
 }
 
 public extension YGFlexDirection {

@@ -20,11 +20,42 @@ final class VAYogaKitTests: XCTestCase {
         XCTAssertEqual(expected, sut)
     }
 
+    func test_constants_ygvalue() {
+        XCTAssertEqual(YGValue(value: 0, unit: .point), .zero)
+        XCTAssertTrue(YGValue.undefined.value.isNaN)
+        XCTAssertEqual(.undefined, YGValue.undefined.unit)
+        XCTAssertTrue(YGValue.auto.value.isNaN)
+        XCTAssertEqual(.auto, YGValue.auto.unit)
+    }
+
+    func test_constants_align() {
+        XCTAssertEqual(YGAlignAuto, .auto)
+        XCTAssertEqual(YGAlignFlexStart, .start)
+        XCTAssertEqual(YGAlignCenter, .center)
+        XCTAssertEqual(YGAlignFlexEnd, .end)
+        XCTAssertEqual(YGAlignStretch, .stretch)
+        XCTAssertEqual(YGAlignBaseline, .baseline)
+        XCTAssertEqual(YGAlignSpaceBetween, .spaceBetween)
+        XCTAssertEqual(YGAlignSpaceAround, .spaceAround)
+        XCTAssertEqual(YGAlignSpaceEvenly, .spaceEvently)
+    }
+
+    func test_constants_dismension() {
+        XCTAssertEqual(YGDimensionWidth, .width)
+        XCTAssertEqual(YGDimensionHeight, .height)
+    }
+
     func test_constants_unit() {
         XCTAssertEqual(YGUnitAuto, .auto)
         XCTAssertEqual(YGUnitPoint, .point)
         XCTAssertEqual(YGUnitUndefined, .undefined)
         XCTAssertEqual(YGUnitPercent, .percent)
+    }
+
+    func test_constants_measureMode() {
+        XCTAssertEqual(YGMeasureModeUndefined, .undefined)
+        XCTAssertEqual(YGMeasureModeExactly, .exactly)
+        XCTAssertEqual(YGMeasureModeAtMost, .atMost)
     }
 
     func test_constants_justify() {
@@ -59,5 +90,10 @@ final class VAYogaKitTests: XCTestCase {
         XCTAssertEqual(YGEdgeEnd, .end)
         XCTAssertEqual(YGEdgeHorizontal, .horizontal)
         XCTAssertEqual(YGEdgeVertical, .vertical)
+    }
+
+    @MainActor
+    func test_config_scale() {
+        XCTAssertEqual(UIScreen.main.scale, VAYogaConfig.scale)
     }
 }
