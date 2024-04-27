@@ -6,3 +6,8 @@
 //
 
 import Foundation
+import yoga
+
+public protocol VAYogaLayout: AnyObject {
+    @MainActor var node: YGNodeRef! { get set }
+}
