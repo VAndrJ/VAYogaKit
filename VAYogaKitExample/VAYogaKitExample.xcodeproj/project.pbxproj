@@ -12,6 +12,7 @@
 		A38DDC442BDAC86C00B34C34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A38DDC432BDAC86C00B34C34 /* Assets.xcassets */; };
 		A38DDC472BDAC86C00B34C34 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A38DDC462BDAC86C00B34C34 /* Base */; };
 		A38DDC512BDAD70000B34C34 /* VAYogaKit in Frameworks */ = {isa = PBXBuildFile; productRef = A38DDC502BDAD70000B34C34 /* VAYogaKit */; };
+		A38DDC832BDCFF3300B34C34 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC822BDCFF3300B34C34 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		A38DDC482BDAC86C00B34C34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A38DDC4E2BDAC8FC00B34C34 /* VAYogaKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = VAYogaKit; path = ..; sourceTree = "<group>"; };
 		A38DDC522BDAD78C00B34C34 /* VAYogaKitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = VAYogaKitTests.xctestplan; sourceTree = "<group>"; };
+		A38DDC822BDCFF3300B34C34 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				A38DDC7F2BDCFE9D00B34C34 /* App */,
+				A38DDC812BDCFF1E00B34C34 /* Base */,
 				A38DDC802BDCFEA700B34C34 /* Resources */,
 			);
 			path = VAYogaKitExample;
@@ -89,6 +92,14 @@
 				A38DDC452BDAC86C00B34C34 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A38DDC812BDCFF1E00B34C34 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				A38DDC822BDCFF3300B34C34 /* BaseViewController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +178,7 @@
 			files = (
 				A38DDC3B2BDAC86B00B34C34 /* AppDelegate.swift in Sources */,
 				A38DDC3D2BDAC86B00B34C34 /* SceneDelegate.swift in Sources */,
+				A38DDC832BDCFF3300B34C34 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
