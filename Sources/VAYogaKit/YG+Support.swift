@@ -29,6 +29,11 @@ extension YGValue: Equatable {
     }
 }
 
+public extension YGDimension {
+    static let width: YGDimension = YGDimensionWidth
+    static let height: YGDimension = YGDimensionHeight
+}
+
 public extension YGUnit {
     static let point: YGUnit = YGUnitPoint
     static let undefined: YGUnit = YGUnitUndefined
