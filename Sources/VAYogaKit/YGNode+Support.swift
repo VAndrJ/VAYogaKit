@@ -32,4 +32,8 @@ public extension YGNodeRef {
     func getGhild(at index: Int) -> YGNodeRef? {
         YGNodeGetChild(self, index)
     }
+
+    func insert(child: YGNodeRef, at index: Int) {
+        YGNodeInsertChild(self, child, index)
+    }
 }
