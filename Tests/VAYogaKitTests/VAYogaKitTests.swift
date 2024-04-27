@@ -20,6 +20,14 @@ final class VAYogaKitTests: XCTestCase {
         XCTAssertEqual(expected, sut)
     }
 
+    func test_constants_ygvalue() {
+        XCTAssertEqual(YGValue(value: 0, unit: .point), .zero)
+        XCTAssertTrue(YGValue.undefined.value.isNaN)
+        XCTAssertEqual(.undefined, YGValue.undefined.unit)
+        XCTAssertTrue(YGValue.auto.value.isNaN)
+        XCTAssertEqual(.auto, YGValue.auto.unit)
+    }
+
     func test_constants_align() {
         XCTAssertEqual(YGAlignAuto, .auto)
         XCTAssertEqual(YGAlignFlexStart, .start)
