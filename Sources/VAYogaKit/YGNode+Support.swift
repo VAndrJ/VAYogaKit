@@ -19,6 +19,7 @@ public extension YGNodeRef {
     }
 
     var childCount: Int { YGNodeGetChildCount(self) }
+    var parent: YGNodeRef? { YGNodeGetParent(self) }
 
     @inline(__always) func removeAllChildren() {
         YGNodeRemoveAllChildren(self)
