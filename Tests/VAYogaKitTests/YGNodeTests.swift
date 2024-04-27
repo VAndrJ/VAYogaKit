@@ -10,4 +10,9 @@ import XCTest
 import yoga
 
 final class YGNodeTests: XCTestCase {
+
+    @MainActor
+    private func createNode() -> YGNodeRef {
+        YGNodeRef.new(for: NSObject())
+    }
 }
