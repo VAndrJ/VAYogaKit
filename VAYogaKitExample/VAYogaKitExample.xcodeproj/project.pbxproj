@@ -19,6 +19,7 @@
 		A38DDC8C2BDE7DBA00B34C34 /* Applyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC8B2BDE7DBA00B34C34 /* Applyable.swift */; };
 		A38DDC8E2BDE7DF000B34C34 /* CGSize+Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC8D2BDE7DF000B34C34 /* CGSize+Support.swift */; };
 		A38DDC902BDE7E2600B34C34 /* VAIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC8F2BDE7E2600B34C34 /* VAIdentifiable.swift */; };
+		A38DDC942BDE7EA600B34C34 /* UITableViewCell+Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC932BDE7EA600B34C34 /* UITableViewCell+Support.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		A38DDC8B2BDE7DBA00B34C34 /* Applyable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applyable.swift; sourceTree = "<group>"; };
 		A38DDC8D2BDE7DF000B34C34 /* CGSize+Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Support.swift"; sourceTree = "<group>"; };
 		A38DDC8F2BDE7E2600B34C34 /* VAIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VAIdentifiable.swift; sourceTree = "<group>"; };
+		A38DDC932BDE7EA600B34C34 /* UITableViewCell+Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Support.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				A38DDC8D2BDE7DF000B34C34 /* CGSize+Support.swift */,
+				A38DDC932BDE7EA600B34C34 /* UITableViewCell+Support.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				A38DDC872BDD012200B34C34 /* BaseView.swift in Sources */,
 				A38DDC3D2BDAC86B00B34C34 /* SceneDelegate.swift in Sources */,
 				A38DDC8E2BDE7DF000B34C34 /* CGSize+Support.swift in Sources */,
+				A38DDC942BDE7EA600B34C34 /* UITableViewCell+Support.swift in Sources */,
 				A38DDC832BDCFF3300B34C34 /* BaseViewController.swift in Sources */,
 				A38DDC8A2BDE7D5000B34C34 /* Functions.swift in Sources */,
 			);
