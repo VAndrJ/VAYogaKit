@@ -269,6 +269,10 @@ public extension YGNodeRef {
         get { YGNodeStyleGetFlex(self) }
         set { YGNodeStyleSetFlex(self, newValue) }
     }
+    var flexGrow: Float {
+        get { YGNodeStyleGetFlexGrow(self) }
+        set { YGNodeStyleSetFlexGrow(self, newValue) }
+    }
     @MainActor
     func addMeasureBaselineFuncIfNeeded(object: AnyObject) {
         guard !hasBaselineFunc else { return }
