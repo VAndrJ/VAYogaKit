@@ -14,7 +14,10 @@ final class YGNodeTests: XCTestCase {
     @MainActor
     func test_node_measureFunc() {
         let node = createNode()
-        node.setMeasure(dummyMeasureViewFunc)
+
+        XCTAssertFalse(node.hasMeasureFunc)
+
+        node.setMeasureFunc(measureViewFunc)
 
         XCTAssertTrue(node.hasMeasureFunc)
     }
@@ -76,17 +79,7 @@ final class YGNodeTests: XCTestCase {
     }
 
     @MainActor
-    private func createNode() -> YGNodeRef {
-        YGNodeRef.new(for: NSObject())
+    private func createNode(object: NSObject = .init()) -> YGNodeRef {
+        YGNodeRef.new(for: object)
     }
-}
-
-@MainActor private var dummyMeasureViewFunc: @convention(c) (
-    _ node: YGNodeRef?,
-    _ width: Float,
-    _ widthMode: YGMeasureMode,
-    _ height: Float,
-    _ heightMode: YGMeasureMode
-) -> YGSize = { _, _, _, _, _ in
-    .init(width: 10, height: 10)
 }
