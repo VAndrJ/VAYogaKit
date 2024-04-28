@@ -110,4 +110,15 @@ public extension VAYogaLayout {
 
         return self
     }
+
+    @MainActor
+    func margin(_ margins: VAIndentation...) -> Self {
+        let insets = UIEdgeInsets(indentation: margins)
+        node.marginTop = .point(insets.top)
+        node.marginLeft = .point(insets.left)
+        node.marginBottom = .point(insets.bottom)
+        node.marginRight = .point(insets.right)
+
+        return self
+    }
 }
