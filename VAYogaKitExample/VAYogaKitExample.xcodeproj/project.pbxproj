@@ -16,6 +16,7 @@
 		A38DDC852BDD010C00B34C34 /* BaseControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC842BDD010C00B34C34 /* BaseControllerView.swift */; };
 		A38DDC872BDD012200B34C34 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC862BDD012200B34C34 /* BaseView.swift */; };
 		A38DDC8A2BDE7D5000B34C34 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC892BDE7D5000B34C34 /* Functions.swift */; };
+		A38DDC8C2BDE7DBA00B34C34 /* Applyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC8B2BDE7DBA00B34C34 /* Applyable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		A38DDC842BDD010C00B34C34 /* BaseControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControllerView.swift; sourceTree = "<group>"; };
 		A38DDC862BDD012200B34C34 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		A38DDC892BDE7D5000B34C34 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		A38DDC8B2BDE7DBA00B34C34 /* Applyable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applyable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +73,6 @@
 				A38DDC7F2BDCFE9D00B34C34 /* App */,
 				A38DDC812BDCFF1E00B34C34 /* Base */,
 				A38DDC802BDCFEA700B34C34 /* Resources */,
-				A38DDC892BDE7D5000B34C34 /* Functions.swift */,
 			);
 			path = VAYogaKitExample;
 			sourceTree = "<group>";
@@ -115,6 +116,8 @@
 		A38DDC882BDE7D4300B34C34 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				A38DDC892BDE7D5000B34C34 /* Functions.swift */,
+				A38DDC8B2BDE7DBA00B34C34 /* Applyable.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A38DDC3B2BDAC86B00B34C34 /* AppDelegate.swift in Sources */,
+				A38DDC8C2BDE7DBA00B34C34 /* Applyable.swift in Sources */,
 				A38DDC852BDD010C00B34C34 /* BaseControllerView.swift in Sources */,
 				A38DDC872BDD012200B34C34 /* BaseView.swift in Sources */,
 				A38DDC3D2BDAC86B00B34C34 /* SceneDelegate.swift in Sources */,
