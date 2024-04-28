@@ -14,6 +14,7 @@ public extension YGNodeRef {
     static func new(for object: AnyObject) -> YGNodeRef {
         let node: YGNodeRef! = YGNodeNewWithConfig(VAYogaConfig.globalConfig)
         YGNodeSetContext(node, Unmanaged.passUnretained(object).toOpaque())
+        node.addMeasureBaselineFuncIfNeeded(object: object)
 
         return node
     }
@@ -55,7 +56,20 @@ public extension YGNodeRef {
         }
     }
 
-    @inline(__always) func setMeasure(_ measureFunc: YGMeasureFunc) {
+    @MainActor
+    func addMeasureBaselineFuncIfNeeded(object: AnyObject) {
+        guard !hasBaselineFunc else { return }
+
+        if object is UILabel {
+            YGNodeSetBaselineFunc(self, baselineLabelFunc)
+        } else if object is UITextView {
+            YGNodeSetBaselineFunc(self, baselineTextViewFunc)
+        } else if object is UITextField {
+            YGNodeSetBaselineFunc(self, baselineTextFieldFunc)
+        }
+    }
+
+    @inline(__always) func setMeasureFunc(_ measureFunc: YGMeasureFunc) {
         YGNodeSetMeasureFunc(self, measureFunc)
     }
 
