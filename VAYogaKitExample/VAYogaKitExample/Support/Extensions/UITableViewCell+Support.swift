@@ -10,6 +10,16 @@ import UIKit
 
 extension UITableViewCell: VAIdentifiable {}
 
+class TableCellViewModel<Cell: UITableViewCell & VAIdentifiable>: AnyTableCellViewModel {
+    override class var cellType: (UITableViewCell & VAIdentifiable).Type { Cell.self }
+
+    override func configure(cell: UITableViewCell) {
+        configure(cell: cell as! Cell)
+    }
+
+    func configure(cell: Cell) {}
+}
+
 @MainActor
 class AnyTableCellViewModel: Equatable {
     nonisolated static func == (lhs: AnyTableCellViewModel, rhs: AnyTableCellViewModel) -> Bool {
