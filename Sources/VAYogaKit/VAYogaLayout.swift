@@ -21,19 +21,6 @@ public protocol VAYogaLayout: AnyObject {
     func setNeedsLayout()
 }
 
-public extension VAYogaLayout {
-
-    @MainActor
-    func setNeedsRelayout() {
-        if layoutType == .root || layoutType == .container {
-            setNeedsLayout()
-        } else {
-            let parent: AnyObject? = node?.parent?.getContext()
-            (parent as? VAYogaLayout)?.setNeedsRelayout()
-        }
-    }
-}
-
 public enum VAYogaLayoutType {
     case layout
     case view
@@ -50,6 +37,16 @@ public enum VAYogaLayoutMode {
 
 public extension VAYogaLayout {
     @MainActor var isLeaf: Bool { sublayouts.isEmpty }
+
+    @MainActor
+    func setNeedsRelayout() {
+        if layoutType == .root || layoutType == .container {
+            setNeedsLayout()
+        } else {
+            let parent: AnyObject? = node?.parent?.getContext()
+            (parent as? VAYogaLayout)?.setNeedsRelayout()
+        }
+    }
 
     @MainActor
     func calculateLayout(for size: CGSize) {
