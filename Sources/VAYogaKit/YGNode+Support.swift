@@ -23,6 +23,10 @@ public extension YGNodeRef {
     var hasBaselineFunc: Bool { YGNodeHasBaselineFunc(self) }
     var hasMeasureFunc: Bool { YGNodeHasMeasureFunc(self) }
 
+    @inline(__always) func setMeasure(_ measureFunc: YGMeasureFunc) {
+        YGNodeSetMeasureFunc(self, measureFunc)
+    }
+
     @inline(__always) func removeFromParent() {
         parent?.remove(child: self)
     }
