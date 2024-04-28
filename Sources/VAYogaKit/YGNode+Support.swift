@@ -273,6 +273,10 @@ public extension YGNodeRef {
         get { YGNodeStyleGetFlexGrow(self) }
         set { YGNodeStyleSetFlexGrow(self, newValue) }
     }
+    var aspectRatio: Float {
+        get { YGNodeStyleGetAspectRatio(self) }
+        set { YGNodeStyleSetAspectRatio(self, newValue) }
+    }
     @MainActor
     func addMeasureBaselineFuncIfNeeded(object: AnyObject) {
         guard !hasBaselineFunc else { return }
