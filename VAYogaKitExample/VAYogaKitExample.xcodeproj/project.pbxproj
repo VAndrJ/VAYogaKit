@@ -18,6 +18,7 @@
 		A38DDC8A2BDE7D5000B34C34 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC892BDE7D5000B34C34 /* Functions.swift */; };
 		A38DDC8C2BDE7DBA00B34C34 /* Applyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC8B2BDE7DBA00B34C34 /* Applyable.swift */; };
 		A38DDC8E2BDE7DF000B34C34 /* CGSize+Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC8D2BDE7DF000B34C34 /* CGSize+Support.swift */; };
+		A38DDC902BDE7E2600B34C34 /* VAIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC8F2BDE7E2600B34C34 /* VAIdentifiable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		A38DDC892BDE7D5000B34C34 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		A38DDC8B2BDE7DBA00B34C34 /* Applyable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Applyable.swift; sourceTree = "<group>"; };
 		A38DDC8D2BDE7DF000B34C34 /* CGSize+Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Support.swift"; sourceTree = "<group>"; };
+		A38DDC8F2BDE7E2600B34C34 /* VAIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VAIdentifiable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				A38DDC892BDE7D5000B34C34 /* Functions.swift */,
 				A38DDC8B2BDE7DBA00B34C34 /* Applyable.swift */,
 				A38DDC8D2BDE7DF000B34C34 /* CGSize+Support.swift */,
+				A38DDC8F2BDE7E2600B34C34 /* VAIdentifiable.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			files = (
 				A38DDC3B2BDAC86B00B34C34 /* AppDelegate.swift in Sources */,
 				A38DDC8C2BDE7DBA00B34C34 /* Applyable.swift in Sources */,
+				A38DDC902BDE7E2600B34C34 /* VAIdentifiable.swift in Sources */,
 				A38DDC852BDD010C00B34C34 /* BaseControllerView.swift in Sources */,
 				A38DDC872BDD012200B34C34 /* BaseView.swift in Sources */,
 				A38DDC3D2BDAC86B00B34C34 /* SceneDelegate.swift in Sources */,
