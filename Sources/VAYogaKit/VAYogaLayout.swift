@@ -12,6 +12,9 @@ public protocol VAYogaLayout: AnyObject {
     @MainActor var layoutType: VAYogaLayoutType { get }
     @MainActor var node: YGNodeRef! { get set }
     @MainActor var sublayouts: [any VAYogaLayout] { get set }
+
+    @MainActor
+    func sizeThatFits(_ size: CGSize) -> CGSize
 }
 
 public enum VAYogaLayoutType {
