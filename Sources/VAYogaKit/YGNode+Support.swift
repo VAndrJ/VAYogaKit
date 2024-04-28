@@ -409,6 +409,11 @@ public extension YGNodeRef {
         }
     }
 
+    @MainActor
+    @inline(__always) func getContext<T: AnyObject>() -> T {
+        Unmanaged<T>.fromOpaque(YGNodeGetContext(self)).takeUnretainedValue()
+    }
+
     @inline(__always) func markDirty() {
         YGNodeMarkDirty(self)
     }
