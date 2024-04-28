@@ -42,4 +42,23 @@ public extension VAYogaLayout where Self: UIView {
         viewsToDelete.forEach { $0.removeFromSuperview() }
         viewToAppend.forEach { root.addSubview($0) }
     }
+
+    @MainActor
+    func SafeArea(edges: VASafeAreaEdge = .all, _ sublayout: () -> VAYogaLayout) -> Self {
+        if edges.contains(.top) {
+            node.paddingTop = .point(safeAreaInsets.top)
+        }
+        if edges.contains(.left) {
+            node.paddingLeft = .point(safeAreaInsets.left)
+        }
+        if edges.contains(.bottom) {
+            node.paddingBottom = .point(safeAreaInsets.bottom)
+        }
+        if edges.contains(.right) {
+            node.paddingRight = .point(safeAreaInsets.right)
+        }
+        sublayouts = [sublayout()]
+
+        return self
+    }
 }
