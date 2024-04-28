@@ -23,6 +23,7 @@
 		A38DDC962BDE7ED400B34C34 /* UITableView+Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC952BDE7ED400B34C34 /* UITableView+Support.swift */; };
 		A38DDC982BDE7F1600B34C34 /* UICollectionView+Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC972BDE7F1600B34C34 /* UICollectionView+Support.swift */; };
 		A38DDC9A2BDE7F3100B34C34 /* UICollectionViewCell+Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC992BDE7F3100B34C34 /* UICollectionViewCell+Support.swift */; };
+		A38DDC9D2BDE803000B34C34 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC9C2BDE803000B34C34 /* MainScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		A38DDC952BDE7ED400B34C34 /* UITableView+Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Support.swift"; sourceTree = "<group>"; };
 		A38DDC972BDE7F1600B34C34 /* UICollectionView+Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Support.swift"; sourceTree = "<group>"; };
 		A38DDC992BDE7F3100B34C34 /* UICollectionViewCell+Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Support.swift"; sourceTree = "<group>"; };
+		A38DDC9C2BDE803000B34C34 /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		A38DDC392BDAC86B00B34C34 /* VAYogaKitExample */ = {
 			isa = PBXGroup;
 			children = (
+				A38DDC9B2BDE801F00B34C34 /* Screens */,
 				A38DDC882BDE7D4300B34C34 /* Support */,
 				A38DDC7F2BDCFE9D00B34C34 /* App */,
 				A38DDC812BDCFF1E00B34C34 /* Base */,
@@ -148,12 +151,20 @@
 			isa = PBXGroup;
 			children = (
 				A38DDC8D2BDE7DF000B34C34 /* CGSize+Support.swift */,
-				A38DDC932BDE7EA600B34C34 /* UITableViewCell+Support.swift */,
-				A38DDC952BDE7ED400B34C34 /* UITableView+Support.swift */,
 				A38DDC972BDE7F1600B34C34 /* UICollectionView+Support.swift */,
 				A38DDC992BDE7F3100B34C34 /* UICollectionViewCell+Support.swift */,
+				A38DDC952BDE7ED400B34C34 /* UITableView+Support.swift */,
+				A38DDC932BDE7EA600B34C34 /* UITableViewCell+Support.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A38DDC9B2BDE801F00B34C34 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				A38DDC9C2BDE803000B34C34 /* MainScreenView.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +250,7 @@
 				A38DDC982BDE7F1600B34C34 /* UICollectionView+Support.swift in Sources */,
 				A38DDC3D2BDAC86B00B34C34 /* SceneDelegate.swift in Sources */,
 				A38DDC8E2BDE7DF000B34C34 /* CGSize+Support.swift in Sources */,
+				A38DDC9D2BDE803000B34C34 /* MainScreenView.swift in Sources */,
 				A38DDC942BDE7EA600B34C34 /* UITableViewCell+Support.swift in Sources */,
 				A38DDC9A2BDE7F3100B34C34 /* UICollectionViewCell+Support.swift in Sources */,
 				A38DDC832BDCFF3300B34C34 /* BaseViewController.swift in Sources */,
