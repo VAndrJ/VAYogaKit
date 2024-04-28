@@ -392,6 +392,10 @@ public extension YGNodeRef {
         YGNodeStyleSetGap(self, gutter, newValue)
     }
 
+    @inline(__always) func setBaselineFunc(_ baselineFunc: YGBaselineFunc) {
+        YGNodeSetBaselineFunc(self, baselineFunc)
+    }
+
     @MainActor
     func addMeasureBaselineFuncIfNeeded(object: AnyObject) {
         guard !hasBaselineFunc else { return }
