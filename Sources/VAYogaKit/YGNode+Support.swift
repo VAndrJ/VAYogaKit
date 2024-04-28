@@ -237,6 +237,10 @@ public extension YGNodeRef {
         get { YGNodeStyleGetFlexShrink(self) }
         set { YGNodeStyleSetFlexShrink(self, newValue) }
     }
+    var justifyContent: YGJustify {
+        get { YGNodeStyleGetJustifyContent(self) }
+        set { YGNodeStyleSetJustifyContent(self, newValue) }
+    }
     @MainActor
     func addMeasureBaselineFuncIfNeeded(object: AnyObject) {
         guard !hasBaselineFunc else { return }
