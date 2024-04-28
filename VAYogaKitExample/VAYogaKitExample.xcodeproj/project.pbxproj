@@ -31,6 +31,7 @@
 		A38DDCAE2BDE97CB00B34C34 /* Swiftional in Frameworks */ = {isa = PBXBuildFile; productRef = A38DDCAD2BDE97CB00B34C34 /* Swiftional */; };
 		A38DDCB02BDE97ED00B34C34 /* NSObject+Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCAF2BDE97ED00B34C34 /* NSObject+Support.swift */; };
 		A38DDCB22BDE9AE000B34C34 /* BaseScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCB12BDE9AE000B34C34 /* BaseScreenView.swift */; };
+		A38DDCB52BDEB57F00B34C34 /* Differ in Frameworks */ = {isa = PBXBuildFile; productRef = A38DDCB42BDEB57F00B34C34 /* Differ */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 			files = (
 				A38DDC512BDAD70000B34C34 /* VAYogaKit in Frameworks */,
 				A38DDCA62BDE916A00B34C34 /* VANavigator in Frameworks */,
+				A38DDCB52BDEB57F00B34C34 /* Differ in Frameworks */,
 				A38DDCAE2BDE97CB00B34C34 /* Swiftional in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,6 +232,7 @@
 				A38DDC502BDAD70000B34C34 /* VAYogaKit */,
 				A38DDCA52BDE916A00B34C34 /* VANavigator */,
 				A38DDCAD2BDE97CB00B34C34 /* Swiftional */,
+				A38DDCB42BDEB57F00B34C34 /* Differ */,
 			);
 			productName = VAYogaKitExample;
 			productReference = A38DDC372BDAC86B00B34C34 /* VAYogaKitExample.app */;
@@ -263,6 +266,7 @@
 			packageReferences = (
 				A38DDCA42BDE916A00B34C34 /* XCRemoteSwiftPackageReference "VANavigator" */,
 				A38DDCAC2BDE97CB00B34C34 /* XCRemoteSwiftPackageReference "Swiftional" */,
+				A38DDCB32BDEB57F00B34C34 /* XCRemoteSwiftPackageReference "Differ" */,
 			);
 			productRefGroup = A38DDC382BDAC86B00B34C34 /* Products */;
 			projectDirPath = "";
@@ -541,6 +545,14 @@
 				minimumVersion = 2.0.1;
 			};
 		};
+		A38DDCB32BDEB57F00B34C34 /* XCRemoteSwiftPackageReference "Differ" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tonyarnold/Differ";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.6;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -557,6 +569,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A38DDCAC2BDE97CB00B34C34 /* XCRemoteSwiftPackageReference "Swiftional" */;
 			productName = Swiftional;
+		};
+		A38DDCB42BDEB57F00B34C34 /* Differ */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A38DDCB32BDEB57F00B34C34 /* XCRemoteSwiftPackageReference "Differ" */;
+			productName = Differ;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
