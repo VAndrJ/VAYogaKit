@@ -12,6 +12,18 @@ import yoga
 final class YGNodeTests: XCTestCase {
 
     @MainActor
+    func test_node_flexDirection() {
+        var node = createNode()
+        let expected: YGFlexDirection = .columnReverse
+
+        XCTAssertNotEqual(expected, node.flexDirection)
+
+        node.flexDirection = expected
+
+        XCTAssertEqual(expected, node.flexDirection)
+    }
+
+    @MainActor
     func test_node_minHeight() {
         var node = createNode()
         let expectedPointValue: YGValue = .point(value: 10)
