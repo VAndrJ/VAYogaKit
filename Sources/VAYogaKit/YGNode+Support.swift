@@ -34,11 +34,11 @@ public extension YGNodeRef {
         YGNodeRemoveAllChildren(self)
     }
 
-    func getGhild(at index: Int) -> YGNodeRef? {
+    @inline(__always) func getGhild(at index: Int) -> YGNodeRef? {
         YGNodeGetChild(self, index)
     }
 
-    func insert(child: YGNodeRef, at index: Int) {
+    @inline(__always) func insert(child: YGNodeRef, at index: Int) {
         YGNodeInsertChild(self, child, index)
     }
 }
