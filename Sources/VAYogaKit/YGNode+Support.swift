@@ -47,3 +47,14 @@ public extension YGNodeRef {
         YGNodeInsertChild(self, child, index)
     }
 }
+@MainActor public var measureBaselineLabelFunc: @convention(c) (
+    _ node: YGNodeRef?,
+    _ width: Float,
+    _ height: Float
+) -> Float = { node, _, _ in
+    guard let view: UILabel = node?.getContext() else {
+        return 0
+    }
+
+    return Float(view.font.ascender)
+}
