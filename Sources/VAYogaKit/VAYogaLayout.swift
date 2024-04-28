@@ -44,6 +44,18 @@ extension VAYogaLayout {
     @MainActor public var isLeaf: Bool { sublayouts.isEmpty }
 
     @MainActor
+    func layout(mode: VAYogaLayoutMode = .fitContainer) {
+        switch mode {
+        case .fitContainer:
+            applyLayout(keepingOrigin: true)
+        case .adjustHeight:
+            applyLayout(keepingOrigin: true, flexibility: .flexibleHeight)
+        case .adjustWidth:
+            applyLayout(keepingOrigin: true, flexibility: .flexibleWidth)
+        }
+    }
+
+    @MainActor
     func applyLayout(keepingOrigin: Bool) {
         calculateLayout(for: frame.size)
         applyLayoutToHierarchy(keepingOrigin: keepingOrigin)
