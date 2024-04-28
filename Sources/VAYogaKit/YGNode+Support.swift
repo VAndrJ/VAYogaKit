@@ -173,6 +173,30 @@ public extension YGNodeRef {
         }
     }
 
+    var margin: YGValue {
+        get { getMargin(edge: .all) }
+        set { setMargin(newValue: newValue, edge: .all) }
+    }
+
+    @inline(__always) private func getMargin(edge: YGEdge) -> YGValue {
+        YGNodeStyleGetMargin(self, edge)
+    }
+
+    @inline(__always) private func setMargin(newValue: YGValue, edge: YGEdge) {
+        switch newValue.unit {
+        case .undefined:
+            YGNodeStyleSetMargin(self, edge, .nan)
+        case .point:
+            YGNodeStyleSetMargin(self, edge, newValue.value)
+        case .percent:
+            YGNodeStyleSetMarginPercent(self, edge, newValue.value)
+        case .auto:
+            YGNodeStyleSetMarginAuto(self, edge)
+        default:
+            assertionFailure("Not implemented")
+        }
+    }
+
     @MainActor
     func addMeasureBaselineFuncIfNeeded(object: AnyObject) {
         guard !hasBaselineFunc else { return }
