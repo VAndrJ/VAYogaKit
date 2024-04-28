@@ -15,6 +15,21 @@ public protocol VAYogaLayout: AnyObject {
 
     @MainActor
     func sizeThatFits(_ size: CGSize) -> CGSize
+    @MainActor
+    func setNeedsLayout()
+}
+
+public extension VAYogaLayout {
+
+    @MainActor
+    func setNeedsRelayout() {
+        if layoutType == .root || layoutType == .container {
+            setNeedsLayout()
+        } else {
+            let parent: AnyObject? = node?.parent?.getContext()
+            (parent as? VAYogaLayout)?.setNeedsRelayout()
+        }
+    }
 }
 
 public enum VAYogaLayoutType {
