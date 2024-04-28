@@ -21,6 +21,8 @@
 		A38DDC902BDE7E2600B34C34 /* VAIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC8F2BDE7E2600B34C34 /* VAIdentifiable.swift */; };
 		A38DDC942BDE7EA600B34C34 /* UITableViewCell+Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC932BDE7EA600B34C34 /* UITableViewCell+Support.swift */; };
 		A38DDC962BDE7ED400B34C34 /* UITableView+Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC952BDE7ED400B34C34 /* UITableView+Support.swift */; };
+		A38DDC982BDE7F1600B34C34 /* UICollectionView+Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC972BDE7F1600B34C34 /* UICollectionView+Support.swift */; };
+		A38DDC9A2BDE7F3100B34C34 /* UICollectionViewCell+Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC992BDE7F3100B34C34 /* UICollectionViewCell+Support.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		A38DDC8F2BDE7E2600B34C34 /* VAIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VAIdentifiable.swift; sourceTree = "<group>"; };
 		A38DDC932BDE7EA600B34C34 /* UITableViewCell+Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Support.swift"; sourceTree = "<group>"; };
 		A38DDC952BDE7ED400B34C34 /* UITableView+Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Support.swift"; sourceTree = "<group>"; };
+		A38DDC972BDE7F1600B34C34 /* UICollectionView+Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Support.swift"; sourceTree = "<group>"; };
+		A38DDC992BDE7F3100B34C34 /* UICollectionViewCell+Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Support.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,8 @@
 				A38DDC8D2BDE7DF000B34C34 /* CGSize+Support.swift */,
 				A38DDC932BDE7EA600B34C34 /* UITableViewCell+Support.swift */,
 				A38DDC952BDE7ED400B34C34 /* UITableView+Support.swift */,
+				A38DDC972BDE7F1600B34C34 /* UICollectionView+Support.swift */,
+				A38DDC992BDE7F3100B34C34 /* UICollectionViewCell+Support.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -230,9 +236,11 @@
 				A38DDC962BDE7ED400B34C34 /* UITableView+Support.swift in Sources */,
 				A38DDC852BDD010C00B34C34 /* BaseControllerView.swift in Sources */,
 				A38DDC872BDD012200B34C34 /* BaseView.swift in Sources */,
+				A38DDC982BDE7F1600B34C34 /* UICollectionView+Support.swift in Sources */,
 				A38DDC3D2BDAC86B00B34C34 /* SceneDelegate.swift in Sources */,
 				A38DDC8E2BDE7DF000B34C34 /* CGSize+Support.swift in Sources */,
 				A38DDC942BDE7EA600B34C34 /* UITableViewCell+Support.swift in Sources */,
+				A38DDC9A2BDE7F3100B34C34 /* UICollectionViewCell+Support.swift in Sources */,
 				A38DDC832BDCFF3300B34C34 /* BaseViewController.swift in Sources */,
 				A38DDC8A2BDE7D5000B34C34 /* Functions.swift in Sources */,
 			);
