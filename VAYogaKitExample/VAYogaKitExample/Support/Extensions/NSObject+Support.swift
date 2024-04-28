@@ -1,5 +1,5 @@
 //
-//  Applyable.swift
+//  NSObject+Support.swift
 //  VAYogaKitExample
 //
 //  Created by VAndrJ on 28.04.2024.
@@ -7,15 +7,6 @@
 //
 
 import Foundation
-
-protocol Applyable {}
-
-extension Applyable {
-
-    func apply(_ block: (Self) -> Void) -> Self {
-        block(self)
-        return self
-    }
-}
+@_exported import Swiftional
 
 extension NSObject: Applyable {}

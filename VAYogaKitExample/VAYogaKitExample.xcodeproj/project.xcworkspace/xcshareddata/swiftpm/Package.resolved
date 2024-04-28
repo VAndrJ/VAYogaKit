@@ -1,6 +1,15 @@
 {
-  "originHash" : "b5ecbef2cbe6a1e00c98408d740d6bd15c8165b7c9f1827783f8d679dd32e930",
+  "originHash" : "8b031222ffeee1aa9a9250051ea9fad81b22fd2a7885d2ea104f8f577ce740e9",
   "pins" : [
+    {
+      "identity" : "swiftional",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/VAndrJ/Swiftional",
+      "state" : {
+        "revision" : "616227ce6fbc30939fcf1af956928effaf4db84e",
+        "version" : "2.0.1"
+      }
+    },
     {
       "identity" : "vanavigator",
       "kind" : "remoteSourceControl",
