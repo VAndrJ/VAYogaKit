@@ -101,6 +101,12 @@ public extension YGEdge {
     static let vertical: YGEdge = YGEdgeVertical
 }
 
+public extension YGOverflow {
+    static let visible: YGOverflow = YGOverflowVisible
+    static let hidden: YGOverflow = YGOverflowHidden
+    static let scroll: YGOverflow = YGOverflowScroll
+}
+
 public extension YGDirection {
     static let ltr: YGDirection = YGDirectionLTR
     static let rtl: YGDirection = YGDirectionRTL
