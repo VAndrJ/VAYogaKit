@@ -55,6 +55,10 @@ public extension YGNodeRef {
             return value.cg
         }
     }
+    var flexDirection: YGFlexDirection {
+        get { YGNodeStyleGetFlexDirection(self) }
+        set { YGNodeStyleSetFlexDirection(self, newValue) }
+    }
 
     @MainActor
     func addMeasureBaselineFuncIfNeeded(object: AnyObject) {
