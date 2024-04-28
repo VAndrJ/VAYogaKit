@@ -84,6 +84,18 @@ final class YGNodeTests: XCTestCase {
     }
 
     @MainActor
+    func test_node_overflow() {
+        var node = createNode()
+        let expected: YGOverflow = .scroll
+
+        XCTAssertNotEqual(expected, node.overflow)
+
+        node.overflow = expected
+
+        XCTAssertEqual(expected, node.overflow)
+    }
+
+    @MainActor
     func test_node_direction() {
         var node = createNode()
         let expected: YGDirection = .rtl
