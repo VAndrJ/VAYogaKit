@@ -44,6 +44,28 @@ extension VAYogaLayout {
     @MainActor public var isLeaf: Bool { sublayouts.isEmpty }
 
     @MainActor
+    func buildNodesHierarchy() {
+        if isLeaf {
+            node.removeAllChildren()
+            node.setMeasureFunc(measureViewFunc)
+        } else {
+            node.removeMeasureFunc()
+            let subviewsToInclude = sublayouts
+            if !node.hasSameChildren(sublayouts: subviewsToInclude) {
+                node.removeAllChildren()
+                for i in subviewsToInclude.indices {
+                    let child: YGNodeRef! = subviewsToInclude[i].node
+                    child.removeFromParent()
+                    node.insert(child: child, at: i)
+                }
+            }
+            subviewsToInclude.forEach {
+                $0.buildNodesHierarchy()
+            }
+        }
+    }
+
+    @MainActor
     func layout(mode: VAYogaLayoutMode = .fitContainer) {
         switch mode {
         case .fitContainer:
