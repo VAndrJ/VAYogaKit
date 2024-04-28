@@ -394,6 +394,22 @@ public extension YGNodeRef {
         YGNodeStyleSetGap(self, gutter, newValue)
     }
 
+    @MainActor
+    var absolutePosition: CGPoint {
+        var absolutePosition = CGPoint(x: leftValue, y: topValue)
+        var currentNode: YGNodeRef? = parent
+        while let node = currentNode {
+            if (Unmanaged<AnyObject>.fromOpaque(YGNodeGetContext(node)).takeUnretainedValue() as? VAYogaLayout)?.layoutType == .layout {
+                absolutePosition.x += node.leftValue
+                absolutePosition.y += node.topValue
+            }
+
+            currentNode = YGNodeGetParent(node)
+        }
+
+        return absolutePosition
+    }
+
     @inline(__always) func setBaselineFunc(_ baselineFunc: YGBaselineFunc) {
         YGNodeSetBaselineFunc(self, baselineFunc)
     }
