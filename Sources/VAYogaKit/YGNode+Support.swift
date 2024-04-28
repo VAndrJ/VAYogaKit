@@ -201,6 +201,10 @@ public extension YGNodeRef {
         get { getMargin(edge: .horizontal) }
         set { setMargin(newValue: newValue, edge: .horizontal) }
     }
+    var marginVertical: YGValue {
+        get { getMargin(edge: .vertical) }
+        set { setMargin(newValue: newValue, edge: .vertical) }
+    }
     var margin: YGValue {
         get { getMargin(edge: .all) }
         set { setMargin(newValue: newValue, edge: .all) }

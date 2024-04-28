@@ -96,6 +96,18 @@ final class YGNodeTests: XCTestCase {
     }
 
     @MainActor
+    func test_node_marginVertical() {
+        var node = createNode()
+        let expected: YGValue = .point(value: 10)
+
+        XCTAssertNotEqual(expected, node.marginVertical)
+
+        node.marginVertical = expected
+
+        XCTAssertEqual(expected, node.marginVertical)
+    }
+
+    @MainActor
     func test_node_margin() {
         var node = createNode()
         let expectedPointValue: YGValue = .point(value: 10)
