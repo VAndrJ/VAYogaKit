@@ -247,6 +247,18 @@ final class YGNodeTests: XCTestCase {
     }
 
     @MainActor
+    func test_node_borderLeftWidth() {
+        var node = createNode()
+        let expected: Float = 0.5
+
+        XCTAssertNotEqual(expected, node.borderLeftWidth)
+
+        node.borderLeftWidth = expected
+
+        XCTAssertEqual(expected, node.borderLeftWidth)
+    }
+
+    @MainActor
     func test_node_direction() {
         var node = createNode()
         let expected: YGDirection = .rtl
