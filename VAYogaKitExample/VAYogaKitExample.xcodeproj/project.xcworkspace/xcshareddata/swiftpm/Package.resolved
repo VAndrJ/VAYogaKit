@@ -1,6 +1,15 @@
 {
-  "originHash" : "fda6508cd9adde80de35544c91eaf55b7ea340a51dd223ec6d84f4e9c77da168",
+  "originHash" : "b5ecbef2cbe6a1e00c98408d740d6bd15c8165b7c9f1827783f8d679dd32e930",
   "pins" : [
+    {
+      "identity" : "vanavigator",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/VAndrJ/VANavigator.git",
+      "state" : {
+        "revision" : "36dcefcb8f8440b1b6e2c6a2cd3d2458703f5bc1",
+        "version" : "1.3.8"
+      }
+    },
     {
       "identity" : "yoga",
       "kind" : "remoteSourceControl",

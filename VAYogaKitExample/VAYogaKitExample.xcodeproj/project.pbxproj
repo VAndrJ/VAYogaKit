@@ -26,6 +26,8 @@
 		A38DDC9D2BDE803000B34C34 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC9C2BDE803000B34C34 /* MainScreenView.swift */; };
 		A38DDC9F2BDE806B00B34C34 /* BaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC9E2BDE806B00B34C34 /* BaseTableView.swift */; };
 		A38DDCA32BDE819100B34C34 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCA22BDE819100B34C34 /* MainTableViewCell.swift */; };
+		A38DDCA62BDE916A00B34C34 /* VANavigator in Frameworks */ = {isa = PBXBuildFile; productRef = A38DDCA52BDE916A00B34C34 /* VANavigator */; };
+		A38DDCA92BDE920400B34C34 /* DefaultNavigationIdentity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCA82BDE920400B34C34 /* DefaultNavigationIdentity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,7 @@
 		A38DDC9C2BDE803000B34C34 /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 		A38DDC9E2BDE806B00B34C34 /* BaseTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableView.swift; sourceTree = "<group>"; };
 		A38DDCA22BDE819100B34C34 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		A38DDCA82BDE920400B34C34 /* DefaultNavigationIdentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNavigationIdentity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +62,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A38DDC512BDAD70000B34C34 /* VAYogaKit in Frameworks */,
+				A38DDCA62BDE916A00B34C34 /* VANavigator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +91,7 @@
 		A38DDC392BDAC86B00B34C34 /* VAYogaKitExample */ = {
 			isa = PBXGroup;
 			children = (
+				A38DDCA72BDE91EC00B34C34 /* Navigation */,
 				A38DDC7F2BDCFE9D00B34C34 /* App */,
 				A38DDC812BDCFF1E00B34C34 /* Base */,
 				A38DDCA02BDE816500B34C34 /* DesignComponents */,
@@ -189,6 +194,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		A38DDCA72BDE91EC00B34C34 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				A38DDCA82BDE920400B34C34 /* DefaultNavigationIdentity.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -207,6 +220,7 @@
 			name = VAYogaKitExample;
 			packageProductDependencies = (
 				A38DDC502BDAD70000B34C34 /* VAYogaKit */,
+				A38DDCA52BDE916A00B34C34 /* VANavigator */,
 			);
 			productName = VAYogaKitExample;
 			productReference = A38DDC372BDAC86B00B34C34 /* VAYogaKitExample.app */;
@@ -237,6 +251,9 @@
 				Base,
 			);
 			mainGroup = A38DDC2E2BDAC86B00B34C34;
+			packageReferences = (
+				A38DDCA42BDE916A00B34C34 /* XCRemoteSwiftPackageReference "VANavigator" */,
+			);
 			productRefGroup = A38DDC382BDAC86B00B34C34 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -273,6 +290,7 @@
 				A38DDC982BDE7F1600B34C34 /* UICollectionView+Support.swift in Sources */,
 				A38DDC3D2BDAC86B00B34C34 /* SceneDelegate.swift in Sources */,
 				A38DDC8E2BDE7DF000B34C34 /* CGSize+Support.swift in Sources */,
+				A38DDCA92BDE920400B34C34 /* DefaultNavigationIdentity.swift in Sources */,
 				A38DDCA32BDE819100B34C34 /* MainTableViewCell.swift in Sources */,
 				A38DDC9D2BDE803000B34C34 /* MainScreenView.swift in Sources */,
 				A38DDC942BDE7EA600B34C34 /* UITableViewCell+Support.swift in Sources */,
@@ -494,10 +512,26 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		A38DDCA42BDE916A00B34C34 /* XCRemoteSwiftPackageReference "VANavigator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/VAndrJ/VANavigator.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		A38DDC502BDAD70000B34C34 /* VAYogaKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = VAYogaKit;
+		};
+		A38DDCA52BDE916A00B34C34 /* VANavigator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A38DDCA42BDE916A00B34C34 /* XCRemoteSwiftPackageReference "VANavigator" */;
+			productName = VANavigator;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
