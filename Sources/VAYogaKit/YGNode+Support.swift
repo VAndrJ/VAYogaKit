@@ -69,6 +69,10 @@ public extension YGNodeRef {
         }
     }
 
+    @inline(__always) func markDirty() {
+        YGNodeMarkDirty(self)
+    }
+
     @inline(__always) func setMeasureFunc(_ measureFunc: YGMeasureFunc) {
         YGNodeSetMeasureFunc(self, measureFunc)
     }
