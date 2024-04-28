@@ -47,7 +47,7 @@ public extension YGNodeRef {
         YGNodeInsertChild(self, child, index)
     }
 }
-@MainActor public var measureBaselineLabelFunc: @convention(c) (
+@MainActor public var baselineLabelFunc: @convention(c) (
     _ node: YGNodeRef?,
     _ width: Float,
     _ height: Float
@@ -57,4 +57,15 @@ public extension YGNodeRef {
     }
 
     return Float(view.font.ascender)
+}
+@MainActor public var baselineTextViewFunc: @convention(c) (
+    _ node: YGNodeRef?,
+    _ width: Float,
+    _ height: Float
+) -> Float = { node, _, _ in
+    guard let view: UITextView = node?.getContext() else {
+        return 0
+    }
+
+    return Float((view.font?.ascender ?? 0) + view.contentInset.top + view.textContainerInset.top)
 }
