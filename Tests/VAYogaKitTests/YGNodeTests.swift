@@ -132,6 +132,18 @@ final class YGNodeTests: XCTestCase {
     }
 
     @MainActor
+    func test_node_aspectRatio() {
+        var node = createNode()
+        let expected: Float = 0.5
+
+        XCTAssertNotEqual(expected, node.aspectRatio)
+
+        node.aspectRatio = expected
+
+        XCTAssertEqual(expected, node.aspectRatio)
+    }
+
+    @MainActor
     func test_node_direction() {
         var node = createNode()
         let expected: YGDirection = .rtl
