@@ -12,6 +12,18 @@ import yoga
 final class YGNodeTests: XCTestCase {
 
     @MainActor
+    func test_node_flexShrink() {
+        var node = createNode()
+        let expected: Float = 0.5
+
+        XCTAssertNotEqual(expected, node.flexShrink)
+
+        node.flexShrink = expected
+
+        XCTAssertEqual(expected, node.flexShrink)
+    }
+
+    @MainActor
     func test_node_direction() {
         var node = createNode()
         let expected: YGDirection = .rtl
@@ -283,8 +295,7 @@ final class YGNodeTests: XCTestCase {
 
         XCTAssertEqual(expectedPercentValue, node.maxHeight)
 
-        let expectedValue: YGValue = .undefined
-        node.maxHeight = expectedValue
+        node.maxHeight = .undefined
 
         XCTAssertTrue(node.maxHeight.value.isNaN)
         XCTAssertTrue(node.maxHeight.unit == .undefined)
@@ -303,8 +314,7 @@ final class YGNodeTests: XCTestCase {
 
         XCTAssertEqual(expectedPercentValue, node.maxWidth)
 
-        let expectedValue: YGValue = .undefined
-        node.maxWidth = expectedValue
+        node.maxWidth = .undefined
 
         XCTAssertTrue(node.maxWidth.value.isNaN)
         XCTAssertTrue(node.maxWidth.unit == .undefined)
@@ -323,8 +333,7 @@ final class YGNodeTests: XCTestCase {
 
         XCTAssertEqual(expectedPercentValue, node.minHeight)
 
-        let expectedValue: YGValue = .undefined
-        node.minHeight = expectedValue
+        node.minHeight = .undefined
 
         XCTAssertTrue(node.minHeight.value.isNaN)
         XCTAssertTrue(node.minHeight.unit == .undefined)
@@ -343,8 +352,7 @@ final class YGNodeTests: XCTestCase {
 
         XCTAssertEqual(expectedPercentValue, node.minWidth)
 
-        let expectedValue: YGValue = .undefined
-        node.minWidth = expectedValue
+        node.minWidth = .undefined
 
         XCTAssertTrue(node.minWidth.value.isNaN)
         XCTAssertTrue(node.minWidth.unit == .undefined)

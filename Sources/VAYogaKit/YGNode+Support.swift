@@ -281,6 +281,8 @@ public extension YGNodeRef {
         get { YGNodeStyleGetFlexBasis(self) }
         set {
             switch newValue.unit {
+            case .undefined:
+                YGNodeStyleSetFlexBasis(self, .nan)
             case .point:
                 YGNodeStyleSetFlexBasis(self, newValue.value)
             case .percent:
