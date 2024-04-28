@@ -12,6 +12,18 @@ import yoga
 final class YGNodeTests: XCTestCase {
 
     @MainActor
+    func test_node_paddingHorizontal() {
+        var node = createNode()
+        let expected: YGValue = .point(value: 10)
+
+        XCTAssertNotEqual(expected, node.paddingHorizontal)
+
+        node.paddingHorizontal = expected
+
+        XCTAssertEqual(expected, node.paddingHorizontal)
+    }
+
+    @MainActor
     func test_node_paddingVertical() {
         var node = createNode()
         let expected: YGValue = .point(value: 10)
