@@ -253,6 +253,10 @@ public extension YGNodeRef {
         get { YGNodeStyleGetAlignSelf(self) }
         set { YGNodeStyleSetAlignSelf(self, newValue) }
     }
+    var flexWrap: YGWrap {
+        get { YGNodeStyleGetFlexWrap(self) }
+        set { YGNodeStyleSetFlexWrap(self, newValue) }
+    }
     @MainActor
     func addMeasureBaselineFuncIfNeeded(object: AnyObject) {
         guard !hasBaselineFunc else { return }
