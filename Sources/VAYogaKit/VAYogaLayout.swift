@@ -42,4 +42,25 @@ public enum VAYogaLayoutType {
 
 extension VAYogaLayout {
     @MainActor public var isLeaf: Bool { sublayouts.isEmpty }
+
+    @MainActor
+    func applyLayoutToHierarchy(keepingOrigin: Bool) {
+        assertMain()
+        switch layoutType {
+        case .view, .selfSizedView, .container:
+            let topLeft = node.absolutePosition
+            let width = node.widthValue
+            let height = node.heightValue
+            let origin: CGPoint = keepingOrigin ? frame.origin : .zero
+            frame = .init(
+                origin: .init(x: topLeft.x + origin.x, y: topLeft.y + origin.y),
+                size: .init(width: width, height: height)
+            )
+        case .root, .layout:
+            break
+        }
+        if !isLeaf {
+            sublayouts.forEach { $0.applyLayoutToHierarchy(keepingOrigin: false) }
+        }
+    }
 }
