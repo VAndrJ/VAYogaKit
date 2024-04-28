@@ -6,4 +6,22 @@
 //  Copyright © 2024 Volodymyr Andriienko. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import VAYogaKit
+
+class BaseView: VAYogaView {
+
+    override init(layoutType: VAYogaLayoutType = .view) {
+        super.init(layoutType: layoutType)
+
+        addElements()
+        configure()
+        bind()
+    }
+
+    func addElements() {}
+
+    func configure() {}
+
+    func bind() {}
+}
