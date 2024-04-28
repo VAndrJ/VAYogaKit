@@ -118,6 +118,17 @@ public extension YGDirection {
     static let inherit: YGDirection = YGDirectionInherit
 }
 
+public struct VAYogaFlexibility: RawRepresentable, OptionSet {
+    public static let flexibleWidth = VAYogaFlexibility(rawValue: 1 << 0)
+    public static let flexibleHeight = VAYogaFlexibility(rawValue: 1 << 1)
+
+    public let rawValue: UInt8
+
+    public init(rawValue: UInt8) {
+        self.rawValue = rawValue
+    }
+}
+
 public extension Float {
     @inline(__always) var cg: CGFloat { CGFloat(self) }
 
