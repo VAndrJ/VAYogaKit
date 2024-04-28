@@ -22,6 +22,14 @@ public extension YGNodeRef {
     var parent: YGNodeRef? { YGNodeGetParent(self) }
     var hasBaselineFunc: Bool { YGNodeHasBaselineFunc(self) }
     var hasMeasureFunc: Bool { YGNodeHasMeasureFunc(self) }
+    var leftValue: CGFloat {
+        let value = YGNodeLayoutGetLeft(self)
+        if value.isNaN {
+            return .zero
+        } else {
+            return value.cg
+        }
+    }
 
     @inline(__always) func setMeasure(_ measureFunc: YGMeasureFunc) {
         YGNodeSetMeasureFunc(self, measureFunc)
