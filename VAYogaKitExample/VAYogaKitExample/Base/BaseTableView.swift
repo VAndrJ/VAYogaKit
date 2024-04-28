@@ -6,4 +6,12 @@
 //  Copyright © 2024 Volodymyr Andriienko. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import VAYogaKit
+
+class BaseTableView: VAYogaTableView {
+    
+    init(style: UITableView.Style = .plain) {
+        super.init(style: style)
+    }
+}
