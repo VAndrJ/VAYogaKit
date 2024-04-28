@@ -448,6 +448,10 @@ public extension YGNodeRef {
         YGNodeSetMeasureFunc(self, measureFunc)
     }
 
+    @inline(__always) func removeMeasureFunc() {
+        YGNodeSetMeasureFunc(self, nil)
+    }
+
     @inline(__always) func removeFromParent() {
         parent?.remove(child: self)
     }
