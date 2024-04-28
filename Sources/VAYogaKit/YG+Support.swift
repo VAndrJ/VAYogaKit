@@ -108,8 +108,9 @@ public extension YGDirection {
 }
 
 public extension Float {
+    @inline(__always) var cg: CGFloat { CGFloat(self) }
 
-    func sanitize(measured: CGFloat, mode: YGMeasureMode) -> Float {
+    @inline(__always) func sanitize(measured: CGFloat, mode: YGMeasureMode) -> Float {
         switch mode {
         case .exactly: self
         case .atMost: min(self, Float(measured))
