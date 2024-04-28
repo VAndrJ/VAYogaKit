@@ -42,8 +42,26 @@ public enum VAYogaLayoutType {
     case selfSizedView
 }
 
-extension VAYogaLayout {
-    @MainActor public var isLeaf: Bool { sublayouts.isEmpty }
+public enum VAYogaLayoutMode {
+    case fitContainer
+    case adjustHeight
+    case adjustWidth
+}
+
+public extension VAYogaLayout {
+    @MainActor var isLeaf: Bool { sublayouts.isEmpty }
+
+    @MainActor
+    func calculateLayout(for size: CGSize) {
+        assertMain()
+        buildNodesHierarchy()
+        YGNodeCalculateLayout(
+            node,
+            Float(size.width),
+            Float(size.height),
+            YGNodeStyleGetDirection(node)
+        )
+    }
 
     @MainActor
     func buildNodesHierarchy() {
