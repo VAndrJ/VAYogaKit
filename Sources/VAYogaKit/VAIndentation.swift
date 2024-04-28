@@ -37,6 +37,34 @@ public enum VAIndentation {
     case insets(UIEdgeInsets)
 }
 
+public extension VAIndentation {
+    
+    /// Maps the specified safe area edges to an array of `VAIndentation` representing the insets.
+    ///
+    /// - Parameters:
+    ///   - edges: The safe area edges to be mapped to `VAIndentation`.
+    ///   - view: The `UIView` representing the container node that provides safe area insets.
+    /// - Returns: An array of `VAIndentation` representing the insets for each edge based on the specified safe area edges.
+    @MainActor
+    static func map(edges: VASafeAreaEdge, in view: UIView) -> [VAIndentation] {
+        var paddings: [VAIndentation] = []
+        if edges.contains(.top) {
+            paddings.append(.top(view.safeAreaInsets.top))
+        }
+        if edges.contains(.left) {
+            paddings.append(.left(view.safeAreaInsets.left))
+        }
+        if edges.contains(.bottom) {
+            paddings.append(.bottom(view.safeAreaInsets.bottom))
+        }
+        if edges.contains(.right) {
+            paddings.append(.right(view.safeAreaInsets.right))
+        }
+
+        return paddings
+    }
+}
+
 public extension UIEdgeInsets {
 
     /// Creates a `UIEdgeInsets` instance based on an array of indentation configurations.
