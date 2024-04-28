@@ -97,3 +97,17 @@ open class Row: VAYogaLayout {
         YGNodeFree(node)
     }
 }
+
+public extension VAYogaLayout {
+
+    @MainActor
+    func padding(_ paddings: VAIndentation...) -> Self {
+        let insets = UIEdgeInsets(indentation: paddings)
+        node.paddingTop = .point(insets.top)
+        node.paddingLeft = .point(insets.left)
+        node.paddingBottom = .point(insets.bottom)
+        node.paddingRight = .point(insets.right)
+
+        return self
+    }
+}
