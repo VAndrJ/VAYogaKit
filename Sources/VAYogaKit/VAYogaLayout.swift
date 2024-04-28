@@ -11,7 +11,9 @@ import yoga
 public protocol VAYogaLayout: AnyObject {
     @MainActor var layoutType: VAYogaLayoutType { get }
     @MainActor var node: YGNodeRef! { get set }
+    @MainActor var frame: CGRect { get set }
     @MainActor var sublayouts: [any VAYogaLayout] { get set }
+    @MainActor var layout: any VAYogaLayout { get }
 
     @MainActor
     func sizeThatFits(_ size: CGSize) -> CGSize
