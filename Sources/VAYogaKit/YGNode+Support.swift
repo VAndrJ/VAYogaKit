@@ -46,6 +46,14 @@ public extension YGNodeRef {
             return value.cg
         }
     }
+    var heightValue: CGFloat {
+        let value = YGNodeLayoutGetHeight(self)
+        if value.isNaN || value.isLess(than: .zero) {
+            return .zero
+        } else {
+            return value.cg
+        }
+    }
 
     @inline(__always) func setMeasure(_ measureFunc: YGMeasureFunc) {
         YGNodeSetMeasureFunc(self, measureFunc)
