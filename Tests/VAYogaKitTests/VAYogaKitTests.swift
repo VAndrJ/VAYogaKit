@@ -80,6 +80,12 @@ final class VAYogaKitTests: XCTestCase {
         XCTAssertEqual(YGDirectionInherit, .inherit)
     }
 
+    func test_constants_wrap() {
+        XCTAssertEqual(YGWrapWrap, .wrap)
+        XCTAssertEqual(YGWrapNoWrap, .noWrap)
+        XCTAssertEqual(YGWrapWrapReverse, .wrapReverse)
+    }
+
     func test_constants_edge() {
         XCTAssertEqual(YGEdgeAll, .all)
         XCTAssertEqual(YGEdgeLeft, .left)
