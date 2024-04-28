@@ -24,6 +24,7 @@
 		A38DDC982BDE7F1600B34C34 /* UICollectionView+Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC972BDE7F1600B34C34 /* UICollectionView+Support.swift */; };
 		A38DDC9A2BDE7F3100B34C34 /* UICollectionViewCell+Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC992BDE7F3100B34C34 /* UICollectionViewCell+Support.swift */; };
 		A38DDC9D2BDE803000B34C34 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC9C2BDE803000B34C34 /* MainScreenView.swift */; };
+		A38DDC9F2BDE806B00B34C34 /* BaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC9E2BDE806B00B34C34 /* BaseTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		A38DDC972BDE7F1600B34C34 /* UICollectionView+Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Support.swift"; sourceTree = "<group>"; };
 		A38DDC992BDE7F3100B34C34 /* UICollectionViewCell+Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Support.swift"; sourceTree = "<group>"; };
 		A38DDC9C2BDE803000B34C34 /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
+		A38DDC9E2BDE806B00B34C34 /* BaseTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				A38DDC842BDD010C00B34C34 /* BaseControllerView.swift */,
 				A38DDC862BDD012200B34C34 /* BaseView.swift */,
 				A38DDC822BDCFF3300B34C34 /* BaseViewController.swift */,
+				A38DDC9E2BDE806B00B34C34 /* BaseTableView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				A38DDC8C2BDE7DBA00B34C34 /* Applyable.swift in Sources */,
 				A38DDC902BDE7E2600B34C34 /* VAIdentifiable.swift in Sources */,
 				A38DDC962BDE7ED400B34C34 /* UITableView+Support.swift in Sources */,
+				A38DDC9F2BDE806B00B34C34 /* BaseTableView.swift in Sources */,
 				A38DDC852BDD010C00B34C34 /* BaseControllerView.swift in Sources */,
 				A38DDC872BDD012200B34C34 /* BaseView.swift in Sources */,
 				A38DDC982BDE7F1600B34C34 /* UICollectionView+Support.swift in Sources */,
