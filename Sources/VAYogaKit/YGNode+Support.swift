@@ -233,6 +233,10 @@ public extension YGNodeRef {
         get { YGNodeStyleGetDirection(self) }
         set { YGNodeStyleSetDirection(self, newValue) }
     }
+    var flexShrink: Float {
+        get { YGNodeStyleGetFlexShrink(self) }
+        set { YGNodeStyleSetFlexShrink(self, newValue) }
+    }
     @MainActor
     func addMeasureBaselineFuncIfNeeded(object: AnyObject) {
         guard !hasBaselineFunc else { return }
