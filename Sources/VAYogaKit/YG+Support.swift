@@ -17,8 +17,16 @@ public extension YGValue {
         YGValue(value: value, unit: .point)
     }
 
+    @inline(__always) static func point(_ value: CGFloat) -> YGValue {
+        YGValue(value: Float(value), unit: .point)
+    }
+
     @inline(__always) static func percent(value: Float) -> YGValue {
         YGValue(value: value, unit: .percent)
+    }
+
+    @inline(__always) static func percent(_ value: CGFloat) -> YGValue {
+        YGValue(value: Float(value), unit: .percent)
     }
 }
 
