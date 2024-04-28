@@ -74,6 +74,21 @@ public extension YGNodeRef {
             }
         }
     }
+    var minHeight: YGValue {
+        get { YGNodeStyleGetMinHeight(self) }
+        set {
+            switch newValue.unit {
+            case .undefined:
+                YGNodeStyleSetMinHeight(self, .nan)
+            case .point:
+                YGNodeStyleSetMinHeight(self, newValue.value)
+            case .percent:
+                YGNodeStyleSetMinHeightPercent(self, newValue.value)
+            default:
+                assertionFailure("Not implemented")
+            }
+        }
+    }
 
     @MainActor
     func addMeasureBaselineFuncIfNeeded(object: AnyObject) {
