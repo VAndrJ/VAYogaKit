@@ -30,6 +30,7 @@
 		A38DDCAB2BDE940B00B34C34 /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCAA2BDE940B00B34C34 /* ScreenFactory.swift */; };
 		A38DDCAE2BDE97CB00B34C34 /* Swiftional in Frameworks */ = {isa = PBXBuildFile; productRef = A38DDCAD2BDE97CB00B34C34 /* Swiftional */; };
 		A38DDCB02BDE97ED00B34C34 /* NSObject+Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCAF2BDE97ED00B34C34 /* NSObject+Support.swift */; };
+		A38DDCB22BDE9AE000B34C34 /* BaseScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCB12BDE9AE000B34C34 /* BaseScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		A38DDCA82BDE920400B34C34 /* DefaultNavigationIdentity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNavigationIdentity.swift; sourceTree = "<group>"; };
 		A38DDCAA2BDE940B00B34C34 /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
 		A38DDCAF2BDE97ED00B34C34 /* NSObject+Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Support.swift"; sourceTree = "<group>"; };
+		A38DDCB12BDE9AE000B34C34 /* BaseScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				A38DDC862BDD012200B34C34 /* BaseView.swift */,
 				A38DDC822BDCFF3300B34C34 /* BaseViewController.swift */,
 				A38DDC9E2BDE806B00B34C34 /* BaseTableView.swift */,
+				A38DDCB12BDE9AE000B34C34 /* BaseScreenView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				A38DDC8E2BDE7DF000B34C34 /* CGSize+Support.swift in Sources */,
 				A38DDCA92BDE920400B34C34 /* DefaultNavigationIdentity.swift in Sources */,
 				A38DDCA32BDE819100B34C34 /* MainTableViewCell.swift in Sources */,
+				A38DDCB22BDE9AE000B34C34 /* BaseScreenView.swift in Sources */,
 				A38DDC9D2BDE803000B34C34 /* MainScreenView.swift in Sources */,
 				A38DDC942BDE7EA600B34C34 /* UITableViewCell+Support.swift in Sources */,
 				A38DDC9A2BDE7F3100B34C34 /* UICollectionViewCell+Support.swift in Sources */,
