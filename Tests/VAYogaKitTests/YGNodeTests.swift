@@ -12,6 +12,18 @@ import yoga
 final class YGNodeTests: XCTestCase {
 
     @MainActor
+    func test_node_direction() {
+        var node = createNode()
+        let expected: YGDirection = .rtl
+
+        XCTAssertNotEqual(expected, node.direction)
+
+        node.direction = expected
+
+        XCTAssertEqual(expected, node.direction)
+    }
+
+    @MainActor
     func test_node_marginLeft() {
         var node = createNode()
         let expected: YGValue = .point(value: 10)
