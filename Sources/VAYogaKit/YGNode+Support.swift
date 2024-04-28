@@ -334,6 +334,19 @@ public extension YGNodeRef {
         }
     }
 
+    var borderLeftWidth: Float {
+        get { getBorder(edge: YGEdgeLeft) }
+        set { setBorder(newValue: newValue, edge: YGEdgeLeft) }
+    }
+
+    @inline(__always) private func getBorder(edge: YGEdge) -> Float {
+        YGNodeStyleGetBorder(self, edge)
+    }
+
+    @inline(__always) private func setBorder(newValue: Float, edge: YGEdge) {
+        YGNodeStyleSetBorder(self, edge, newValue)
+    }
+
     @MainActor
     func addMeasureBaselineFuncIfNeeded(object: AnyObject) {
         guard !hasBaselineFunc else { return }
