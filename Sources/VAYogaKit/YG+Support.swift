@@ -29,6 +29,12 @@ extension YGValue: Equatable {
     }
 }
 
+public extension YGWrap {
+    static let wrap: YGWrap = YGWrapWrap
+    static let noWrap: YGWrap = YGWrapNoWrap
+    static let wrapReverse: YGWrap = YGWrapWrapReverse
+}
+
 public extension YGDimension {
     static let width: YGDimension = YGDimensionWidth
     static let height: YGDimension = YGDimensionHeight
