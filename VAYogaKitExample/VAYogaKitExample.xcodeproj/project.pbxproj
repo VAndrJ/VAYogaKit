@@ -15,6 +15,7 @@
 		A38DDC832BDCFF3300B34C34 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC822BDCFF3300B34C34 /* BaseViewController.swift */; };
 		A38DDC852BDD010C00B34C34 /* BaseControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC842BDD010C00B34C34 /* BaseControllerView.swift */; };
 		A38DDC872BDD012200B34C34 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC862BDD012200B34C34 /* BaseView.swift */; };
+		A38DDC8A2BDE7D5000B34C34 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDC892BDE7D5000B34C34 /* Functions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		A38DDC822BDCFF3300B34C34 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		A38DDC842BDD010C00B34C34 /* BaseControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControllerView.swift; sourceTree = "<group>"; };
 		A38DDC862BDD012200B34C34 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		A38DDC892BDE7D5000B34C34 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,9 +67,11 @@
 		A38DDC392BDAC86B00B34C34 /* VAYogaKitExample */ = {
 			isa = PBXGroup;
 			children = (
+				A38DDC882BDE7D4300B34C34 /* Support */,
 				A38DDC7F2BDCFE9D00B34C34 /* App */,
 				A38DDC812BDCFF1E00B34C34 /* Base */,
 				A38DDC802BDCFEA700B34C34 /* Resources */,
+				A38DDC892BDE7D5000B34C34 /* Functions.swift */,
 			);
 			path = VAYogaKitExample;
 			sourceTree = "<group>";
@@ -106,6 +110,13 @@
 				A38DDC822BDCFF3300B34C34 /* BaseViewController.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		A38DDC882BDE7D4300B34C34 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +198,7 @@
 				A38DDC872BDD012200B34C34 /* BaseView.swift in Sources */,
 				A38DDC3D2BDAC86B00B34C34 /* SceneDelegate.swift in Sources */,
 				A38DDC832BDCFF3300B34C34 /* BaseViewController.swift in Sources */,
+				A38DDC8A2BDE7D5000B34C34 /* Functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
