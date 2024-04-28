@@ -44,6 +44,12 @@ extension VAYogaLayout {
     @MainActor public var isLeaf: Bool { sublayouts.isEmpty }
 
     @MainActor
+    func applyLayout(keepingOrigin: Bool) {
+        calculateLayout(for: frame.size)
+        applyLayoutToHierarchy(keepingOrigin: keepingOrigin)
+    }
+
+    @MainActor
     func applyLayout(keepingOrigin: Bool, flexibility: VAYogaFlexibility) {
         var size = frame.size
         if flexibility.contains(.flexibleWidth) {
