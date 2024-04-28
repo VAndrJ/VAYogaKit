@@ -24,6 +24,18 @@ final class YGNodeTests: XCTestCase {
     }
 
     @MainActor
+    func test_node_justifyContent() {
+        var node = createNode()
+        let expected: YGJustify = .center
+
+        XCTAssertNotEqual(expected, node.justifyContent)
+
+        node.justifyContent = expected
+
+        XCTAssertEqual(expected, node.justifyContent)
+    }
+
+    @MainActor
     func test_node_direction() {
         var node = createNode()
         let expected: YGDirection = .rtl
