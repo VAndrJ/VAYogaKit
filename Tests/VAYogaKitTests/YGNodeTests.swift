@@ -12,6 +12,26 @@ import yoga
 final class YGNodeTests: XCTestCase {
 
     @MainActor
+    func test_node_padding() {
+        var node = createNode()
+        let expectedPointValue: YGValue = .point(value: 10)
+        node.padding = expectedPointValue
+
+        XCTAssertEqual(expectedPointValue, node.padding)
+
+        let expectedPercentValue: YGValue = .percent(value: 10)
+        node.padding = expectedPercentValue
+
+        XCTAssertEqual(expectedPercentValue, node.padding)
+
+        let expectedValue: YGValue = .undefined
+        node.padding = expectedValue
+
+        XCTAssertTrue(node.padding.value.isNaN)
+        XCTAssertTrue(node.padding.unit == .undefined)
+    }
+
+    @MainActor
     func test_node_flexDirection() {
         var node = createNode()
         let expected: YGFlexDirection = .columnReverse
