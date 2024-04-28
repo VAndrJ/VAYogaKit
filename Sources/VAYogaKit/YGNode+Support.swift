@@ -123,6 +123,10 @@ public extension YGNodeRef {
         get { getPadding(edge: .all) }
         set { setPadding(newValue: newValue, edge: .all) }
     }
+    var paddingVertical: YGValue {
+        get { getPadding(edge: .vertical) }
+        set { setPadding(newValue: newValue, edge: .vertical) }
+    }
 
     @inline(__always) private func getPadding(edge: YGEdge) -> YGValue {
         YGNodeStyleGetPadding(self, edge)
