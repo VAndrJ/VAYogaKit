@@ -300,6 +300,10 @@ public extension YGNodeRef {
         get { getPosition(edge: YGEdgeTop) }
         set { setPosition(newValue: newValue, edge: YGEdgeTop) }
     }
+    var right: YGValue {
+        get { getPosition(edge: YGEdgeRight) }
+        set { setPosition(newValue: newValue, edge: YGEdgeRight) }
+    }
 
     @inline(__always) private func getPosition(edge: YGEdge) -> YGValue {
         YGNodeStyleGetPosition(self, edge)
