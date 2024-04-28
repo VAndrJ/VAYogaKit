@@ -41,4 +41,14 @@ extension UITableView {
             return dequeue(cell)
         }
     }
+
+    func dequeue<Cell: UITableViewCell & VAIdentifiable>(
+        _ cell: Cell.Type,
+        configure: (Cell) -> Void
+    ) -> Cell {
+        let cell = dequeue(cell)
+        configure(cell)
+
+        return cell
+    }
 }
