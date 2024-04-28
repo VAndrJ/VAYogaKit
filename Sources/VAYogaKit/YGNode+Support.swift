@@ -119,6 +119,27 @@ public extension YGNodeRef {
             }
         }
     }
+    var padding: YGValue {
+        get { getPadding(edge: .all) }
+        set { setPadding(newValue: newValue, edge: .all) }
+    }
+
+    @inline(__always) private func getPadding(edge: YGEdge) -> YGValue {
+        YGNodeStyleGetPadding(self, edge)
+    }
+
+    @inline(__always) private func setPadding(newValue: YGValue, edge: YGEdge) {
+        switch newValue.unit {
+        case .undefined:
+            YGNodeStyleSetPadding(self, edge, .nan)
+        case .point:
+            YGNodeStyleSetPadding(self, edge, newValue.value)
+        case .percent:
+            YGNodeStyleSetPaddingPercent(self, edge, newValue.value)
+        default:
+            assertionFailure("Not implemented")
+        }
+    }
 
     @MainActor
     func addMeasureBaselineFuncIfNeeded(object: AnyObject) {
