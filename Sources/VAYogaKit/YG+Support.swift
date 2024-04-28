@@ -107,6 +107,11 @@ public extension YGOverflow {
     static let scroll: YGOverflow = YGOverflowScroll
 }
 
+public extension YGDisplay {
+    static let flex: YGDisplay = YGDisplayFlex
+    static let none: YGDisplay = YGDisplayNone
+}
+
 public extension YGDirection {
     static let ltr: YGDirection = YGDirectionLTR
     static let rtl: YGDirection = YGDirectionRTL
