@@ -96,6 +96,18 @@ final class YGNodeTests: XCTestCase {
     }
 
     @MainActor
+    func test_node_display() {
+        var node = createNode()
+        let expected: YGDisplay = .none
+
+        XCTAssertNotEqual(expected, node.display)
+
+        node.display = expected
+
+        XCTAssertEqual(expected, node.display)
+    }
+
+    @MainActor
     func test_node_direction() {
         var node = createNode()
         let expected: YGDirection = .rtl
