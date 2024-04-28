@@ -189,6 +189,10 @@ public extension YGNodeRef {
         get { getMargin(edge: .bottom) }
         set { setMargin(newValue: newValue, edge: .bottom) }
     }
+    var marginStart: YGValue {
+        get { getMargin(edge: .start) }
+        set { setMargin(newValue: newValue, edge: .start) }
+    }
     var margin: YGValue {
         get { getMargin(edge: .all) }
         set { setMargin(newValue: newValue, edge: .all) }
