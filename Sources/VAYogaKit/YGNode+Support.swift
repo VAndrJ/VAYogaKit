@@ -47,6 +47,26 @@ public extension YGNodeRef {
         YGNodeInsertChild(self, child, index)
     }
 }
+
+public extension YGNodeRef? {
+
+    @MainActor
+    func hasSameChildren(sublayouts: [any VAYogaLayout]) -> Bool {
+        // TODO: - Optimization for recreated instances like column?
+        guard let self, self.childCount == sublayouts.count else {
+            return false
+        }
+
+        for i in sublayouts.indices {
+            if self.getGhild(at: i) != sublayouts[i].node {
+                return false
+            }
+        }
+
+        return true
+    }
+}
+
 @MainActor public var baselineLabelFunc: @convention(c) (
     _ node: YGNodeRef?,
     _ width: Float,
