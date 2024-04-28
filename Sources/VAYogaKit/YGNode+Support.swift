@@ -69,3 +69,20 @@ public extension YGNodeRef {
 
     return Float((view.font?.ascender ?? 0) + view.contentInset.top + view.textContainerInset.top)
 }
+@MainActor public var baselineTextFieldFunc: @convention(c) (
+    _ node: YGNodeRef?,
+    _ width: Float,
+    _ height: Float
+) -> Float = { node, _, _ in
+    guard let view: UITextField = node?.getContext() else {
+        return 0
+    }
+
+    let ascender = Float(view.font?.ascender ?? 0)
+    switch view.borderStyle {
+    case .none: return ascender
+    case .line: return ascender + 4
+    case .bezel, .roundedRect: return ascender + 7
+    @unknown default: return ascender
+    }
+}
