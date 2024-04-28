@@ -187,6 +187,18 @@ final class YGNodeTests: XCTestCase {
     }
 
     @MainActor
+    func test_node_top() {
+        var node = createNode()
+        let expectedPointValue: YGValue = .point(value: 10)
+
+        XCTAssertNotEqual(expectedPointValue, node.top)
+
+        node.top = expectedPointValue
+
+        XCTAssertEqual(expectedPointValue, node.top)
+    }
+
+    @MainActor
     func test_node_direction() {
         var node = createNode()
         let expected: YGDirection = .rtl
