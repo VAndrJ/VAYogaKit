@@ -21,6 +21,17 @@ extension UITableView {
         dequeueReusableCell(withIdentifier: cell.identifier, for: indexPath) as! Cell
     }
 
+    func dequeue<Cell: UITableViewCell & VAIdentifiable>(
+        _ cell: Cell.Type,
+        for indexPath: IndexPath,
+        configure: (Cell) -> Void
+    ) -> Cell {
+        let cell = dequeue(cell, for: indexPath)
+        configure(cell)
+
+        return cell
+    }
+
     func dequeue<Cell: UITableViewCell & VAIdentifiable>(_ cell: Cell.Type) -> Cell {
         if let cell = dequeueReusableCell(withIdentifier: cell.identifier) as? Cell {
             return cell
