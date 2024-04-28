@@ -371,6 +371,19 @@ public extension YGNodeRef {
         YGNodeStyleSetBorder(self, edge, newValue)
     }
 
+    var columnGap: Float {
+        get { getGap(gutter: YGGutterColumn) }
+        set { setGap(newValue: newValue, gutter: YGGutterColumn) }
+    }
+
+    @inline(__always) private func getGap(gutter: YGGutter) -> Float {
+        YGNodeStyleGetGap(self, gutter)
+    }
+
+    @inline(__always) private func setGap(newValue: Float, gutter: YGGutter) {
+        YGNodeStyleSetGap(self, gutter, newValue)
+    }
+
     @MainActor
     func addMeasureBaselineFuncIfNeeded(object: AnyObject) {
         guard !hasBaselineFunc else { return }
