@@ -503,3 +503,35 @@ public extension YGNodeRef? {
     @unknown default: return ascender
     }
 }
+@MainActor public var measureViewFunc: @convention(c) (
+    _ node: YGNodeRef?,
+    _ width: Float,
+    _ widthMode: YGMeasureMode,
+    _ height: Float,
+    _ heightMode: YGMeasureMode
+) -> YGSize = { node, width, widthMode, height, heightMode in
+    guard let layout = Unmanaged<AnyObject>.fromOpaque(YGNodeGetContext(node)).takeUnretainedValue() as? any VAYogaLayout else {
+        return .init(width: .zero, height: .zero)
+    }
+    
+    let constrainedWidth = widthMode == .undefined ? .greatestFiniteMagnitude : width
+    let constrainedHeight = heightMode == .undefined ? .greatestFiniteMagnitude : height
+    var sizeThatFits: CGSize = .zero
+    if layout.layoutType == .selfSizedView {
+        sizeThatFits = layout.sizeThatFits(.init(
+            width: constrainedWidth.cg,
+            height: constrainedHeight.cg
+        ))
+    }
+    
+    return .init(
+        width: constrainedWidth.sanitize(
+            measured: sizeThatFits.width,
+            mode: widthMode
+        ),
+        height: constrainedHeight.sanitize(
+            measured: sizeThatFits.height,
+            mode: heightMode
+        )
+    )
+}
