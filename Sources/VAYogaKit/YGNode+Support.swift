@@ -104,6 +104,21 @@ public extension YGNodeRef {
             }
         }
     }
+    var maxHeight: YGValue {
+        get { YGNodeStyleGetMaxHeight(self) }
+        set {
+            switch newValue.unit {
+            case .undefined:
+                YGNodeStyleSetMaxHeight(self, .nan)
+            case .point:
+                YGNodeStyleSetMaxHeight(self, newValue.value)
+            case .percent:
+                YGNodeStyleSetMaxHeightPercent(self, newValue.value)
+            default:
+                assertionFailure("Not implemented")
+            }
+        }
+    }
 
     @MainActor
     func addMeasureBaselineFuncIfNeeded(object: AnyObject) {
