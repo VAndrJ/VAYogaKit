@@ -89,6 +89,21 @@ public extension YGNodeRef {
             }
         }
     }
+    var maxWidth: YGValue {
+        get { YGNodeStyleGetMaxWidth(self) }
+        set {
+            switch newValue.unit {
+            case .undefined:
+                YGNodeStyleSetMaxWidth(self, .nan)
+            case .point:
+                YGNodeStyleSetMaxWidth(self, newValue.value)
+            case .percent:
+                YGNodeStyleSetMaxWidthPercent(self, newValue.value)
+            default:
+                assertionFailure("Not implemented")
+            }
+        }
+    }
 
     @MainActor
     func addMeasureBaselineFuncIfNeeded(object: AnyObject) {
