@@ -12,6 +12,26 @@ import yoga
 final class YGNodeTests: XCTestCase {
 
     @MainActor
+    func test_node_minHeight() {
+        var node = createNode()
+        let expectedPointValue: YGValue = .point(value: 10)
+        node.minHeight = expectedPointValue
+
+        XCTAssertEqual(expectedPointValue, node.minHeight)
+
+        let expectedPercentValue: YGValue = .percent(value: 10)
+        node.minHeight = expectedPercentValue
+
+        XCTAssertEqual(expectedPercentValue, node.minHeight)
+
+        let expectedValue: YGValue = .undefined
+        node.minHeight = expectedValue
+
+        XCTAssertTrue(node.minHeight.value.isNaN)
+        XCTAssertTrue(node.minHeight.unit == .undefined)
+    }
+
+    @MainActor
     func test_node_minWidth() {
         var node = createNode()
         let expectedPointValue: YGValue = .point(value: 10)
