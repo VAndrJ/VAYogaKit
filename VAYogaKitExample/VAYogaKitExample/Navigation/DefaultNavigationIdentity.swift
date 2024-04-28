@@ -6,4 +6,13 @@
 //  Copyright © 2024 Volodymyr Andriienko. All rights reserved.
 //
 
-import Foundation
+import VANavigator
+
+protocol DefaultNavigationIdentity: NavigationIdentity {}
+
+extension DefaultNavigationIdentity {
+
+    func isEqual(to other: (any NavigationIdentity)?) -> Bool {
+        other is Self
+    }
+}
