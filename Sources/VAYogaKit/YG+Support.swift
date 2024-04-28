@@ -106,3 +106,14 @@ public extension YGDirection {
     static let rtl: YGDirection = YGDirectionRTL
     static let inherit: YGDirection = YGDirectionInherit
 }
+
+public extension Float {
+
+    func sanitize(measured: CGFloat, mode: YGMeasureMode) -> Float {
+        switch mode {
+        case .exactly: self
+        case .atMost: min(self, Float(measured))
+        default: Float(measured)
+        }
+    }
+}
