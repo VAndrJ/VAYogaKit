@@ -168,6 +168,25 @@ final class YGNodeTests: XCTestCase {
     }
 
     @MainActor
+    func test_node_left() {
+        var node = createNode()
+        let expectedPointValue: YGValue = .point(value: 10)
+        node.left = expectedPointValue
+
+        XCTAssertEqual(expectedPointValue, node.left)
+
+        let expectedPercentValue: YGValue = .percent(value: 10)
+        node.left = expectedPercentValue
+
+        XCTAssertEqual(expectedPercentValue, node.left)
+
+        node.left = .undefined
+
+        XCTAssertTrue(node.left.value.isNaN)
+        XCTAssertTrue(node.left.unit == .undefined)
+    }
+
+    @MainActor
     func test_node_direction() {
         var node = createNode()
         let expected: YGDirection = .rtl
