@@ -59,6 +59,21 @@ public extension YGNodeRef {
         get { YGNodeStyleGetFlexDirection(self) }
         set { YGNodeStyleSetFlexDirection(self, newValue) }
     }
+    var minWidth: YGValue {
+        get { YGNodeStyleGetMinWidth(self) }
+        set {
+            switch newValue.unit {
+            case .undefined:
+                YGNodeStyleSetMinWidth(self, .nan)
+            case .point:
+                YGNodeStyleSetMinWidth(self, newValue.value)
+            case .percent:
+                YGNodeStyleSetMinWidthPercent(self, newValue.value)
+            default:
+                assertionFailure("Not implemented")
+            }
+        }
+    }
 
     @MainActor
     func addMeasureBaselineFuncIfNeeded(object: AnyObject) {
