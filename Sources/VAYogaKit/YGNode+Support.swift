@@ -420,6 +420,14 @@ public extension YGNodeRef {
         YGNodeMarkDirty(self)
     }
 
+    @MainActor
+    func markDirtyIfAvailable() {
+        if hasMeasureFunc {
+            markDirty()
+            (Unmanaged<AnyObject>.fromOpaque(YGNodeGetContext(self)).takeUnretainedValue() as? VAYogaLayout)?.setNeedsRelayout()
+        }
+    }
+
     @inline(__always) func setMeasureFunc(_ measureFunc: YGMeasureFunc) {
         YGNodeSetMeasureFunc(self, measureFunc)
     }
