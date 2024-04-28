@@ -12,6 +12,13 @@ import yoga
 final class YGNodeTests: XCTestCase {
 
     @MainActor
+    func test_node_baselineFunc_label() {
+        let node = createNode(object: UILabel())
+
+        XCTAssertTrue(node.hasBaselineFunc)
+    }
+
+    @MainActor
     func test_node_measureFunc() {
         let node = createNode()
 
