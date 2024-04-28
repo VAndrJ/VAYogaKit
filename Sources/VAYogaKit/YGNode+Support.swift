@@ -375,6 +375,10 @@ public extension YGNodeRef {
         get { getGap(gutter: YGGutterColumn) }
         set { setGap(newValue: newValue, gutter: YGGutterColumn) }
     }
+    var rowGap: Float {
+        get { getGap(gutter: YGGutterRow) }
+        set { setGap(newValue: newValue, gutter: YGGutterRow) }
+    }
 
     @inline(__always) private func getGap(gutter: YGGutter) -> Float {
         YGNodeStyleGetGap(self, gutter)
