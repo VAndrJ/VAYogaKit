@@ -120,6 +120,18 @@ final class YGNodeTests: XCTestCase {
     }
 
     @MainActor
+    func test_node_flexGrow() {
+        var node = createNode()
+        let expected: Float = 0.5
+
+        XCTAssertNotEqual(expected, node.flexGrow)
+
+        node.flexGrow = expected
+
+        XCTAssertEqual(expected, node.flexGrow)
+    }
+
+    @MainActor
     func test_node_direction() {
         var node = createNode()
         let expected: YGDirection = .rtl
