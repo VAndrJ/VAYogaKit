@@ -292,6 +292,28 @@ public extension YGNodeRef {
             }
         }
     }
+    var left: YGValue {
+        get { getPosition(edge: YGEdgeLeft) }
+        set { setPosition(newValue: newValue, edge: YGEdgeLeft) }
+    }
+
+    @inline(__always) private func getPosition(edge: YGEdge) -> YGValue {
+        YGNodeStyleGetPosition(self, edge)
+    }
+
+    @inline(__always) private func setPosition(newValue: YGValue, edge: YGEdge) {
+        switch newValue.unit {
+        case .undefined:
+            YGNodeStyleSetPosition(self, edge, .nan)
+        case .point:
+            YGNodeStyleSetPosition(self, edge, newValue.value)
+        case .percent:
+            YGNodeStyleSetPositionPercent(self, edge, newValue.value)
+        default:
+            assertionFailure("Not implemented")
+        }
+    }
+
     @MainActor
     func addMeasureBaselineFuncIfNeeded(object: AnyObject) {
         guard !hasBaselineFunc else { return }
