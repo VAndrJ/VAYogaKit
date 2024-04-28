@@ -5,7 +5,7 @@
 //  Created by Volodymyr Andriienko on 25.04.2024.
 //
 
-import Foundation
+import UIKit
 import yoga
 
 public extension YGNodeRef {
