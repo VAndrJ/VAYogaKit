@@ -229,6 +229,10 @@ public extension YGNodeRef {
         }
     }
 
+    var direction: YGDirection {
+        get { YGNodeStyleGetDirection(self) }
+        set { YGNodeStyleSetDirection(self, newValue) }
+    }
     @MainActor
     func addMeasureBaselineFuncIfNeeded(object: AnyObject) {
         guard !hasBaselineFunc else { return }
