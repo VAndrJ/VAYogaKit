@@ -277,6 +277,21 @@ public extension YGNodeRef {
         get { YGNodeStyleGetAspectRatio(self) }
         set { YGNodeStyleSetAspectRatio(self, newValue) }
     }
+    var flexBasis: YGValue {
+        get { YGNodeStyleGetFlexBasis(self) }
+        set {
+            switch newValue.unit {
+            case .point:
+                YGNodeStyleSetFlexBasis(self, newValue.value)
+            case .percent:
+                YGNodeStyleSetFlexBasisPercent(self, newValue.value)
+            case .auto:
+                YGNodeStyleSetFlexBasisAuto(self)
+            default:
+                assertionFailure("Not implemented")
+            }
+        }
+    }
     @MainActor
     func addMeasureBaselineFuncIfNeeded(object: AnyObject) {
         guard !hasBaselineFunc else { return }
