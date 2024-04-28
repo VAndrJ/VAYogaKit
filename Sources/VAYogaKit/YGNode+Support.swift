@@ -358,6 +358,10 @@ public extension YGNodeRef {
         get { getBorder(edge: YGEdgeEnd) }
         set { setBorder(newValue: newValue, edge: YGEdgeEnd) }
     }
+    var borderWidth: Float {
+        get { getBorder(edge: YGEdgeAll) }
+        set { setBorder(newValue: newValue, edge: YGEdgeAll) }
+    }
 
     @inline(__always) private func getBorder(edge: YGEdge) -> Float {
         YGNodeStyleGetBorder(self, edge)
