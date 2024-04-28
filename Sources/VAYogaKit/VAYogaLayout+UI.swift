@@ -61,4 +61,23 @@ public extension VAYogaLayout where Self: UIView {
 
         return self
     }
+
+    @MainActor
+    func SafeArea(edgesToIgnore: VASafeAreaEdge, _ sublayout: () -> VAYogaLayout) -> Self {
+        if !edgesToIgnore.contains(.top) {
+            node.paddingTop = .point(safeAreaInsets.top)
+        }
+        if !edgesToIgnore.contains(.left) {
+            node.paddingLeft = .point(safeAreaInsets.left)
+        }
+        if !edgesToIgnore.contains(.bottom) {
+            node.paddingBottom = .point(safeAreaInsets.bottom)
+        }
+        if !edgesToIgnore.contains(.right) {
+            node.paddingRight = .point(safeAreaInsets.right)
+        }
+        sublayouts = [sublayout()]
+
+        return self
+    }
 }
