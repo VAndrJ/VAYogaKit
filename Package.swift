@@ -19,6 +19,9 @@ let package = Package(
             name: "VAYogaKit",
             dependencies: [
                 .product(name: "yoga", package: "yoga"),
+            ], 
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency")
             ]
         ),
         .testTarget(
