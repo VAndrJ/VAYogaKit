@@ -144,6 +144,30 @@ final class YGNodeTests: XCTestCase {
     }
 
     @MainActor
+    func test_node_flexBasis() {
+        var node = createNode()
+        let expectedPointValue: YGValue = .point(value: 10)
+        node.flexBasis = expectedPointValue
+
+        XCTAssertEqual(expectedPointValue, node.flexBasis)
+
+        let expectedPercentValue: YGValue = .percent(value: 10)
+        node.flexBasis = expectedPercentValue
+
+        XCTAssertEqual(expectedPercentValue, node.flexBasis)
+
+        node.flexBasis = .undefined
+
+        XCTAssertTrue(node.flexBasis.value.isNaN)
+        XCTAssertTrue(node.flexBasis.unit == .undefined)
+
+        node.flexBasis = .auto
+
+        XCTAssertTrue(node.flexBasis.value.isNaN)
+        XCTAssertTrue(node.flexBasis.unit == .auto)
+    }
+
+    @MainActor
     func test_node_direction() {
         var node = createNode()
         let expected: YGDirection = .rtl
