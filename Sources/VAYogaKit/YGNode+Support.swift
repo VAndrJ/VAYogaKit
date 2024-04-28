@@ -30,6 +30,14 @@ public extension YGNodeRef {
             return value.cg
         }
     }
+    var topValue: CGFloat {
+        let value = YGNodeLayoutGetTop(self)
+        if value.isNaN {
+            return .zero
+        } else {
+            return value.cg
+        }
+    }
 
     @inline(__always) func setMeasure(_ measureFunc: YGMeasureFunc) {
         YGNodeSetMeasureFunc(self, measureFunc)
