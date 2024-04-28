@@ -12,6 +12,14 @@ import yoga
 final class YGNodeTests: XCTestCase {
 
     @MainActor
+    func test_node_measureFunc() {
+        let node = createNode()
+        node.setMeasure(dummyMeasureViewFunc)
+
+        XCTAssertTrue(node.hasMeasureFunc)
+    }
+
+    @MainActor
     func test_node_childAddingAndRemoving() {
         let position = 0
         let (parentNode, childNode) = generateSUT()
@@ -71,4 +79,14 @@ final class YGNodeTests: XCTestCase {
     private func createNode() -> YGNodeRef {
         YGNodeRef.new(for: NSObject())
     }
+}
+
+@MainActor private var dummyMeasureViewFunc: @convention(c) (
+    _ node: YGNodeRef?,
+    _ width: Float,
+    _ widthMode: YGMeasureMode,
+    _ height: Float,
+    _ heightMode: YGMeasureMode
+) -> YGSize = { _, _, _, _, _ in
+    .init(width: 10, height: 10)
 }
