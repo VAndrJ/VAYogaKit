@@ -12,6 +12,30 @@ import yoga
 final class YGNodeTests: XCTestCase {
 
     @MainActor
+    func test_node_margin() {
+        var node = createNode()
+        let expectedPointValue: YGValue = .point(value: 10)
+        node.margin = expectedPointValue
+
+        XCTAssertEqual(expectedPointValue, node.margin)
+
+        let expectedPercentValue: YGValue = .percent(value: 10)
+        node.margin = expectedPercentValue
+
+        XCTAssertEqual(expectedPercentValue, node.margin)
+
+        node.margin = .undefined
+
+        XCTAssertTrue(node.margin.value.isNaN)
+        XCTAssertTrue(node.margin.unit == .undefined)
+
+        node.margin = .auto
+
+        XCTAssertTrue(node.margin.value.isNaN)
+        XCTAssertTrue(node.margin.unit == .auto)
+    }
+
+    @MainActor
     func test_node_paddingLeft() {
         var node = createNode()
         let expected: YGValue = .point(value: 10)
@@ -120,8 +144,7 @@ final class YGNodeTests: XCTestCase {
 
         XCTAssertEqual(expectedPercentValue, node.padding)
 
-        let expectedValue: YGValue = .undefined
-        node.padding = expectedValue
+        node.padding = .undefined
 
         XCTAssertTrue(node.padding.value.isNaN)
         XCTAssertTrue(node.padding.unit == .undefined)
