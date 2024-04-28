@@ -261,6 +261,10 @@ public extension YGNodeRef {
         get { YGNodeStyleGetOverflow(self) }
         set { YGNodeStyleSetOverflow(self, newValue) }
     }
+    var display: YGDisplay {
+        get { YGNodeStyleGetDisplay(self) }
+        set { YGNodeStyleSetDisplay(self, newValue) }
+    }
     @MainActor
     func addMeasureBaselineFuncIfNeeded(object: AnyObject) {
         guard !hasBaselineFunc else { return }
