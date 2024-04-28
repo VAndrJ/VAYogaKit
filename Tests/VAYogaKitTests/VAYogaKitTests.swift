@@ -62,6 +62,11 @@ final class VAYogaKitTests: XCTestCase {
         XCTAssertEqual(YGOverflowScroll, .scroll)
     }
 
+    func test_constants_display() {
+        XCTAssertEqual(YGDisplayFlex, .flex)
+        XCTAssertEqual(YGDisplayNone, .none)
+    }
+
     func test_constants_dismension() {
         XCTAssertEqual(YGDimensionWidth, .width)
         XCTAssertEqual(YGDimensionHeight, .height)
