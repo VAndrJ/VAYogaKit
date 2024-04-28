@@ -9,7 +9,7 @@ import Foundation
 import yoga
 
 public extension YGValue {
-    static let zero: YGValue = .point(value: 0)
+    static let zero: YGValue = .point(value: .zero)
     static let undefined: YGValue = .init(value: .nan, unit: .undefined)
     static let auto: YGValue = .init(value: .nan, unit: .auto)
 
