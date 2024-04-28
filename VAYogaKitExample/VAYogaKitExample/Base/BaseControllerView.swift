@@ -10,8 +10,13 @@ import UIKit
 import VAYogaKit
 
 class BaseControllerView: BaseView, ControllerView {
+    weak var controller: UIViewController?
 
     init() {
         super.init(layoutType: .root)
+    }
+
+    func controllerInitialized(_ controller: UIViewController) {
+        self.controller = controller
     }
 }

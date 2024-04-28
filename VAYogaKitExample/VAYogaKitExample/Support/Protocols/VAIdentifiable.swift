@@ -14,7 +14,7 @@ protocol VAIdentifiable {
 }
 
 extension VAIdentifiable {
-    static var identifier: String { String(describing: Self.self) }
+    static var identifier: String { String(describing: self) }
 
     var identifier: String { Self.identifier }
 }

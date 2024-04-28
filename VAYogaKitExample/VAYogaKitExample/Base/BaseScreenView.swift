@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseScreenView<VM: ViewModel>: BaseControllerView {
+class BaseScreenView<VM: ViewModel>: BaseControllerView, @unchecked Sendable {
     let viewModel: VM
 
     init(viewModel: VM) {
@@ -18,4 +18,7 @@ class BaseScreenView<VM: ViewModel>: BaseControllerView {
     }
 }
 
+class BaseViewModel: NSObject, ViewModel, @unchecked Sendable {}
+
+@MainActor
 protocol ViewModel {}
