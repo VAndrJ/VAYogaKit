@@ -21,6 +21,7 @@ public extension YGNodeRef {
     var childCount: Int { YGNodeGetChildCount(self) }
     var parent: YGNodeRef? { YGNodeGetParent(self) }
     var hasBaselineFunc: Bool { YGNodeHasBaselineFunc(self) }
+    var hasMeasureFunc: Bool { YGNodeHasMeasureFunc(self) }
 
     @inline(__always) func removeFromParent() {
         parent?.remove(child: self)
