@@ -249,6 +249,10 @@ public extension YGNodeRef {
         get { YGNodeStyleGetAlignItems(self) }
         set { YGNodeStyleSetAlignItems(self, newValue) }
     }
+    var alignSelf: YGAlign {
+        get { YGNodeStyleGetAlignSelf(self) }
+        set { YGNodeStyleSetAlignSelf(self, newValue) }
+    }
     @MainActor
     func addMeasureBaselineFuncIfNeeded(object: AnyObject) {
         guard !hasBaselineFunc else { return }
