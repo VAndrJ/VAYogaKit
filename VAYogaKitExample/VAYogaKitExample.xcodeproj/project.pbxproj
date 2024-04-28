@@ -120,12 +120,20 @@
 		A38DDC882BDE7D4300B34C34 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				A38DDC912BDE7E4B00B34C34 /* Protocols */,
 				A38DDC892BDE7D5000B34C34 /* Functions.swift */,
-				A38DDC8B2BDE7DBA00B34C34 /* Applyable.swift */,
 				A38DDC8D2BDE7DF000B34C34 /* CGSize+Support.swift */,
-				A38DDC8F2BDE7E2600B34C34 /* VAIdentifiable.swift */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		A38DDC912BDE7E4B00B34C34 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				A38DDC8B2BDE7DBA00B34C34 /* Applyable.swift */,
+				A38DDC8F2BDE7E2600B34C34 /* VAIdentifiable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
