@@ -24,6 +24,26 @@ final class YGNodeTests: XCTestCase {
     }
 
     @MainActor
+    func test_node_maxHeight() {
+        var node = createNode()
+        let expectedPointValue: YGValue = .point(value: 10)
+        node.maxHeight = expectedPointValue
+
+        XCTAssertEqual(expectedPointValue, node.maxHeight)
+
+        let expectedPercentValue: YGValue = .percent(value: 10)
+        node.maxHeight = expectedPercentValue
+
+        XCTAssertEqual(expectedPercentValue, node.maxHeight)
+
+        let expectedValue: YGValue = .undefined
+        node.maxHeight = expectedValue
+
+        XCTAssertTrue(node.maxHeight.value.isNaN)
+        XCTAssertTrue(node.maxHeight.unit == .undefined)
+    }
+
+    @MainActor
     func test_node_minHeight() {
         var node = createNode()
         let expectedPointValue: YGValue = .point(value: 10)
