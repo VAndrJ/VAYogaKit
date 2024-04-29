@@ -428,6 +428,11 @@ public extension YGNodeRef {
         YGNodeStyleSetGap(self, gutter, newValue)
     }
 
+    var positionType: YGPositionType {
+        get { YGNodeStyleGetPositionType(self) }
+        set { YGNodeStyleSetPositionType(self, newValue) }
+    }
+
     @MainActor
     var absolutePosition: CGPoint {
         var absolutePosition = CGPoint(x: leftValue, y: topValue)
