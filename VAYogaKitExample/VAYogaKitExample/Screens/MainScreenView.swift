@@ -16,17 +16,40 @@ final class MainScreenView: BaseScreenView<MainScreenViewModel> {
         listData: viewModel.$listData,
         onSelect: viewModel ?> { $0.onSelect(cell: $1) }
     )
+    private lazy var collectionView = BaseCollectionView(
+        listData: viewModel.$listData,
+        usedCells: [MainCollectionViewCell.self],
+        onSelect: viewModel ?> { $0.onSelect(cell: $1) }
+    )
+    private var isGridView = false {
+        didSet { setNeedsUpdateLayout() }
+    }
 
     override var layout: any VAYogaLayout {
         SafeArea {
-            tableView
-                .flex(grow: 1)
+            if isGridView {
+                collectionView
+                    .flex(grow: 1)
+            } else {
+                tableView
+                    .flex(grow: 1)
+            }
         }
     }
 
     override func configure() {
         backgroundColor = .systemBackground
         controller?.title = "VAYogaKit examples"
+        controller?.navigationItem.rightBarButtonItem = .init(
+            image: UIImage(systemName: "pencil"),
+            style: .plain,
+            target: self,
+            action: #selector(onToggleGrid)
+        )
+    }
+
+    @objc private func onToggleGrid() {
+        isGridView.toggle()
     }
 }
 
