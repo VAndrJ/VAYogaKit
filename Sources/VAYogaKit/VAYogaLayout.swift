@@ -164,6 +164,13 @@ public extension VAYogaLayout {
         case .root, .layout:
             break
         }
+    }
+
+    @MainActor
+    func applyLayoutToCollectionCellHierarchy(size: CGSize, calculated: (CGSize) -> Void) {
+        assertMain()
+        calculateLayout(width: Float(size.width), height: Float(size.height))
+        calculated(.init(width: node.heightValue, height: node.widthValue))
         if !isLeaf {
             sublayouts.forEach { $0.applyLayoutToHierarchy(keepingOrigin: false) }
         }
@@ -189,17 +196,7 @@ public extension VAYogaLayout {
             height = Float(size.height)
         }
         calculateLayout(width: width, height: height)
-        switch layoutType {
-        case .view, .selfSizedView:
-            frame = .init(
-                origin: node.absolutePosition,
-                size: .init(width: node.widthValue, height: node.heightValue)
-            )
-        case .container:
-            calculated(.init(width: node.widthValue, height: node.heightValue))
-        case .root, .layout:
-            break
-        }
+        calculated(.init(width: node.widthValue, height: node.heightValue))
         if !isLeaf {
             sublayouts.forEach { $0.applyLayoutToHierarchy(keepingOrigin: false) }
         }
