@@ -21,7 +21,9 @@ open class VAYogaView: UIView, VAYogaLayout {
 
         self.node = .new(for: self)
 
-        flattenLayoutIfNeeded(in: self)
+        if layoutType != .container {
+            flattenLayoutIfNeeded(in: self)
+        }
     }
 
     @available(*, unavailable)
@@ -30,8 +32,10 @@ open class VAYogaView: UIView, VAYogaLayout {
     }
 
     open override func layoutSubviews() {
-        flattenLayoutIfNeeded(in: self)
-        
+        if layoutType != .container {
+            flattenLayoutIfNeeded(in: self)
+        }
+
         super.layoutSubviews()
 
         if layoutType == .root {
