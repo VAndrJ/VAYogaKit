@@ -11,7 +11,7 @@ import VAYogaKit
 import Differ
 import Combine
 
-class BaseTableView<Item: AnyTableCellViewModel>: VAYogaTableView, @unchecked Sendable {
+class BaseTableView<Item: AnyCellViewModel>: VAYogaTableView, @unchecked Sendable {
     private var tableDataSourceDelegate: TableDataSourceDelegate<Item>!
     private var publisher: AnyPublisher<[[Item]], Never> { listData.map { [$0] }.eraseToAnyPublisher() }
     private let listData: Published<[Item]>.Publisher
@@ -33,7 +33,7 @@ class BaseTableView<Item: AnyTableCellViewModel>: VAYogaTableView, @unchecked Se
     }
 }
 
-class TableDataSourceDelegate<Item: AnyTableCellViewModel>: NSObject, UITableViewDataSource, UITableViewDelegate {
+class TableDataSourceDelegate<Item: AnyCellViewModel>: NSObject, UITableViewDataSource, UITableViewDelegate {
     var data: [[Item]] {
         didSet { tableView?.animateRowAndSectionChanges(oldData: oldValue, newData: data) }
     }

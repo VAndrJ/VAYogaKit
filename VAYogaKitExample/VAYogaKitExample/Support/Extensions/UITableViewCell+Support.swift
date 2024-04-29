@@ -10,7 +10,7 @@ import UIKit
 
 extension UITableViewCell: VAIdentifiable {}
 
-class SpecializedCellViewModel<TableCell: UITableViewCell & VAIdentifiable, CollectionCell: UICollectionViewCell & VAIdentifiable>: AnyTableCellViewModel {
+class SpecializedCellViewModel<TableCell: UITableViewCell & VAIdentifiable, CollectionCell: UICollectionViewCell & VAIdentifiable>: AnyCellViewModel {
     override class var tableCellType: UITableViewCell.Type { TableCell.self }
     override class var collectionCellType: UICollectionViewCell.Type { CollectionCell.self }
 
@@ -28,7 +28,7 @@ class SpecializedCellViewModel<TableCell: UITableViewCell & VAIdentifiable, Coll
 }
 
 @MainActor
-class AnyTableCellViewModel: CellViewModel<UITableViewCell, UICollectionViewCell> {
+class AnyCellViewModel: CellViewModel<UITableViewCell, UICollectionViewCell> {
 
     func configure(cell: UITableViewCell) {}
 
