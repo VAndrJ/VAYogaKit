@@ -30,6 +30,7 @@ public enum VAYogaLayoutType {
     case root
     case container
     case selfSizedView
+    case scrollContent
 }
 
 public enum VAYogaLayoutMode {
@@ -142,7 +143,7 @@ public extension VAYogaLayout {
                     size: .init(width: node.widthValue, height: node.heightValue)
                 )
             }
-        case .root, .layout:
+        case .root, .layout, .scrollContent:
             break
         }
         if !isLeaf {
@@ -204,7 +205,7 @@ extension VAYogaLayout {
             setNeedsLayout()
         } else {
             let parent: AnyObject? = node?.parent?.getContext()
-            (parent as? VAYogaLayout)?.setNeedsRelayout()
+            (parent as? VAYogaLayout)?.setNeedsUpdateLayout()
         }
     }
 }

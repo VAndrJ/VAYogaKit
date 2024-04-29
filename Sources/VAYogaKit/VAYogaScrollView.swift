@@ -25,12 +25,15 @@ open class VAYogaScrollView: UIScrollView, VAYogaLayout {
     public var node: YGNodeRef!
     public var sublayouts: [any VAYogaLayout] = []
     public var layout: any VAYogaLayout { layoutBlock?() ?? contentView }
-    public let contentView = VAYogaView(layoutType: .container)
+    public let contentView = VAYogaView(layoutType: .scrollContent)
     public var scrollableDirections: VAYogaScrollableDirection {
-        didSet { node.markDirtyIfAvailable() }
+        didSet { 
+            node.markDirtyIfAvailable()
+            setNeedsUpdateLayout()
+        }
     }
     public var layoutBlock: (() -> (any VAYogaLayout)?)?
-    public var isDirty = false
+    public var isDirty = true
 
     public init(scrollableDirections: VAYogaScrollableDirection) {
         self.scrollableDirections = scrollableDirections
@@ -47,11 +50,26 @@ open class VAYogaScrollView: UIScrollView, VAYogaLayout {
         fatalError("init(coder:) has not been implemented")
     }
 
-    open override func layoutSubviews() {
-        flattenIfNeeded(layout: layout, in: contentView)
+    open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
 
+        if previousTraitCollection?.horizontalSizeClass != traitCollection.horizontalSizeClass ||
+            previousTraitCollection?.verticalSizeClass != traitCollection.verticalSizeClass {
+            setNeedsUpdateLayout()
+        }
+    }
+
+    public func setNeedsUpdateLayout() {
+        isDirty = true
+        setNeedsLayout()
+    }
+
+    open override func layoutSubviews() {
         super.layoutSubviews()
-        
+
+        guard isDirty else { return }
+
+        flattenIfNeeded(layout: layout, in: contentView)
         contentView.applyLayoutToScrollHierarchy(
             size: frame.size,
             scrollableDirections: scrollableDirections
@@ -59,6 +77,7 @@ open class VAYogaScrollView: UIScrollView, VAYogaLayout {
             contentView.frame.size = $0
             contentSize = $0
         }
+        isDirty = false
     }
 
     deinit {
