@@ -76,6 +76,23 @@ public extension YGNodeRef {
             }
         }
     }
+    var height: YGValue {
+        get { YGNodeStyleGetHeight(self) }
+        set {
+            switch newValue.unit {
+            case .undefined:
+                YGNodeStyleSetHeight(self, .nan)
+            case .point:
+                YGNodeStyleSetHeight(self, newValue.value)
+            case .percent:
+                YGNodeStyleSetHeightPercent(self, newValue.value)
+            case .auto:
+                YGNodeStyleSetHeightAuto(self)
+            default:
+                assertionFailure("Not implemented")
+            }
+        }
+    }
     var minWidth: YGValue {
         get { YGNodeStyleGetMinWidth(self) }
         set {
