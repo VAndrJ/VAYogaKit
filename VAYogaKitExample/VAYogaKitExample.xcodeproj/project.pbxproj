@@ -36,6 +36,7 @@
 		A38DDCDA2BDF8F3800B34C34 /* RowScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCD92BDF8F3800B34C34 /* RowScreenView.swift */; };
 		A38DDCDC2BDFA5DE00B34C34 /* Yoga+Titles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCDB2BDFA5DE00B34C34 /* Yoga+Titles.swift */; };
 		A38DDCDE2BDFAB6F00B34C34 /* ColumnScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCDD2BDFAB6F00B34C34 /* ColumnScreenView.swift */; };
+		A38DDCE02BDFD59A00B34C34 /* BaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCDF2BDFD59A00B34C34 /* BaseCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		A38DDCD92BDF8F3800B34C34 /* RowScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowScreenView.swift; sourceTree = "<group>"; };
 		A38DDCDB2BDFA5DE00B34C34 /* Yoga+Titles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Yoga+Titles.swift"; sourceTree = "<group>"; };
 		A38DDCDD2BDFAB6F00B34C34 /* ColumnScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnScreenView.swift; sourceTree = "<group>"; };
+		A38DDCDF2BDFD59A00B34C34 /* BaseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 				A38DDC9E2BDE806B00B34C34 /* BaseTableView.swift */,
 				A38DDCB12BDE9AE000B34C34 /* BaseScreenView.swift */,
 				A38DDCD62BDF81DB00B34C34 /* BaseNavigationController.swift */,
+				A38DDCDF2BDFD59A00B34C34 /* BaseCollectionView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				A38DDCDC2BDFA5DE00B34C34 /* Yoga+Titles.swift in Sources */,
 				A38DDC902BDE7E2600B34C34 /* VAIdentifiable.swift in Sources */,
 				A38DDC962BDE7ED400B34C34 /* UITableView+Support.swift in Sources */,
+				A38DDCE02BDFD59A00B34C34 /* BaseCollectionView.swift in Sources */,
 				A38DDC9F2BDE806B00B34C34 /* BaseTableView.swift in Sources */,
 				A38DDC852BDD010C00B34C34 /* BaseControllerView.swift in Sources */,
 				A38DDC872BDD012200B34C34 /* BaseView.swift in Sources */,
