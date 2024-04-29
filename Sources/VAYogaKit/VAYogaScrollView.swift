@@ -24,11 +24,12 @@ open class VAYogaScrollView: UIScrollView, VAYogaLayout {
     public var layoutType: VAYogaLayoutType = .container
     public var node: YGNodeRef!
     public var sublayouts: [any VAYogaLayout] = []
-    public var layout: any VAYogaLayout { self }
+    public var layout: any VAYogaLayout { layoutBlock?() ?? self }
     public let contentView = UIView()
     public var scrollableDirections: VAYogaScrollableDirection {
         didSet { node.markDirtyIfAvailable() }
     }
+    public var layoutBlock: (() -> any VAYogaLayout)?
 
     public init(scrollableDirections: VAYogaScrollableDirection = .vertical) {
         self.scrollableDirections = scrollableDirections
