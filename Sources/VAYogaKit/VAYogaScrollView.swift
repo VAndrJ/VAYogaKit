@@ -38,6 +38,7 @@ open class VAYogaScrollView: UIScrollView, VAYogaLayout {
 
         self.node = .new(for: self)
         addSubview(contentView)
+        flattenLayoutIfNeeded(in: contentView)
     }
     
     @available(*, unavailable)
@@ -46,11 +47,13 @@ open class VAYogaScrollView: UIScrollView, VAYogaLayout {
     }
 
     open override func layoutSubviews() {
-        super.layoutSubviews()
-
         flattenLayoutIfNeeded(in: contentView)
+
+        super.layoutSubviews()
+        
         applyLayoutToScrollHierarchy(size: frame.size, scrollableDirections: scrollableDirections) {
             contentView.frame.size = $0
+            contentSize = $0
         }
     }
 
