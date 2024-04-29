@@ -59,6 +59,23 @@ public extension YGNodeRef {
         get { YGNodeStyleGetFlexDirection(self) }
         set { YGNodeStyleSetFlexDirection(self, newValue) }
     }
+    var width: YGValue {
+        get { YGNodeStyleGetWidth(self) }
+        set {
+            switch newValue.unit {
+            case .undefined:
+                YGNodeStyleSetWidth(self, .nan)
+            case .point:
+                YGNodeStyleSetWidth(self, newValue.value)
+            case .percent:
+                YGNodeStyleSetWidthPercent(self, newValue.value)
+            case .auto:
+                YGNodeStyleSetWidthAuto(self)
+            default:
+                assertionFailure("Not implemented")
+            }
+        }
+    }
     var minWidth: YGValue {
         get { YGNodeStyleGetMinWidth(self) }
         set {
