@@ -10,7 +10,7 @@ import VANavigator
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
-    
+
     private lazy var navigator = Navigator(window: window, screenFactory: ScreenFactory())
 
     func scene(

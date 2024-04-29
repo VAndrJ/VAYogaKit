@@ -119,10 +119,8 @@ public extension YGDirection {
 }
 
 public struct VAYogaFlexibility: RawRepresentable, OptionSet {
-    @MainActor
-    public static let flexibleWidth = VAYogaFlexibility(rawValue: 1 << 0)
-    @MainActor
-    public static let flexibleHeight = VAYogaFlexibility(rawValue: 1 << 1)
+    @MainActor public static let flexibleWidth = VAYogaFlexibility(rawValue: 1 << 0)
+    @MainActor public static let flexibleHeight = VAYogaFlexibility(rawValue: 1 << 1)
 
     public let rawValue: UInt8
 
