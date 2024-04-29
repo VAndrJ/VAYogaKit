@@ -171,4 +171,40 @@ public extension VAYogaLayout {
             sublayouts.forEach { $0.applyLayoutToHierarchy(keepingOrigin: false) }
         }
     }
+
+    @MainActor
+    func applyLayoutToScrollHierarchy(
+        size: CGSize,
+        scrollableDirections: VAYogaScrollableDirection,
+        calculated: (CGSize) -> Void
+    ) {
+        assertMain()
+        let width: Float
+        let height: Float
+        if scrollableDirections.contains(.horizontal) {
+            width = .nan
+        } else {
+            width = Float(size.width)
+        }
+        if scrollableDirections.contains(.vertical) {
+            height = .nan
+        } else {
+            height = Float(size.height)
+        }
+        calculateLayout(width: width, height: height)
+        switch layoutType {
+        case .view, .selfSizedView:
+            frame = .init(
+                origin: node.absolutePosition,
+                size: .init(width: node.widthValue, height: node.heightValue)
+            )
+        case .container:
+            calculated(.init(width: node.widthValue, height: node.heightValue))
+        case .root, .layout:
+            break
+        }
+        if !isLeaf {
+            sublayouts.forEach { $0.applyLayoutToHierarchy(keepingOrigin: false) }
+        }
+    }
 }
