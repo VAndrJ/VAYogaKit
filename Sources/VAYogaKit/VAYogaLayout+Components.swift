@@ -150,6 +150,7 @@ public extension VAYogaLayout {
     }
 
     @MainActor
+    @discardableResult
     func flex(
         shrink: Float? = nil,
         grow: Float? = nil,

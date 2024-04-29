@@ -32,18 +32,14 @@ open class VAYogaCollectionViewCell: UICollectionViewCell, VAYogaLayout {
         super.layoutSubviews()
 
         // TODO: - For different sizings
-        applyLayoutToCollectionCellHierarchy(size: contentView.frame.size) { size in
-            frame.size.height = size.height
-        }
+        applyLayoutToCollectionCellHierarchy(size: contentView.frame.size)
     }
 
     public override func sizeThatFits(_ size: CGSize) -> CGSize {
         flattenLayoutIfNeeded(in: contentView)
-        applyLayoutToCollectionCellHierarchy(size: contentView.frame.size) { size in
-            frame.size.height = size.height
-        }
+        applyLayoutToCollectionCellHierarchy(size: contentView.frame.size)
 
-        return frame.size
+        return contentView.frame.size
     }
 
     deinit {

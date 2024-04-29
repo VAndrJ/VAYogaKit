@@ -160,10 +160,9 @@ public extension VAYogaLayout {
     }
 
     @MainActor
-    func applyLayoutToCollectionCellHierarchy(size: CGSize, calculated: (CGSize) -> Void) {
+    func applyLayoutToCollectionCellHierarchy(size: CGSize) {
         assertMain()
         calculateLayout(width: Float(size.width), height: Float(size.height))
-        calculated(.init(width: node.heightValue, height: node.widthValue))
         if !isLeaf {
             sublayouts.forEach { $0.applyLayoutToHierarchy(keepingOrigin: false) }
         }
