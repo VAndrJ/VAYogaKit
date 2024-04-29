@@ -61,6 +61,18 @@ public extension VAYogaLayout {
     }
 
     @MainActor
+    func calculateLayout(width: Float, height: Float) {
+        assertMain()
+        buildNodesHierarchy()
+        YGNodeCalculateLayout(
+            node,
+            width,
+            height,
+            YGNodeStyleGetDirection(node)
+        )
+    }
+
+    @MainActor
     func buildNodesHierarchy() {
         if isLeaf {
             node.removeAllChildren()
