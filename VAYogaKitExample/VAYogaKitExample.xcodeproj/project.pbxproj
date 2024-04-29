@@ -149,13 +149,13 @@
 		A38DDC812BDCFF1E00B34C34 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				A38DDCDF2BDFD59A00B34C34 /* BaseCollectionView.swift */,
 				A38DDC842BDD010C00B34C34 /* BaseControllerView.swift */,
+				A38DDCD62BDF81DB00B34C34 /* BaseNavigationController.swift */,
+				A38DDCB12BDE9AE000B34C34 /* BaseScreenView.swift */,
+				A38DDC9E2BDE806B00B34C34 /* BaseTableView.swift */,
 				A38DDC862BDD012200B34C34 /* BaseView.swift */,
 				A38DDC822BDCFF3300B34C34 /* BaseViewController.swift */,
-				A38DDC9E2BDE806B00B34C34 /* BaseTableView.swift */,
-				A38DDCB12BDE9AE000B34C34 /* BaseScreenView.swift */,
-				A38DDCD62BDF81DB00B34C34 /* BaseNavigationController.swift */,
-				A38DDCDF2BDFD59A00B34C34 /* BaseCollectionView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
