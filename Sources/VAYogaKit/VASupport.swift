@@ -12,3 +12,9 @@ import Foundation
     assert(Thread.isMainThread, "This method must be called on the main thread.", file: file, line: line)
     #endif
 }
+
+@inline(__always) func logLayoutSubviews(file: StaticString = #file, line: UInt = #line) {
+    #if DEBUG
+    print(file, line)
+    #endif
+}
