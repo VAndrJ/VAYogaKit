@@ -92,7 +92,7 @@ class TableDataSourceDelegate<Item: AnyTableCellViewModel>: NSObject, UITableVie
     ) -> UITableViewCell {
         let cellData = data[indexPath.section][indexPath.row]
 
-        return tableView.dequeue(cellData.cellType) {
+        return tableView.dequeue(cellData.tableCellType) {
             cellData.configure(cell: $0)
         }
     }

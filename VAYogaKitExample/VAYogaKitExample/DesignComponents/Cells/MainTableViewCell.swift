@@ -35,7 +35,7 @@ class MainTableViewCell: VAYogaTableViewCell {
     }
 }
 
-class MainTableCellViewModel: TableCellViewModel<MainTableViewCell> {
+class MainTableCellViewModel: SpecializedCellViewModel<MainTableViewCell, UICollectionViewCell> {
     let title: String
     let description: String
     let destination: NavigationIdentity

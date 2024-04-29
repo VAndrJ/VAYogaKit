@@ -10,29 +10,44 @@ import UIKit
 
 extension UITableViewCell: VAIdentifiable {}
 
-class TableCellViewModel<Cell: UITableViewCell & VAIdentifiable>: AnyTableCellViewModel {
-    override class var cellType: (UITableViewCell & VAIdentifiable).Type { Cell.self }
+class SpecializedCellViewModel<TableCell: UITableViewCell & VAIdentifiable, CollectionCell: UICollectionViewCell & VAIdentifiable>: AnyTableCellViewModel {
+    override class var tableCellType: UITableViewCell.Type { TableCell.self }
+    override class var collectionCellType: UICollectionViewCell.Type { CollectionCell.self }
 
     override func configure(cell: UITableViewCell) {
-        configure(cell: cell as! Cell)
+        configure(cell: cell as! TableCell)
     }
 
-    func configure(cell: Cell) {}
+    func configure(cell: TableCell) {}
+
+    override func configure(cell: UICollectionViewCell) {
+        configure(cell: cell as! CollectionCell)
+    }
+
+    func configure(cell: CollectionCell) {}
 }
 
 @MainActor
-class AnyTableCellViewModel: Equatable {
-    nonisolated static func == (lhs: AnyTableCellViewModel, rhs: AnyTableCellViewModel) -> Bool {
-        type(of: lhs) == type(of: rhs) && lhs.isEqual(to: rhs)
-    }
-
-    class var cellType: (UITableViewCell & VAIdentifiable).Type { fatalError() }
-
-    var cellType: (UITableViewCell & VAIdentifiable).Type { Self.cellType }
+class AnyTableCellViewModel: CellViewModel<UITableViewCell, UICollectionViewCell> {
 
     func configure(cell: UITableViewCell) {}
 
-    nonisolated func isEqual(to other: AnyTableCellViewModel) -> Bool {
+    func configure(cell: UICollectionViewCell) {}
+}
+
+@MainActor
+class CellViewModel<TableCell: AnyObject, CollectionCell: AnyObject>: Equatable {
+    nonisolated static func == (lhs: CellViewModel, rhs: CellViewModel) -> Bool {
+        type(of: lhs) == type(of: rhs) && lhs.isEqual(to: rhs)
+    }
+
+    class var tableCellType: TableCell.Type { fatalError("Override") }
+    class var collectionCellType: CollectionCell.Type { fatalError("Override") }
+
+    var tableCellType: TableCell.Type { Self.tableCellType }
+    var collectionCellType: CollectionCell.Type { Self.collectionCellType }
+
+    nonisolated func isEqual(to other: CellViewModel) -> Bool {
         ObjectIdentifier(self) == ObjectIdentifier(other)
     }
 }
