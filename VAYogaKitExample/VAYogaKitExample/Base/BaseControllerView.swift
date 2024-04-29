@@ -9,7 +9,7 @@
 import UIKit
 import VAYogaKit
 
-class BaseControllerView: BaseView, ControllerView {
+class BaseControllerView: VAYogaView, ControllerView {
     weak var controller: UIViewController?
 
     init() {
@@ -19,4 +19,16 @@ class BaseControllerView: BaseView, ControllerView {
     func controllerInitialized(_ controller: UIViewController) {
         self.controller = controller
     }
+
+    func viewDidLoad() {
+        addElements()
+        configure()
+        bind()
+    }
+
+    func addElements() {}
+
+    func configure() {}
+
+    func bind() {}
 }
