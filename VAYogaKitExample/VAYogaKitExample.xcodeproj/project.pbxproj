@@ -32,6 +32,7 @@
 		A38DDCB02BDE97ED00B34C34 /* NSObject+Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCAF2BDE97ED00B34C34 /* NSObject+Support.swift */; };
 		A38DDCB22BDE9AE000B34C34 /* BaseScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCB12BDE9AE000B34C34 /* BaseScreenView.swift */; };
 		A38DDCB52BDEB57F00B34C34 /* Differ in Frameworks */ = {isa = PBXBuildFile; productRef = A38DDCB42BDEB57F00B34C34 /* Differ */; };
+		A38DDCD72BDF81DB00B34C34 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCD62BDF81DB00B34C34 /* BaseNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		A38DDCAA2BDE940B00B34C34 /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
 		A38DDCAF2BDE97ED00B34C34 /* NSObject+Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Support.swift"; sourceTree = "<group>"; };
 		A38DDCB12BDE9AE000B34C34 /* BaseScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScreenView.swift; sourceTree = "<group>"; };
+		A38DDCD62BDF81DB00B34C34 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 				A38DDC822BDCFF3300B34C34 /* BaseViewController.swift */,
 				A38DDC9E2BDE806B00B34C34 /* BaseTableView.swift */,
 				A38DDCB12BDE9AE000B34C34 /* BaseScreenView.swift */,
+				A38DDCD62BDF81DB00B34C34 /* BaseNavigationController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				A38DDC852BDD010C00B34C34 /* BaseControllerView.swift in Sources */,
 				A38DDC872BDD012200B34C34 /* BaseView.swift in Sources */,
 				A38DDC982BDE7F1600B34C34 /* UICollectionView+Support.swift in Sources */,
+				A38DDCD72BDF81DB00B34C34 /* BaseNavigationController.swift in Sources */,
 				A38DDCAB2BDE940B00B34C34 /* ScreenFactory.swift in Sources */,
 				A38DDC3D2BDAC86B00B34C34 /* SceneDelegate.swift in Sources */,
 				A38DDC8E2BDE7DF000B34C34 /* CGSize+Support.swift in Sources */,
