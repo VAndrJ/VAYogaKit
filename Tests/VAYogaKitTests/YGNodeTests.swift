@@ -763,7 +763,12 @@ final class YGNodeTests: XCTestCase {
 
     @MainActor
     func test_node_baselineFunc_label() {
+        let object = UILabel()
         let node = createNode(object: UILabel())
+
+        XCTAssertTrue(node.hasBaselineFunc)
+
+        node.addBaselineFuncIfNeeded(object: object)
 
         XCTAssertTrue(node.hasBaselineFunc)
     }
