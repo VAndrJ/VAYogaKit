@@ -14,7 +14,7 @@ public extension YGNodeRef {
     static func new(for object: AnyObject) -> YGNodeRef {
         let node: YGNodeRef! = YGNodeNewWithConfig(VAYogaConfig.globalConfig)
         YGNodeSetContext(node, Unmanaged.passUnretained(object).toOpaque())
-        node.addMeasureBaselineFuncIfNeeded(object: object)
+        node.addBaselineFuncIfNeeded(object: object)
 
         return node
     }
@@ -457,7 +457,7 @@ public extension YGNodeRef {
     }
 
     @MainActor
-    func addMeasureBaselineFuncIfNeeded(object: AnyObject) {
+    func addBaselineFuncIfNeeded(object: AnyObject) {
         guard !hasBaselineFunc else { return }
 
         if object is UILabel {
