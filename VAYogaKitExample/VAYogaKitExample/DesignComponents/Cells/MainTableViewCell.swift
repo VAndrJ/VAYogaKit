@@ -12,11 +12,12 @@ import VAYogaKit
 class MainTableViewCell: VAYogaTableViewCell {
     private let titleLabel = VAYogaLabel().apply {
         $0.numberOfLines = 0
-        $0.font = .boldSystemFont(ofSize: 20)
+        $0.font = .boldSystemFont(ofSize: 18)
     }
     private let descriptionLabel = VAYogaLabel().apply {
         $0.numberOfLines = 0
-        $0.font = .systemFont(ofSize: 16, weight: .light)
+        $0.font = .systemFont(ofSize: 15, weight: .light)
+        $0.textColor = .secondaryLabel
     }
 
     func configure(title: String, description: String) {
@@ -26,7 +27,7 @@ class MainTableViewCell: VAYogaTableViewCell {
     }
 
     override var layout: any VAYogaLayout {
-        Column(spacing: 8) {
+        Column(spacing: 4) {
             titleLabel
             descriptionLabel
         }
