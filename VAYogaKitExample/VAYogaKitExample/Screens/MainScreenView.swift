@@ -8,6 +8,7 @@
 
 import UIKit
 import VAYogaKit
+import VAYogaKitMacro
 
 struct MainScreenNavigationIdentity: DefaultNavigationIdentity {}
 
@@ -21,9 +22,7 @@ final class MainScreenView: BaseScreenView<MainScreenViewModel> {
         usedCells: [MainCollectionViewCell.self],
         onSelect: viewModel ?> { $0.onSelect(cell: $1) }
     )
-    private var isGridView = false {
-        didSet { setNeedsUpdateLayout() }
-    }
+    @Layout private var isGridView = false
 
     override var layout: any VAYogaLayout {
         SafeArea {

@@ -39,6 +39,7 @@
 		A38DDCE02BDFD59A00B34C34 /* BaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCDF2BDFD59A00B34C34 /* BaseCollectionView.swift */; };
 		A38DDCE32BE004D500B34C34 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCE22BE004D500B34C34 /* MainCollectionViewCell.swift */; };
 		A38DDCE52BE0052000B34C34 /* MainTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCE42BE0052000B34C34 /* MainTableCellViewModel.swift */; };
+		A38DDCE72BE0098E00B34C34 /* VAYogaKitMacro in Frameworks */ = {isa = PBXBuildFile; productRef = A38DDCE62BE0098E00B34C34 /* VAYogaKitMacro */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A38DDCE72BE0098E00B34C34 /* VAYogaKitMacro in Frameworks */,
 				A38DDC512BDAD70000B34C34 /* VAYogaKit in Frameworks */,
 				A38DDCA62BDE916A00B34C34 /* VANavigator in Frameworks */,
 				A38DDCB52BDEB57F00B34C34 /* Differ in Frameworks */,
@@ -270,6 +272,7 @@
 				A38DDCA52BDE916A00B34C34 /* VANavigator */,
 				A38DDCAD2BDE97CB00B34C34 /* Swiftional */,
 				A38DDCB42BDEB57F00B34C34 /* Differ */,
+				A38DDCE62BE0098E00B34C34 /* VAYogaKitMacro */,
 			);
 			productName = VAYogaKitExample;
 			productReference = A38DDC372BDAC86B00B34C34 /* VAYogaKitExample.app */;
@@ -618,6 +621,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A38DDCB32BDEB57F00B34C34 /* XCRemoteSwiftPackageReference "Differ" */;
 			productName = Differ;
+		};
+		A38DDCE62BE0098E00B34C34 /* VAYogaKitMacro */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = VAYogaKitMacro;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
