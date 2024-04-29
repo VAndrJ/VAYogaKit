@@ -18,19 +18,17 @@ class BaseTableView<Item: AnyTableCellViewModel>: VAYogaTableView, @unchecked Se
 
     init(
         style: UITableView.Style = .plain,
-        listData: Published<[Item]>.Publisher
+        listData: Published<[Item]>.Publisher,
+        onSelect: ((Item) -> Void)? = nil
     ) {
         self.listData = listData
 
         super.init(style: style)
 
-        configure()
-    }
-
-    func configure() {
-        tableDataSourceDelegate = TableDataSourceDelegate<Item>(
+        self.tableDataSourceDelegate = TableDataSourceDelegate<Item>(
             tableView: self,
-            listData: publisher
+            listData: publisher,
+            onSelect: onSelect
         )
     }
 }
@@ -42,11 +40,14 @@ class TableDataSourceDelegate<Item: AnyTableCellViewModel>: NSObject, UITableVie
 
     private weak var tableView: UITableView?
     private var bag: Set<AnyCancellable> = []
+    private var onSelect: ((Item) -> Void)?
 
     init(
         tableView: UITableView,
-        listData: AnyPublisher<[[Item]], Never>
+        listData: AnyPublisher<[[Item]], Never>,
+        onSelect: ((Item) -> Void)? = nil
     ) {
+        self.onSelect = onSelect
         self.tableView = tableView
         self.data = []
 
@@ -59,7 +60,12 @@ class TableDataSourceDelegate<Item: AnyTableCellViewModel>: NSObject, UITableVie
         tableView.delegate = self
     }
 
-    init(tableView: UITableView, data: [[Item]] = []) {
+    init(
+        tableView: UITableView,
+        data: [[Item]] = [],
+        onSelect: ((Item) -> Void)? = nil
+    ) {
+        self.onSelect = onSelect
         self.tableView = tableView
         self.data = data
 
@@ -73,15 +79,29 @@ class TableDataSourceDelegate<Item: AnyTableCellViewModel>: NSObject, UITableVie
         data.count
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
         data[section].count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
         let cellData = data[indexPath.section][indexPath.row]
 
         return tableView.dequeue(cellData.cellType) {
             cellData.configure(cell: $0)
         }
+    }
+
+    func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        onSelect?(data[indexPath.section][indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
