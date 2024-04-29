@@ -626,6 +626,18 @@ final class YGNodeTests: XCTestCase {
     }
 
     @MainActor
+    func test_node_positionType() {
+        var node = createNode()
+        let expected: YGPositionType = .absolute
+
+        XCTAssertNotEqual(expected, node.positionType)
+
+        node.positionType = expected
+
+        XCTAssertEqual(expected, node.positionType)
+    }
+
+    @MainActor
     func test_node_maxHeight() {
         var node = createNode()
         let expectedPointValue: YGValue = .point(value: 10)
