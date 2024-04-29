@@ -35,6 +35,7 @@
 		A38DDCD72BDF81DB00B34C34 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCD62BDF81DB00B34C34 /* BaseNavigationController.swift */; };
 		A38DDCDA2BDF8F3800B34C34 /* RowScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCD92BDF8F3800B34C34 /* RowScreenView.swift */; };
 		A38DDCDC2BDFA5DE00B34C34 /* Yoga+Titles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCDB2BDFA5DE00B34C34 /* Yoga+Titles.swift */; };
+		A38DDCDE2BDFAB6F00B34C34 /* ColumnScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCDD2BDFAB6F00B34C34 /* ColumnScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		A38DDCD62BDF81DB00B34C34 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		A38DDCD92BDF8F3800B34C34 /* RowScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowScreenView.swift; sourceTree = "<group>"; };
 		A38DDCDB2BDFA5DE00B34C34 /* Yoga+Titles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Yoga+Titles.swift"; sourceTree = "<group>"; };
+		A38DDCDD2BDFAB6F00B34C34 /* ColumnScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				A38DDCD92BDF8F3800B34C34 /* RowScreenView.swift */,
+				A38DDCDD2BDFAB6F00B34C34 /* ColumnScreenView.swift */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				A38DDC982BDE7F1600B34C34 /* UICollectionView+Support.swift in Sources */,
 				A38DDCDA2BDF8F3800B34C34 /* RowScreenView.swift in Sources */,
 				A38DDCD72BDF81DB00B34C34 /* BaseNavigationController.swift in Sources */,
+				A38DDCDE2BDFAB6F00B34C34 /* ColumnScreenView.swift in Sources */,
 				A38DDCAB2BDE940B00B34C34 /* ScreenFactory.swift in Sources */,
 				A38DDC3D2BDAC86B00B34C34 /* SceneDelegate.swift in Sources */,
 				A38DDC8E2BDE7DF000B34C34 /* CGSize+Support.swift in Sources */,
