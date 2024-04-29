@@ -24,8 +24,8 @@ open class VAYogaScrollView: UIScrollView, VAYogaLayout {
     public var layoutType: VAYogaLayoutType = .container
     public var node: YGNodeRef!
     public var sublayouts: [any VAYogaLayout] = []
-    public var layout: any VAYogaLayout { layoutBlock?() ?? self }
-    public let contentView = UIView()
+    public var layout: any VAYogaLayout { layoutBlock?() ?? contentView }
+    public let contentView = VAYogaView(layoutType: .container)
     public var scrollableDirections: VAYogaScrollableDirection {
         didSet { node.markDirtyIfAvailable() }
     }
@@ -38,7 +38,7 @@ open class VAYogaScrollView: UIScrollView, VAYogaLayout {
 
         self.node = .new(for: self)
         addSubview(contentView)
-        flattenLayoutIfNeeded(in: contentView)
+        flattenIfNeeded(layout: layout, in: contentView)
     }
     
     @available(*, unavailable)
@@ -47,11 +47,14 @@ open class VAYogaScrollView: UIScrollView, VAYogaLayout {
     }
 
     open override func layoutSubviews() {
-        flattenLayoutIfNeeded(in: contentView)
+        flattenIfNeeded(layout: layout, in: contentView)
 
         super.layoutSubviews()
         
-        applyLayoutToScrollHierarchy(size: frame.size, scrollableDirections: scrollableDirections) {
+        contentView.applyLayoutToScrollHierarchy(
+            size: frame.size,
+            scrollableDirections: scrollableDirections
+        ) {
             contentView.frame.size = $0
             contentSize = $0
         }
