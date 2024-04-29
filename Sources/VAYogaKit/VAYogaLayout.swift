@@ -76,7 +76,9 @@ public extension VAYogaLayout {
     func buildNodesHierarchy() {
         if isLeaf {
             node.removeAllChildren()
-            node.setMeasureFunc(measureViewFunc)
+            if !node.hasMeasureFunc {
+                node.setMeasureFunc(measureViewFunc)
+            }
         } else {
             node.removeMeasureFunc()
             let subviewsToInclude = sublayouts
