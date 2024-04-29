@@ -14,6 +14,7 @@ public protocol VAYogaLayout: AnyObject {
     @MainActor var frame: CGRect { get set }
     @MainActor var sublayouts: [any VAYogaLayout] { get set }
     @MainActor var layout: any VAYogaLayout { get }
+    @MainActor var isDirty: Bool { get set }
 
     @MainActor
     func sizeThatFits(_ size: CGSize) -> CGSize

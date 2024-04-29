@@ -30,6 +30,7 @@ open class VAYogaScrollView: UIScrollView, VAYogaLayout {
         didSet { node.markDirtyIfAvailable() }
     }
     public var layoutBlock: (() -> (any VAYogaLayout)?)?
+    public var isDirty = false
 
     public init(scrollableDirections: VAYogaScrollableDirection) {
         self.scrollableDirections = scrollableDirections

@@ -13,6 +13,7 @@ open class VAYogaCollectionViewCell: UICollectionViewCell, VAYogaLayout {
     public var node: YGNodeRef!
     public var sublayouts: [any VAYogaLayout] = []
     open var layout: any VAYogaLayout { self }
+    public var isDirty = false
 
     public override init(frame: CGRect) {
         super.init(frame: frame)

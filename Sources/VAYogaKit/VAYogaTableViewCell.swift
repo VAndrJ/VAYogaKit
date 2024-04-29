@@ -13,6 +13,7 @@ open class VAYogaTableViewCell: UITableViewCell, VAYogaLayout {
     public var node: YGNodeRef!
     public var sublayouts: [any VAYogaLayout] = []
     open var layout: any VAYogaLayout { self }
+    public var isDirty = false
 
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

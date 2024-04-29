@@ -13,6 +13,7 @@ open class VAYogaLabel: UILabel, VAYogaLayout {
     public var node: YGNodeRef!
     public var sublayouts: [any VAYogaLayout] = []
     public var layout: any VAYogaLayout { self }
+    public var isDirty = false
 
     open override var text: String? {
         get { super.text }

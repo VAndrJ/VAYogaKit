@@ -13,6 +13,7 @@ open class VAYogaCollectionView: UICollectionView, VAYogaLayout {
     public var node: YGNodeRef!
     public var sublayouts: [any VAYogaLayout] = []
     open var layout: any VAYogaLayout { self }
+    public var isDirty = false
 
     public init(collectionViewLayout layout: UICollectionViewLayout) {
         super.init(

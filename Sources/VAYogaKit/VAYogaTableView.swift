@@ -13,6 +13,7 @@ open class VAYogaTableView: UITableView, VAYogaLayout {
     public var node: YGNodeRef!
     public var sublayouts: [any VAYogaLayout] = []
     open var layout: any VAYogaLayout { self }
+    public var isDirty = false
     public var shouldAnimateContentChange = true
 
     public init(style: UITableView.Style, estimatedRowHeight: CGFloat = 44) {

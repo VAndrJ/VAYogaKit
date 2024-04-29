@@ -14,6 +14,7 @@ open class Column: VAYogaLayout {
     public var frame: CGRect = .zero
     public var sublayouts: [any VAYogaLayout]
     public var layout: any VAYogaLayout { self }
+    public var isDirty = false
 
     @MainActor
     public init(
@@ -59,6 +60,7 @@ open class Row: VAYogaLayout {
     public var frame: CGRect = .zero
     public var sublayouts: [any VAYogaLayout]
     public var layout: any VAYogaLayout { self }
+    public var isDirty = false
 
     @MainActor
     public init(

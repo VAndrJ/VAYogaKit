@@ -13,6 +13,7 @@ open class VAYogaView: UIView, VAYogaLayout {
     public var node: YGNodeRef!
     public var sublayouts: [any VAYogaLayout] = []
     open var layout: any VAYogaLayout { self }
+    public var isDirty = false
 
     public init(layoutType: VAYogaLayoutType) {
         self.layoutType = layoutType
