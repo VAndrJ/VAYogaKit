@@ -38,6 +38,7 @@
 		A38DDCDE2BDFAB6F00B34C34 /* ColumnScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCDD2BDFAB6F00B34C34 /* ColumnScreenView.swift */; };
 		A38DDCE02BDFD59A00B34C34 /* BaseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCDF2BDFD59A00B34C34 /* BaseCollectionView.swift */; };
 		A38DDCE32BE004D500B34C34 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCE22BE004D500B34C34 /* MainCollectionViewCell.swift */; };
+		A38DDCE52BE0052000B34C34 /* MainTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCE42BE0052000B34C34 /* MainTableCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		A38DDCDD2BDFAB6F00B34C34 /* ColumnScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnScreenView.swift; sourceTree = "<group>"; };
 		A38DDCDF2BDFD59A00B34C34 /* BaseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
 		A38DDCE22BE004D500B34C34 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		A38DDCE42BE0052000B34C34 /* MainTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +244,7 @@
 			children = (
 				A38DDCA22BDE819100B34C34 /* MainTableViewCell.swift */,
 				A38DDCE22BE004D500B34C34 /* MainCollectionViewCell.swift */,
+				A38DDCE42BE0052000B34C34 /* MainTableCellViewModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				A38DDCD72BDF81DB00B34C34 /* BaseNavigationController.swift in Sources */,
 				A38DDCDE2BDFAB6F00B34C34 /* ColumnScreenView.swift in Sources */,
 				A38DDCAB2BDE940B00B34C34 /* ScreenFactory.swift in Sources */,
+				A38DDCE52BE0052000B34C34 /* MainTableCellViewModel.swift in Sources */,
 				A38DDC3D2BDAC86B00B34C34 /* SceneDelegate.swift in Sources */,
 				A38DDC8E2BDE7DF000B34C34 /* CGSize+Support.swift in Sources */,
 				A38DDCA92BDE920400B34C34 /* DefaultNavigationIdentity.swift in Sources */,
