@@ -25,6 +25,8 @@ class ScreenFactory: NavigatorScreenFactory {
             ))))
         case _ as RowScreenNavigationIdentity:
             BaseViewController(view: RowScreenView())
+        case _ as ColumnScreenNavigationIdentity:
+            BaseViewController(view: ColumnScreenView())
         default:
             fatalError("Not implemented")
         }
