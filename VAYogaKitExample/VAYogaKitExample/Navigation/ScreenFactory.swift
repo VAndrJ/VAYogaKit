@@ -23,6 +23,8 @@ class ScreenFactory: NavigatorScreenFactory {
                     $0.navigate(destination: .identity($1), strategy: .push())
                 })
             ))))
+        case _ as RowScreenNavigationIdentity:
+            BaseViewController(view: RowScreenView())
         default:
             fatalError("Not implemented")
         }

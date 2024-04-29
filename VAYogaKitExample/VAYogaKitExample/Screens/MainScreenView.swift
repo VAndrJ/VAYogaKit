@@ -40,6 +40,7 @@ final class MainScreenViewModel: BaseViewModel, UITableViewDelegate {
     }
 
     @Published var listData: [MainTableCellViewModel] = [
+        .init(title: "Row", description: "Layout example", destination: RowScreenNavigationIdentity()),
     ]
 
     let context: Context
