@@ -34,6 +34,7 @@
 		A38DDCB52BDEB57F00B34C34 /* Differ in Frameworks */ = {isa = PBXBuildFile; productRef = A38DDCB42BDEB57F00B34C34 /* Differ */; };
 		A38DDCD72BDF81DB00B34C34 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCD62BDF81DB00B34C34 /* BaseNavigationController.swift */; };
 		A38DDCDA2BDF8F3800B34C34 /* RowScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCD92BDF8F3800B34C34 /* RowScreenView.swift */; };
+		A38DDCDC2BDFA5DE00B34C34 /* Yoga+Titles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCDB2BDFA5DE00B34C34 /* Yoga+Titles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		A38DDCB12BDE9AE000B34C34 /* BaseScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScreenView.swift; sourceTree = "<group>"; };
 		A38DDCD62BDF81DB00B34C34 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		A38DDCD92BDF8F3800B34C34 /* RowScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowScreenView.swift; sourceTree = "<group>"; };
+		A38DDCDB2BDFA5DE00B34C34 /* Yoga+Titles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Yoga+Titles.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 				A38DDC952BDE7ED400B34C34 /* UITableView+Support.swift */,
 				A38DDC932BDE7EA600B34C34 /* UITableViewCell+Support.swift */,
 				A38DDCAF2BDE97ED00B34C34 /* NSObject+Support.swift */,
+				A38DDCDB2BDFA5DE00B34C34 /* Yoga+Titles.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 			files = (
 				A38DDC3B2BDAC86B00B34C34 /* AppDelegate.swift in Sources */,
 				A38DDCB02BDE97ED00B34C34 /* NSObject+Support.swift in Sources */,
+				A38DDCDC2BDFA5DE00B34C34 /* Yoga+Titles.swift in Sources */,
 				A38DDC902BDE7E2600B34C34 /* VAIdentifiable.swift in Sources */,
 				A38DDC962BDE7ED400B34C34 /* UITableView+Support.swift in Sources */,
 				A38DDC9F2BDE806B00B34C34 /* BaseTableView.swift in Sources */,
