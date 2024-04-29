@@ -27,14 +27,29 @@ open class VAYogaTableViewCell: UITableViewCell, VAYogaLayout {
         fatalError("init(coder:) has not been implemented")
     }
 
+    public func setNeedsUpdateLayout() {
+        isDirty = true
+        var parent = superview
+        while parent != nil {
+            if let parent = parent as? VAYogaTableView {
+                parent.setNeedsUpdateLayout()
+
+                return
+            }
+            parent = parent?.superview
+        }
+    }
+
     public override func layoutSubviews() {
-        flattenLayoutIfNeeded(in: contentView)
-        
         super.layoutSubviews()
 
+        guard isDirty else { return }
+
+        flattenLayoutIfNeeded(in: contentView)
         applyLayoutToTableCellHierarchy(width: contentView.frame.width) { height in
             frame.size.height = height
         }
+        isDirty = false
     }
 
     public override func sizeThatFits(_ size: CGSize) -> CGSize {
@@ -42,6 +57,7 @@ open class VAYogaTableViewCell: UITableViewCell, VAYogaLayout {
         applyLayoutToTableCellHierarchy(width: contentView.frame.width) { height in
             frame.size.height = height
         }
+        isDirty = false
 
         return frame.size
     }
