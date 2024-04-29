@@ -20,6 +20,8 @@ open class VAYogaView: UIView, VAYogaLayout {
         super.init(frame: .init(x: 0, y: 0, width: 240, height: 128))
 
         self.node = .new(for: self)
+
+        flattenLayoutIfNeeded(in: self)
     }
 
     @available(*, unavailable)
@@ -28,9 +30,10 @@ open class VAYogaView: UIView, VAYogaLayout {
     }
 
     open override func layoutSubviews() {
+        flattenLayoutIfNeeded(in: self)
+        
         super.layoutSubviews()
 
-        flattenLayoutIfNeeded(in: self)
         if layoutType == .root {
             layout(mode: .fitContainer)
         }
