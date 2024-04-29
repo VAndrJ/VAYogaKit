@@ -8,6 +8,8 @@
 
 import VANavigator
 
+typealias NavigationIdentity = VANavigator.NavigationIdentity
+
 protocol DefaultNavigationIdentity: NavigationIdentity {}
 
 extension DefaultNavigationIdentity {
