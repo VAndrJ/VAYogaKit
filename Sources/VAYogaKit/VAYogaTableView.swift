@@ -13,6 +13,7 @@ open class VAYogaTableView: UITableView, VAYogaLayout {
     public var node: YGNodeRef!
     public var sublayouts: [any VAYogaLayout] = []
     open var layout: any VAYogaLayout { self }
+    public var shouldAnimateContentChange = true
 
     public init(style: UITableView.Style, estimatedRowHeight: CGFloat = 44) {
         super.init(frame: .init(x: 0, y: 0, width: 240, height: 128), style: style)
@@ -25,6 +26,16 @@ open class VAYogaTableView: UITableView, VAYogaLayout {
     @available(*, unavailable)
     public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    public func setNeedsUpdateLayout() {
+        if shouldAnimateContentChange {
+            performBatchUpdates {}
+        } else {
+            UIView.performWithoutAnimation {
+                performBatchUpdates {}
+            }
+        }
     }
 
     deinit {
