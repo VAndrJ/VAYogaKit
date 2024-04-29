@@ -702,6 +702,30 @@ final class YGNodeTests: XCTestCase {
     }
 
     @MainActor
+    func test_node_width() {
+        var node = createNode()
+        let expectedPointValue: YGValue = .point(value: 10)
+        node.width = expectedPointValue
+
+        XCTAssertEqual(expectedPointValue, node.width)
+
+        let expectedPercentValue: YGValue = .percent(value: 10)
+        node.width = expectedPercentValue
+
+        XCTAssertEqual(expectedPercentValue, node.width)
+
+        node.width = .undefined
+
+        XCTAssertTrue(node.width.value.isNaN)
+        XCTAssertTrue(node.width.unit == .undefined)
+
+        node.width = .auto
+
+        XCTAssertTrue(node.width.value.isNaN)
+        XCTAssertTrue(node.width.unit == .auto)
+    }
+
+    @MainActor
     func test_node_baselineFunc_label() {
         let node = createNode(object: UILabel())
 
