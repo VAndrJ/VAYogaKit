@@ -461,11 +461,11 @@ public extension YGNodeRef {
         guard !hasBaselineFunc else { return }
 
         if object is UILabel {
-            YGNodeSetBaselineFunc(self, baselineLabelFunc)
+            setBaselineFunc(baselineLabelFunc)
         } else if object is UITextView {
-            YGNodeSetBaselineFunc(self, baselineTextViewFunc)
+            setBaselineFunc(baselineTextViewFunc)
         } else if object is UITextField {
-            YGNodeSetBaselineFunc(self, baselineTextFieldFunc)
+            setBaselineFunc(baselineTextFieldFunc)
         }
     }
 
