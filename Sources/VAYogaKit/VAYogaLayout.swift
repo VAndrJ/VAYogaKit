@@ -153,16 +153,9 @@ public extension VAYogaLayout {
     func applyLayoutToTableCellHierarchy(width: CGFloat, calculated: (CGFloat) -> Void) {
         assertMain()
         calculateLayout(width: Float(width), height: .nan)
-        switch layoutType {
-        case .view, .selfSizedView:
-            frame = .init(
-                origin: node.absolutePosition,
-                size: .init(width: node.widthValue, height: node.heightValue)
-            )
-        case .container:
-            calculated(node.heightValue)
-        case .root, .layout:
-            break
+        calculated(node.heightValue)
+        if !isLeaf {
+            sublayouts.forEach { $0.applyLayoutToHierarchy(keepingOrigin: false) }
         }
     }
 
