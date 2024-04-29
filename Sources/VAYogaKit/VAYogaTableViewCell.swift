@@ -29,12 +29,16 @@ open class VAYogaTableViewCell: UITableViewCell, VAYogaLayout {
         super.layoutSubviews()
 
         flattenLayoutIfNeeded(in: contentView)
-        layout(mode: .adjustHeight)
+        applyLayoutToTableCellHierarchy(width: contentView.frame.width) { height in
+            frame.size.height = height
+        }
     }
 
     public override func sizeThatFits(_ size: CGSize) -> CGSize {
         flattenLayoutIfNeeded(in: contentView)
-        layout(mode: .adjustHeight)
+        applyLayoutToTableCellHierarchy(width: contentView.frame.width) { height in
+            frame.size.height = height
+        }
 
         return frame.size
     }
