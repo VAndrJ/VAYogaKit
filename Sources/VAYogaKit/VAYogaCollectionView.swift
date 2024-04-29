@@ -27,4 +27,8 @@ open class VAYogaCollectionView: UICollectionView, VAYogaLayout {
     public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    deinit {
+        YGNodeFree(node)
+    }
 }

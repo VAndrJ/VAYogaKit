@@ -26,4 +26,8 @@ open class VAYogaTableView: UITableView, VAYogaLayout {
     public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    deinit {
+        YGNodeFree(node)
+    }
 }

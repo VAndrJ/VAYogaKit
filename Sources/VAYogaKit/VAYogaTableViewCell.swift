@@ -42,4 +42,8 @@ open class VAYogaTableViewCell: UITableViewCell, VAYogaLayout {
 
         return frame.size
     }
+
+    deinit {
+        YGNodeFree(node)
+    }
 }
