@@ -70,6 +70,12 @@ public extension YGJustify {
     static let spaceEvently: YGJustify = YGJustifySpaceEvenly
 }
 
+public extension YGPositionType {
+    static let `static`: YGPositionType = YGPositionTypeStatic
+    static let relative: YGPositionType = YGPositionTypeRelative
+    static let absolute: YGPositionType = YGPositionTypeAbsolute
+}
+
 public extension YGAlign {
     static let auto: YGAlign = YGAlignAuto
     static let start: YGAlign = YGAlignFlexStart
