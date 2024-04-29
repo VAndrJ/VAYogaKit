@@ -51,7 +51,7 @@ public struct ScrollLayoutMacro: AccessorMacro {
 
         return [
             AccessorDeclSyntax(accessorSpecifier: .keyword(.didSet)) {
-                "scrollView.setNeedsLayout()"
+                "scrollView.setNeedsUpdateLayout()"
             },
         ]
     }
@@ -108,7 +108,7 @@ public struct ScrollDistinctLayoutMacro: AccessorMacro {
                         return
                     }
 
-                    scrollView.setNeedsLayout()
+                    scrollView.setNeedsUpdateLayout()
                 """
             }
         ]
