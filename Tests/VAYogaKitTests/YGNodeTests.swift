@@ -782,6 +782,10 @@ final class YGNodeTests: XCTestCase {
         node.setMeasureFunc(measureViewFunc)
 
         XCTAssertTrue(node.hasMeasureFunc)
+
+        node.removeMeasureFunc()
+
+        XCTAssertFalse(node.hasMeasureFunc)
     }
 
     @MainActor
