@@ -13,7 +13,7 @@ open class VAYogaCollectionViewCell: UICollectionViewCell, VAYogaLayout {
     public var node: YGNodeRef!
     public var sublayouts: [any VAYogaLayout] = []
     open var layout: any VAYogaLayout { self }
-    public var isDirty = false
+    public var isDirty = true
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,18 +27,26 @@ open class VAYogaCollectionViewCell: UICollectionViewCell, VAYogaLayout {
         fatalError("init(coder:) has not been implemented")
     }
 
-    public override func layoutSubviews() {
-        flattenLayoutIfNeeded(in: contentView)
+    public func setNeedsUpdateLayout() {
+        isDirty = true
+        setNeedsLayout()
+    }
 
+    public override func layoutSubviews() {
         super.layoutSubviews()
 
+        guard isDirty else { return }
+
+        flattenLayoutIfNeeded(in: contentView)
         // TODO: - For different sizings
         applyLayoutToCollectionCellHierarchy(size: contentView.frame.size)
+        isDirty = true
     }
 
     public override func sizeThatFits(_ size: CGSize) -> CGSize {
         flattenLayoutIfNeeded(in: contentView)
         applyLayoutToCollectionCellHierarchy(size: contentView.frame.size)
+        isDirty = false
 
         return contentView.frame.size
     }
