@@ -29,9 +29,9 @@ open class VAYogaScrollView: UIScrollView, VAYogaLayout {
     public var scrollableDirections: VAYogaScrollableDirection {
         didSet { node.markDirtyIfAvailable() }
     }
-    public var layoutBlock: (() -> any VAYogaLayout)?
+    public var layoutBlock: (() -> (any VAYogaLayout)?)?
 
-    public init(scrollableDirections: VAYogaScrollableDirection = .vertical) {
+    public init(scrollableDirections: VAYogaScrollableDirection) {
         self.scrollableDirections = scrollableDirections
 
         super.init(frame: .init(x: 0, y: 0, width: 240, height: 128))
@@ -52,5 +52,9 @@ open class VAYogaScrollView: UIScrollView, VAYogaLayout {
         applyLayoutToScrollHierarchy(size: frame.size, scrollableDirections: scrollableDirections) {
             contentView.frame.size = $0
         }
+    }
+
+    deinit {
+        YGNodeFree(node)
     }
 }
