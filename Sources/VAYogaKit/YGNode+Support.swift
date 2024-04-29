@@ -399,9 +399,12 @@ public extension YGNodeRef {
         var absolutePosition = CGPoint(x: leftValue, y: topValue)
         var currentNode: YGNodeRef? = parent
         while let node = currentNode {
-            if (Unmanaged<AnyObject>.fromOpaque(YGNodeGetContext(node)).takeUnretainedValue() as? VAYogaLayout)?.layoutType == .layout {
+            let layoutType = (Unmanaged<AnyObject>.fromOpaque(YGNodeGetContext(node)).takeUnretainedValue() as? VAYogaLayout)?.layoutType
+            if layoutType == .layout {
                 absolutePosition.x += node.leftValue
                 absolutePosition.y += node.topValue
+            } else if layoutType == .view || layoutType == .container {
+                return absolutePosition
             }
 
             currentNode = YGNodeGetParent(node)
