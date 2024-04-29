@@ -20,4 +20,15 @@ extension UICollectionView {
     ) -> Cell {
         dequeueReusableCell(withReuseIdentifier: cell.identifier, for: indexPath) as! Cell
     }
+
+    func dequeue<Cell: UICollectionViewCell & VAIdentifiable>(
+        _ cell: Cell.Type,
+        for indexPath: IndexPath,
+        configure: (Cell) -> Void
+    ) -> Cell {
+        let cell = dequeueReusableCell(withReuseIdentifier: cell.identifier, for: indexPath) as! Cell
+        configure(cell)
+
+        return cell
+    }
 }
