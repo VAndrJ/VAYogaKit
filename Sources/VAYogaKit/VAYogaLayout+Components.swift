@@ -124,6 +124,15 @@ public extension VAYogaLayout {
 
     @MainActor
     @discardableResult
+    func sized(_ size: CGSize) -> Self {
+        node.width = .point(size.width)
+        node.height = .point(size.height)
+
+        return self
+    }
+
+    @MainActor
+    @discardableResult
     func minSized(_ size: CGSize) -> Self {
         node.minWidth = .point(size.width)
         node.minHeight = .point(size.height)
