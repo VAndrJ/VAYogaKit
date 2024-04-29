@@ -7,6 +7,38 @@
 
 import UIKit
 
+@MainActor
+func flattenIfNeeded(layout: VAYogaLayout, in root: UIView & VAYogaLayout) {
+    if layout !== root {
+        root.sublayouts = [layout]
+    }
+    var sublayoutViews: [UIView] = []
+
+    func appendSubviews(sublayout: VAYogaLayout) {
+        if let view = sublayout as? UIView {
+            sublayoutViews.append(view)
+        } else {
+            sublayout.sublayouts.forEach(appendSubviews(sublayout:))
+        }
+    }
+
+    root.sublayouts.forEach(appendSubviews(sublayout:))
+    var viewsToDelete: [UIView] = []
+    var viewToAppend: [UIView] = []
+    for view in sublayoutViews {
+        if !root.subviews.contains(view) {
+            viewToAppend.append(view)
+        }
+    }
+    for view in root.subviews {
+        if !sublayoutViews.contains(view) {
+            viewsToDelete.append(view)
+        }
+    }
+    viewsToDelete.forEach { $0.removeFromSuperview() }
+    viewToAppend.forEach { root.addSubview($0) }
+}
+
 public extension VAYogaLayout where Self: UIView {
 
     // TODO: - Layout caching?
