@@ -133,13 +133,37 @@ public extension VAYogaLayout {
         switch layoutType {
         case .view, .selfSizedView, .container:
             let topLeft = node.absolutePosition
-            let width = node.widthValue
-            let height = node.heightValue
-            let origin: CGPoint = keepingOrigin ? frame.origin : .zero
+            if keepingOrigin {
+                frame = .init(
+                    origin: .init(x: topLeft.x + frame.origin.x, y: topLeft.y + frame.origin.y),
+                    size: .init(width: node.widthValue, height: node.heightValue)
+                )
+            } else {
+                frame = .init(
+                    origin: topLeft,
+                    size: .init(width: node.widthValue, height: node.heightValue)
+                )
+            }
+        case .root, .layout:
+            break
+        }
+        if !isLeaf {
+            sublayouts.forEach { $0.applyLayoutToHierarchy(keepingOrigin: false) }
+        }
+    }
+
+    @MainActor
+    func applyLayoutToTableCellHierarchy(width: CGFloat, calculated: (CGFloat) -> Void) {
+        assertMain()
+        calculateLayout(width: Float(width), height: .nan)
+        switch layoutType {
+        case .view, .selfSizedView:
             frame = .init(
-                origin: .init(x: topLeft.x + origin.x, y: topLeft.y + origin.y),
-                size: .init(width: width, height: height)
+                origin: node.absolutePosition,
+                size: .init(width: node.widthValue, height: node.heightValue)
             )
+        case .container:
+            calculated(node.heightValue)
         case .root, .layout:
             break
         }
