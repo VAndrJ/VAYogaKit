@@ -18,6 +18,7 @@ open class VAYogaTableViewCell: UITableViewCell, VAYogaLayout {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         self.node = .new(for: self)
+        flattenLayoutIfNeeded(in: contentView)
     }
 
     @available(*, unavailable)
@@ -26,9 +27,10 @@ open class VAYogaTableViewCell: UITableViewCell, VAYogaLayout {
     }
 
     public override func layoutSubviews() {
+        flattenLayoutIfNeeded(in: contentView)
+        
         super.layoutSubviews()
 
-        flattenLayoutIfNeeded(in: contentView)
         applyLayoutToTableCellHierarchy(width: contentView.frame.width) { height in
             frame.size.height = height
         }
