@@ -19,6 +19,8 @@ public protocol VAYogaLayout: AnyObject {
     func sizeThatFits(_ size: CGSize) -> CGSize
     @MainActor
     func setNeedsLayout()
+    @MainActor
+    func setNeedsUpdateLayout()
 }
 
 public enum VAYogaLayoutType {
@@ -39,13 +41,8 @@ public extension VAYogaLayout {
     @MainActor var isLeaf: Bool { sublayouts.isEmpty }
 
     @MainActor
-    func setNeedsRelayout() {
-        if layoutType == .root || layoutType == .container {
-            setNeedsLayout()
-        } else {
-            let parent: AnyObject? = node?.parent?.getContext()
-            (parent as? VAYogaLayout)?.setNeedsRelayout()
-        }
+    func setNeedsUpdateLayout() {
+        setNeedsRelayout()
     }
 
     @MainActor
@@ -205,6 +202,19 @@ public extension VAYogaLayout {
         }
         if !isLeaf {
             sublayouts.forEach { $0.applyLayoutToHierarchy(keepingOrigin: false) }
+        }
+    }
+}
+
+extension VAYogaLayout {
+
+    @MainActor
+    func setNeedsRelayout() {
+        if layoutType == .root || layoutType == .container {
+            setNeedsLayout()
+        } else {
+            let parent: AnyObject? = node?.parent?.getContext()
+            (parent as? VAYogaLayout)?.setNeedsRelayout()
         }
     }
 }
