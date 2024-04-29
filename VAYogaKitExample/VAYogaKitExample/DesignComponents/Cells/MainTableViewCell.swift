@@ -33,3 +33,19 @@ class MainTableViewCell: VAYogaTableViewCell {
         .margin(.all(16))
     }
 }
+
+class MainTableCellViewModel: TableCellViewModel<MainTableViewCell> {
+    let title: String
+    let description: String
+    let destination: NavigationIdentity
+
+    init(title: String, description: String, destination: NavigationIdentity) {
+        self.title = title
+        self.description = description
+        self.destination = destination
+    }
+
+    override func configure(cell: MainTableViewCell) {
+        cell.configure(title: title, description: description)
+    }
+}
