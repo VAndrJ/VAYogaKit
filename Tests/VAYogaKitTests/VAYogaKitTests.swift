@@ -56,6 +56,12 @@ final class VAYogaKitTests: XCTestCase {
         XCTAssertEqual(YGAlignSpaceEvenly, .spaceEvently)
     }
 
+    func test_constants_positionType() {
+        XCTAssertEqual(YGPositionTypeStatic, .static)
+        XCTAssertEqual(YGPositionTypeRelative, .relative)
+        XCTAssertEqual(YGPositionTypeAbsolute, .absolute)
+    }
+
     func test_constants_overflow() {
         XCTAssertEqual(YGOverflowVisible, .visible)
         XCTAssertEqual(YGOverflowHidden, .hidden)
