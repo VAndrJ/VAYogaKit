@@ -33,6 +33,7 @@
 		A38DDCB22BDE9AE000B34C34 /* BaseScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCB12BDE9AE000B34C34 /* BaseScreenView.swift */; };
 		A38DDCB52BDEB57F00B34C34 /* Differ in Frameworks */ = {isa = PBXBuildFile; productRef = A38DDCB42BDEB57F00B34C34 /* Differ */; };
 		A38DDCD72BDF81DB00B34C34 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCD62BDF81DB00B34C34 /* BaseNavigationController.swift */; };
+		A38DDCDA2BDF8F3800B34C34 /* RowScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCD92BDF8F3800B34C34 /* RowScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		A38DDCAF2BDE97ED00B34C34 /* NSObject+Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Support.swift"; sourceTree = "<group>"; };
 		A38DDCB12BDE9AE000B34C34 /* BaseScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScreenView.swift; sourceTree = "<group>"; };
 		A38DDCD62BDF81DB00B34C34 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		A38DDCD92BDF8F3800B34C34 /* RowScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				A38DDC9C2BDE803000B34C34 /* MainScreenView.swift */,
+				A38DDCD82BDF8F2000B34C34 /* Layout */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -213,6 +216,14 @@
 				A38DDCAA2BDE940B00B34C34 /* ScreenFactory.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		A38DDCD82BDF8F2000B34C34 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				A38DDCD92BDF8F3800B34C34 /* RowScreenView.swift */,
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +316,7 @@
 				A38DDC852BDD010C00B34C34 /* BaseControllerView.swift in Sources */,
 				A38DDC872BDD012200B34C34 /* BaseView.swift in Sources */,
 				A38DDC982BDE7F1600B34C34 /* UICollectionView+Support.swift in Sources */,
+				A38DDCDA2BDF8F3800B34C34 /* RowScreenView.swift in Sources */,
 				A38DDCD72BDF81DB00B34C34 /* BaseNavigationController.swift in Sources */,
 				A38DDCAB2BDE940B00B34C34 /* ScreenFactory.swift in Sources */,
 				A38DDC3D2BDAC86B00B34C34 /* SceneDelegate.swift in Sources */,
