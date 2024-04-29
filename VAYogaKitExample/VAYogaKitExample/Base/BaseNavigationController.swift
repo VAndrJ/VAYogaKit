@@ -6,4 +6,10 @@
 //  Copyright © 2024 Volodymyr Andriienko. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+struct BaseNavigationIdentity: DefaultNavigationIdentity {
+    let child: NavigationIdentity
+}
+
+class BaseNavigationController: UINavigationController {}
