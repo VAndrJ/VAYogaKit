@@ -43,6 +43,14 @@ public extension VAYogaLayout {
     @MainActor var isLeaf: Bool { sublayouts.isEmpty }
 
     @MainActor
+    @discardableResult
+    func yoga(_ confgiure: (YGNodeRef) -> Void) -> Self {
+        confgiure(node)
+
+        return self
+    }
+
+    @MainActor
     func setNeedsUpdateLayout() {
         setNeedsRelayout()
     }

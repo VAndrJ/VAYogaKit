@@ -41,7 +41,6 @@ func flattenIfNeeded(layout: VAYogaLayout, in root: UIView & VAYogaLayout) {
 
 public extension VAYogaLayout where Self: UIView {
 
-    // TODO: - Layout caching?
     @MainActor
     func flattenLayoutIfNeeded(in root: UIView) {
         let layout = self.layout
