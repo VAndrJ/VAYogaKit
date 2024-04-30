@@ -59,12 +59,12 @@ private final class ColumnExampleView: BaseView {
         $0.textColor = .label
     }
     private lazy var exampleViews = (1...3).map { index in
-        VAYogaView(layoutType: .view).apply {
+        VAYogaView().apply {
             $0.sized(getSize(index: index))
             $0.backgroundColor = .systemGray3
         }
     }
-    private let measureView = VAYogaView(layoutType: .view).apply {
+    private let measureView = VAYogaView().apply {
         $0.sized(width: 12, height: 150)
         $0.backgroundColor = .systemGray
     }
@@ -75,6 +75,8 @@ private final class ColumnExampleView: BaseView {
     init(main: YGJustify, cross: YGAlign) {
         self.main = main
         self.cross = cross
+
+        super.init()
     }
 
     override var layout: any VAYogaLayout {

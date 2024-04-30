@@ -10,7 +10,7 @@ import UIKit
 import VAYogaKit
 
 class MainCollectionViewCell: VAYogaCollectionViewCell {
-    private let headerView = VAYogaView(layoutType: .view).apply {
+    private let headerView = VAYogaView().apply {
         $0.backgroundColor = .systemGray4
         $0.flex(grow: 1)
     }
