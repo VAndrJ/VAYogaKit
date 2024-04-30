@@ -8,7 +8,7 @@
 import UIKit
 import yoga
 
-open class Column: VAYogaLayout {
+public class Column: VAYogaLayout {
     public let layoutType: VAYogaLayoutType = .layout
     public var node: YGNodeRef!
     public var frame: CGRect = .zero
@@ -54,7 +54,7 @@ open class Column: VAYogaLayout {
     }
 }
 
-open class Row: VAYogaLayout {
+public class Row: VAYogaLayout {
     public let layoutType: VAYogaLayoutType = .layout
     public var node: YGNodeRef!
     public var frame: CGRect = .zero
@@ -100,7 +100,43 @@ open class Row: VAYogaLayout {
     }
 }
 
+public class RelativeLayout: VAYogaLayout {
+    public let layoutType: VAYogaLayoutType = .layout
+    public var node: YGNodeRef!
+    public var frame: CGRect = .zero
+    public var sublayouts: [any VAYogaLayout]
+    public var layout: any VAYogaLayout { self }
+    public var isDirty = false
+
+    @MainActor
+    public init(element: any VAYogaLayout, justify: YGJustify = .start, align: YGAlign = .start) {
+        self.sublayouts = [element]
+
+        self.node = .new(for: self)
+        node.positionType = .absolute
+        node.width = .percent(100)
+        node.height = .percent(100)
+        node.justifyContent = justify
+        node.alignItems = align
+    }
+
+    public func sizeThatFits(_ size: CGSize) -> CGSize {
+        .zero
+    }
+
+    public func setNeedsLayout() {}
+
+    deinit {
+        YGNodeFree(node)
+    }
+}
+
 public extension VAYogaLayout {
+
+    @MainActor
+    func relatively(horizontal: YGAlign = .start, vertical: YGJustify = .start) -> any VAYogaLayout {
+        RelativeLayout(element: self, justify: vertical, align: horizontal)
+    }
 
     @MainActor
     func padding(_ paddings: VAIndentation...) -> Self {
