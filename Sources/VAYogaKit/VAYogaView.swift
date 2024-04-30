@@ -15,7 +15,7 @@ open class VAYogaView: UIView, VAYogaLayout {
     open var layout: any VAYogaLayout { self }
     public var isDirty = false
 
-    public init(layoutType: VAYogaLayoutType) {
+    public init(layoutType: VAYogaLayoutType = .view) {
         self.layoutType = layoutType
 
         super.init(frame: .init(x: 0, y: 0, width: 240, height: 128))
@@ -33,7 +33,7 @@ open class VAYogaView: UIView, VAYogaLayout {
     }
 
     open override func layoutSubviews() {
-        if layoutType != .container {
+        if ![.container, .scrollContent].contains(layoutType)  {
             flattenLayoutIfNeeded(in: self)
         }
 
