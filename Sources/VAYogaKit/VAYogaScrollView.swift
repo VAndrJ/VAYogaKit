@@ -21,11 +21,11 @@ public struct VAYogaScrollableDirection: RawRepresentable, OptionSet, Sendable {
 }
 
 open class VAYogaScrollView: UIScrollView, VAYogaLayout {
-    public var layoutType: VAYogaLayoutType = .container
+    public var layoutType: VAYogaLayoutType = .containerView
     public var node: YGNodeRef!
     public var sublayouts: [any VAYogaLayout] = []
     public var layout: any VAYogaLayout { layoutBlock?() ?? contentView }
-    public let contentView = VAYogaView(layoutType: .scrollContent)
+    public let contentView = VAYogaView(layoutType: .contentView)
     public var scrollableDirections: VAYogaScrollableDirection {
         didSet { 
             node.markDirtyIfAvailable()

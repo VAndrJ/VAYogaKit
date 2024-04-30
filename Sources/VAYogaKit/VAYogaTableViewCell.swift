@@ -9,7 +9,7 @@ import UIKit
 import yoga
 
 open class VAYogaTableViewCell: UITableViewCell, VAYogaLayout {
-    public var layoutType: VAYogaLayoutType = .container
+    public var layoutType: VAYogaLayoutType = .containerView
     public var node: YGNodeRef!
     public var sublayouts: [any VAYogaLayout] = []
     open var layout: any VAYogaLayout { self }

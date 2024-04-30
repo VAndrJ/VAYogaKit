@@ -442,7 +442,7 @@ public extension YGNodeRef {
             if layoutType == .layout {
                 absolutePosition.x += node.leftValue
                 absolutePosition.y += node.topValue
-            } else if layoutType == .view || layoutType == .container {
+            } else if layoutType == .view || layoutType == .containerView || layoutType == .contentView {
                 return absolutePosition
             }
 

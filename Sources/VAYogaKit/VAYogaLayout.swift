@@ -28,9 +28,9 @@ public enum VAYogaLayoutType {
     case layout
     case view
     case root
-    case container
+    case containerView
     case selfSizedView
-    case scrollContent
+    case contentView
 }
 
 public enum VAYogaLayoutMode {
@@ -130,7 +130,7 @@ public extension VAYogaLayout {
     func applyLayoutToHierarchy(keepingOrigin: Bool) {
         assertMain()
         switch layoutType {
-        case .view, .selfSizedView, .container:
+        case .view, .selfSizedView, .containerView:
             let topLeft = node.absolutePosition
             if keepingOrigin {
                 frame = .init(
@@ -143,7 +143,7 @@ public extension VAYogaLayout {
                     size: .init(width: node.widthValue, height: node.heightValue)
                 )
             }
-        case .root, .layout, .scrollContent:
+        case .root, .layout, .contentView:
             break
         }
         if !isLeaf {
@@ -201,7 +201,7 @@ extension VAYogaLayout {
 
     @MainActor
     func setNeedsRelayout() {
-        if layoutType == .root || layoutType == .container {
+        if layoutType == .root || layoutType == .containerView {
             setNeedsLayout()
         } else {
             let parent: AnyObject? = node?.parent?.getContext()

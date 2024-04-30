@@ -22,9 +22,7 @@ open class VAYogaView: UIView, VAYogaLayout {
 
         self.node = .new(for: self)
 
-        if layoutType != .container {
-            flattenLayoutIfNeeded(in: self)
-        }
+        flattenLayout()
     }
 
     @available(*, unavailable)
@@ -33,14 +31,17 @@ open class VAYogaView: UIView, VAYogaLayout {
     }
 
     open override func layoutSubviews() {
-        if ![.container, .scrollContent].contains(layoutType)  {
-            flattenLayoutIfNeeded(in: self)
-        }
-
         super.layoutSubviews()
 
+        flattenLayout()
         if layoutType == .root {
             layout(mode: .fitContainer)
+        }
+    }
+
+    private func flattenLayout() {
+        if [.view, .root].contains(layoutType)  {
+            flattenLayoutIfNeeded(in: self)
         }
     }
 
