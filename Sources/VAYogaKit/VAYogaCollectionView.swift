@@ -15,11 +15,8 @@ open class VAYogaCollectionView: UICollectionView, VAYogaLayout {
     open var layout: any VAYogaLayout { self }
     public var isDirty = false
 
-    public init(collectionViewLayout layout: UICollectionViewLayout) {
-        super.init(
-            frame: .init(x: 0, y: 0, width: 240, height: 128),
-            collectionViewLayout: layout
-        )
+    public override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
+        super.init(frame: frame, collectionViewLayout: layout)
 
         self.node = .new(for: self)
     }
