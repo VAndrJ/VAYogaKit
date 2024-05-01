@@ -161,6 +161,7 @@ public extension VAYogaLayout {
     }
 
     @MainActor
+    @discardableResult
     func margin(_ margins: VAIndentation...) -> Self {
         let insets = UIEdgeInsets(indentation: margins)
         node.marginTop = .point(insets.top)
