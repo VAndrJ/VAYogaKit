@@ -41,6 +41,7 @@
 		A38DDCE52BE0052000B34C34 /* MainTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCE42BE0052000B34C34 /* MainTableCellViewModel.swift */; };
 		A38DDCE72BE0098E00B34C34 /* VAYogaKitMacro in Frameworks */ = {isa = PBXBuildFile; productRef = A38DDCE62BE0098E00B34C34 /* VAYogaKitMacro */; };
 		A38DDCEB2BE2B0B200B34C34 /* RelativeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCEA2BE2B0B200B34C34 /* RelativeScreenView.swift */; };
+		A38DDCED2BE2B92E00B34C34 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCEC2BE2B92E00B34C34 /* BaseButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		A38DDCE22BE004D500B34C34 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		A38DDCE42BE0052000B34C34 /* MainTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableCellViewModel.swift; sourceTree = "<group>"; };
 		A38DDCEA2BE2B0B200B34C34 /* RelativeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeScreenView.swift; sourceTree = "<group>"; };
+		A38DDCEC2BE2B92E00B34C34 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 				A38DDC9E2BDE806B00B34C34 /* BaseTableView.swift */,
 				A38DDC862BDD012200B34C34 /* BaseView.swift */,
 				A38DDC822BDCFF3300B34C34 /* BaseViewController.swift */,
+				A38DDCEC2BE2B92E00B34C34 /* BaseButton.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				A38DDC852BDD010C00B34C34 /* BaseControllerView.swift in Sources */,
 				A38DDC872BDD012200B34C34 /* BaseView.swift in Sources */,
 				A38DDC982BDE7F1600B34C34 /* UICollectionView+Support.swift in Sources */,
+				A38DDCED2BE2B92E00B34C34 /* BaseButton.swift in Sources */,
 				A38DDCDA2BDF8F3800B34C34 /* RowScreenView.swift in Sources */,
 				A38DDCD72BDF81DB00B34C34 /* BaseNavigationController.swift in Sources */,
 				A38DDCDE2BDFAB6F00B34C34 /* ColumnScreenView.swift in Sources */,

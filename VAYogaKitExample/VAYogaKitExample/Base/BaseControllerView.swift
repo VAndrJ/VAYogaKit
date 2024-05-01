@@ -14,6 +14,8 @@ class BaseControllerView: VAYogaView, ControllerView {
 
     init() {
         super.init(layoutType: .root)
+
+        configureLayout()
     }
 
     func controllerInitialized(_ controller: UIViewController) {
@@ -25,6 +27,8 @@ class BaseControllerView: VAYogaView, ControllerView {
         configure()
         bind()
     }
+
+    func configureLayout() {}
 
     func addElements() {}
 

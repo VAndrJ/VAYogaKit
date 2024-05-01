@@ -14,10 +14,13 @@ class BaseView: VAYogaView {
     override init(layoutType: VAYogaLayoutType = .view) {
         super.init(layoutType: layoutType)
 
+        configureLayout()
         addElements()
         configure()
         bind()
     }
+
+    func configureLayout() {}
 
     func addElements() {}
 
