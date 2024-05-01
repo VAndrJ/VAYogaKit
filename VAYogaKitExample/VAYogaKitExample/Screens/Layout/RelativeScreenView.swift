@@ -46,7 +46,10 @@ final class RelativeScreenView: BaseControllerView {
                 Column(cross: .stretch) {
                     backgroundView
                     exampleView
-                        .relatively(horizontal: horizontal, vertical: vertical)
+                        .relatively(
+                            horizontal: horizontal,
+                            vertical: vertical
+                        )
                 }
             }
             .margin(.all(16))
