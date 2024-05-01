@@ -40,6 +40,7 @@
 		A38DDCE32BE004D500B34C34 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCE22BE004D500B34C34 /* MainCollectionViewCell.swift */; };
 		A38DDCE52BE0052000B34C34 /* MainTableCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCE42BE0052000B34C34 /* MainTableCellViewModel.swift */; };
 		A38DDCE72BE0098E00B34C34 /* VAYogaKitMacro in Frameworks */ = {isa = PBXBuildFile; productRef = A38DDCE62BE0098E00B34C34 /* VAYogaKitMacro */; };
+		A38DDCEB2BE2B0B200B34C34 /* RelativeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCEA2BE2B0B200B34C34 /* RelativeScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		A38DDCDF2BDFD59A00B34C34 /* BaseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionView.swift; sourceTree = "<group>"; };
 		A38DDCE22BE004D500B34C34 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		A38DDCE42BE0052000B34C34 /* MainTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableCellViewModel.swift; sourceTree = "<group>"; };
+		A38DDCEA2BE2B0B200B34C34 /* RelativeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +239,7 @@
 			children = (
 				A38DDCD92BDF8F3800B34C34 /* RowScreenView.swift */,
 				A38DDCDD2BDFAB6F00B34C34 /* ColumnScreenView.swift */,
+				A38DDCEA2BE2B0B200B34C34 /* RelativeScreenView.swift */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				A38DDC942BDE7EA600B34C34 /* UITableViewCell+Support.swift in Sources */,
 				A38DDC9A2BDE7F3100B34C34 /* UICollectionViewCell+Support.swift in Sources */,
 				A38DDCE32BE004D500B34C34 /* MainCollectionViewCell.swift in Sources */,
+				A38DDCEB2BE2B0B200B34C34 /* RelativeScreenView.swift in Sources */,
 				A38DDC832BDCFF3300B34C34 /* BaseViewController.swift in Sources */,
 				A38DDC8A2BDE7D5000B34C34 /* Functions.swift in Sources */,
 			);

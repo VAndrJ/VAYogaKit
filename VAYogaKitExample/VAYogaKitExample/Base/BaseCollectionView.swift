@@ -29,7 +29,7 @@ class BaseCollectionView<Item: AnyCellViewModel>: VAYogaCollectionView, @uncheck
         layout.itemSize = UICollectionViewFlowLayout.automaticSize
         layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
 
-        super.init(collectionViewLayout: layout)
+        super.init(frame: .zero, collectionViewLayout: layout)
 
         usedCells.forEach { register($0) }
         self.collectionDataSourceDelegate = CollectionDataSourceDelegate<Item>(

@@ -23,7 +23,7 @@ class BaseTableView<Item: AnyCellViewModel>: VAYogaTableView, @unchecked Sendabl
     ) {
         self.listData = listData
 
-        super.init(style: style)
+        super.init(frame: .zero, style: style)
 
         self.tableDataSourceDelegate = TableDataSourceDelegate<Item>(
             tableView: self,

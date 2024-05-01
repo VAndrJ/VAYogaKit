@@ -64,6 +64,7 @@ final class MainScreenViewModel: BaseViewModel, UITableViewDelegate {
     @Published var listData: [MainTableCellViewModel] = [
         .init(title: "Row", description: "Layout example", destination: RowScreenNavigationIdentity()),
         .init(title: "Column", description: "Layout example", destination: ColumnScreenNavigationIdentity()),
+        .init(title: "Relative positioning", description: "Absolute layout type example", destination: RelativeScreenNavigationIdentity()),
     ]
 
     let context: Context
