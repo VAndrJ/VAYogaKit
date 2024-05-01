@@ -11,3 +11,31 @@
 
 
 UIKit Yoga wrapper
+
+
+<details open>
+<summary>Column</summary>
+
+
+
+```swift
+override var layout: VAYogaLayout {
+    Column(spacing: 8) {
+        orangeRectangleView
+        cyanRectangleView
+    }
+}
+```
+
+
+Example:
+
+
+![Column example](https://raw.githubusercontent.com/VAndrJ/VAYogaKit/master/Resources/column_example.png)
+
+
+</details>
+
+
+<details open>
+<summary>Row</summary>
