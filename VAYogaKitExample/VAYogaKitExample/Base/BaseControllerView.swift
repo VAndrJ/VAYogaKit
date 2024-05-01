@@ -1,0 +1,44 @@
+//
+//  BaseControllerView.swift
+//  VAYogaKitExample
+//
+//  Created by VAndrJ on 27.04.2024.
+//  Copyright © 2024 Volodymyr Andriienko. All rights reserved.
+//
+
+import UIKit
+import VAYogaKit
+import Combine
+
+class BaseControllerView: VAYogaView, ControllerView {
+    weak var controller: UIViewController?
+    var bag: Set<AnyCancellable> = []
+
+    init() {
+        super.init(layoutType: .root)
+
+        configureLayout()
+    }
+
+    func controllerInitialized(_ controller: UIViewController) {
+        self.controller = controller
+    }
+
+    func viewDidLoad() {
+        addElements()
+        configure()
+        bind()
+    }
+
+    func configureLayout() {}
+
+    func addElements() {}
+
+    func configure() {}
+
+    func bind() {}
+
+    deinit {
+        debugLine(in: self)
+    }
+}

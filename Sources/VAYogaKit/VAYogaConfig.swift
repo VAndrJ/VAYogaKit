@@ -13,8 +13,6 @@ public enum VAYogaConfig {
 
     @MainActor static var globalConfig: YGConfigRef = {
         let globalConfig: YGConfigRef! = YGConfigNew()
-        YGConfigSetExperimentalFeatureEnabled(globalConfig, YGExperimentalFeatureWebFlexBasis, true)
-        YGConfigSetErrata(globalConfig, YGErrataClassic)
         YGConfigSetPointScaleFactor(globalConfig, Float(scale))
 
         return globalConfig
