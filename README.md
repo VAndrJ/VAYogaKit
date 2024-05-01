@@ -39,3 +39,22 @@ Example:
 
 <details open>
 <summary>Row</summary>
+
+
+With `Row`:
+
+```swift
+Row(spacing: 4) {
+    orangeRectangleView
+    cyanRectangleView
+}
+```
+
+
+Example:
+
+
+![Column example](https://raw.githubusercontent.com/VAndrJ/VAYogaKit/master/Resources/row_example.png)
+
+
+</details>
