@@ -42,6 +42,7 @@
 		A38DDCE72BE0098E00B34C34 /* VAYogaKitMacro in Frameworks */ = {isa = PBXBuildFile; productRef = A38DDCE62BE0098E00B34C34 /* VAYogaKitMacro */; };
 		A38DDCEB2BE2B0B200B34C34 /* RelativeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCEA2BE2B0B200B34C34 /* RelativeScreenView.swift */; };
 		A38DDCED2BE2B92E00B34C34 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCEC2BE2B92E00B34C34 /* BaseButton.swift */; };
+		A38DDCEF2BE2D00A00B34C34 /* FrameChangeAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38DDCEE2BE2D00A00B34C34 /* FrameChangeAnimationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		A38DDCE42BE0052000B34C34 /* MainTableCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableCellViewModel.swift; sourceTree = "<group>"; };
 		A38DDCEA2BE2B0B200B34C34 /* RelativeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeScreenView.swift; sourceTree = "<group>"; };
 		A38DDCEC2BE2B92E00B34C34 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
+		A38DDCEE2BE2D00A00B34C34 /* FrameChangeAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameChangeAnimationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				A38DDC862BDD012200B34C34 /* BaseView.swift */,
 				A38DDC822BDCFF3300B34C34 /* BaseViewController.swift */,
 				A38DDCEC2BE2B92E00B34C34 /* BaseButton.swift */,
+				A38DDCEE2BE2D00A00B34C34 /* FrameChangeAnimationView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				A38DDC982BDE7F1600B34C34 /* UICollectionView+Support.swift in Sources */,
 				A38DDCED2BE2B92E00B34C34 /* BaseButton.swift in Sources */,
 				A38DDCDA2BDF8F3800B34C34 /* RowScreenView.swift in Sources */,
+				A38DDCEF2BE2D00A00B34C34 /* FrameChangeAnimationView.swift in Sources */,
 				A38DDCD72BDF81DB00B34C34 /* BaseNavigationController.swift in Sources */,
 				A38DDCDE2BDFAB6F00B34C34 /* ColumnScreenView.swift in Sources */,
 				A38DDCAB2BDE940B00B34C34 /* ScreenFactory.swift in Sources */,
