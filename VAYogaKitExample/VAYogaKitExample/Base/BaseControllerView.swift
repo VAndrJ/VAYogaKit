@@ -8,9 +8,11 @@
 
 import UIKit
 import VAYogaKit
+import Combine
 
 class BaseControllerView: VAYogaView, ControllerView {
     weak var controller: UIViewController?
+    var bag: Set<AnyCancellable> = []
 
     init() {
         super.init(layoutType: .root)
