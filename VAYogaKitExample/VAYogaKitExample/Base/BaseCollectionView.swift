@@ -18,7 +18,6 @@ class BaseCollectionView<Item: AnyCellViewModel>: VAYogaCollectionView, @uncheck
 
     init(
         listData: Published<[Item]>.Publisher,
-        usedCells: [(UICollectionViewCell & VAIdentifiable).Type],
         onSelect: ((Item) -> Void)? = nil
     ) {
         self.listData = listData
@@ -31,7 +30,6 @@ class BaseCollectionView<Item: AnyCellViewModel>: VAYogaCollectionView, @uncheck
 
         super.init(frame: .zero, collectionViewLayout: layout)
 
-        usedCells.forEach { register($0) }
         self.collectionDataSourceDelegate = CollectionDataSourceDelegate<Item>(
             collectionView: self,
             listData: publisher,
@@ -46,6 +44,7 @@ class CollectionDataSourceDelegate<Item: AnyCellViewModel>: NSObject, UICollecti
     private weak var collectionView: UICollectionView?
     private var bag: Set<AnyCancellable> = []
     private var onSelect: ((Item) -> Void)?
+    private var dequeuedTypes: [(UICollectionViewCell & VAIdentifiable).Type] = []
 
     init(
         collectionView: UICollectionView,
@@ -89,8 +88,13 @@ class CollectionDataSourceDelegate<Item: AnyCellViewModel>: NSObject, UICollecti
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         let cellData = data[indexPath.section][indexPath.row]
+        let collectionCellType = cellData.collectionCellType
+        if !dequeuedTypes.contains(where: { $0.isKind(of: collectionCellType) }) {
+            collectionView.register(cellData.collectionCellType)
+            dequeuedTypes.append(collectionCellType)
+        }
 
-        return collectionView.dequeue(cellData.collectionCellType, for: indexPath) {
+        return collectionView.dequeue(collectionCellType, for: indexPath) {
             cellData.configure(cell: $0)
         }
     }

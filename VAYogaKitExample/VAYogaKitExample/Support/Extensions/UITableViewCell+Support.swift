@@ -14,13 +14,13 @@ class SpecializedCellViewModel<TableCell: UITableViewCell & VAIdentifiable, Coll
     override class var tableCellType: UITableViewCell.Type { TableCell.self }
     override class var collectionCellType: UICollectionViewCell.Type { CollectionCell.self }
 
-    override func configure(cell: UITableViewCell) {
+    override func configure(cell: UITableViewCell & VAIdentifiable) {
         configure(cell: cell as! TableCell)
     }
 
     func configure(cell: TableCell) {}
 
-    override func configure(cell: UICollectionViewCell) {
+    override func configure(cell: UICollectionViewCell & VAIdentifiable) {
         configure(cell: cell as! CollectionCell)
     }
 
@@ -30,9 +30,9 @@ class SpecializedCellViewModel<TableCell: UITableViewCell & VAIdentifiable, Coll
 @MainActor
 class AnyCellViewModel: CellViewModel<UITableViewCell, UICollectionViewCell> {
 
-    func configure(cell: UITableViewCell) {}
+    func configure(cell: UITableViewCell & VAIdentifiable) {}
 
-    func configure(cell: UICollectionViewCell) {}
+    func configure(cell: UICollectionViewCell & VAIdentifiable) {}
 }
 
 @MainActor

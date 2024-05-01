@@ -19,7 +19,6 @@ final class MainScreenView: BaseScreenView<MainScreenViewModel> {
     )
     private lazy var collectionView = BaseCollectionView(
         listData: viewModel.$listData,
-        usedCells: [MainCollectionViewCell.self],
         onSelect: viewModel ?> { $0.onSelect(cell: $1) }
     )
     @Layout private var isGridView = false
