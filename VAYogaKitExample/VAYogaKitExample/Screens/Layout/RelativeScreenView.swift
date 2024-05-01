@@ -16,11 +16,13 @@ struct RelativeScreenNavigationIdentity: DefaultNavigationIdentity {}
 final class RelativeScreenView: BaseControllerView {
     private let changeHorizontalPositionButton = BaseButton(title: "Change horizontal positioning")
     private let changeVerticalPositionButton = BaseButton(title: "Change vertical positioning")
-    private lazy var positionLabel = VAYogaLabel()
+    private lazy var positionLabel = VAYogaLabel().apply {
+        $0.numberOfLines = 0
+    }
     private let backgroundView = VAYogaView().apply {
         $0.backgroundColor = .systemGray4
     }
-    private let exampleView = VAYogaView().apply {
+    private let exampleView = FrameChangeAnimationView().apply {
         $0.backgroundColor = .systemOrange
     }
     @Layout @Published private var horizontal: YGAlign = .start
@@ -59,7 +61,7 @@ final class RelativeScreenView: BaseControllerView {
         changeHorizontalPositionButton.onTap = self ?> { $0.horizontal.toggle() }
         changeVerticalPositionButton.onTap = self ?> { $0.vertical.toggle() }
         $horizontal.map(\.title)
-            .combineLatest($vertical.map(\.title), { .some("Horizontal: \($0), vertical: \($1)") })
+            .combineLatest($vertical.map(\.title), { .some("Horizontal: \($0)\nVertical: \($1)") })
             .assign(to: \.text, on: positionLabel)
             .store(in: &bag)
     }
