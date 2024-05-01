@@ -9,12 +9,6 @@ import UIKit
 
 /// A set of options representing safe area edges.
 public struct VASafeAreaEdge: RawRepresentable, OptionSet, Sendable {
-    public var rawValue: UInt
-
-    public init(rawValue: UInt) {
-        self.rawValue = rawValue
-    }
-
     public static let top = VASafeAreaEdge(rawValue: 1 << 1)
     public static let left = VASafeAreaEdge(rawValue: 1 << 2)
     public static let bottom = VASafeAreaEdge(rawValue: 1 << 3)
@@ -22,4 +16,10 @@ public struct VASafeAreaEdge: RawRepresentable, OptionSet, Sendable {
     public static let vertical: VASafeAreaEdge = [top, bottom]
     public static let horizontal: VASafeAreaEdge = [left, right]
     public static let all: VASafeAreaEdge = [top, left, bottom, right]
+
+    public var rawValue: UInt
+
+    public init(rawValue: UInt) {
+        self.rawValue = rawValue
+    }
 }
