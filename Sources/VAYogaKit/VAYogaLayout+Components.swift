@@ -109,7 +109,11 @@ public class RelativeLayout: VAYogaLayout {
     public var isDirty = false
 
     @MainActor
-    public init(element: any VAYogaLayout, justify: YGJustify = .start, align: YGAlign = .start) {
+    public init(
+        element: any VAYogaLayout,
+        justify: YGJustify = .start,
+        align: YGAlign = .start
+    ) {
         self.sublayouts = [element]
 
         self.node = .new(for: self)
@@ -134,8 +138,15 @@ public class RelativeLayout: VAYogaLayout {
 public extension VAYogaLayout {
 
     @MainActor
-    func relatively(horizontal: YGAlign = .start, vertical: YGJustify = .start) -> any VAYogaLayout {
-        RelativeLayout(element: self, justify: vertical, align: horizontal)
+    func relatively(
+        horizontal: YGAlign = .start,
+        vertical: YGJustify = .start
+    ) -> any VAYogaLayout {
+        RelativeLayout(
+            element: self,
+            justify: vertical,
+            align: horizontal
+        )
     }
 
     @MainActor
