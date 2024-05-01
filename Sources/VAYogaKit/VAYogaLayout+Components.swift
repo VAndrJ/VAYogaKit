@@ -173,6 +173,14 @@ public extension VAYogaLayout {
 
     @MainActor
     @discardableResult
+    func aspect(_ ratio: Float) -> Self {
+        node.aspectRatio = ratio
+
+        return self
+    }
+
+    @MainActor
+    @discardableResult
     func sized(_ size: CGSize) -> Self {
         node.width = .point(size.width)
         node.height = .point(size.height)
