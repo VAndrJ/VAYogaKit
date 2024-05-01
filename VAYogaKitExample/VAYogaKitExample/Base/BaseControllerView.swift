@@ -35,4 +35,8 @@ class BaseControllerView: VAYogaView, ControllerView {
     func configure() {}
 
     func bind() {}
+
+    deinit {
+        debugLine(in: self)
+    }
 }
