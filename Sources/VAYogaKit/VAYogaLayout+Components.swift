@@ -253,6 +253,14 @@ public extension VAYogaLayout {
 
     @MainActor
     @discardableResult
+    func flexShrink(_ value: Float) -> Self {
+        node.flexShrink = value
+
+        return self
+    }
+
+    @MainActor
+    @discardableResult
     func flexGrow(_ value: Float) -> Self {
         node.flexGrow = value
 
