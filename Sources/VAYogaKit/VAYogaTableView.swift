@@ -16,12 +16,10 @@ open class VAYogaTableView: UITableView, VAYogaLayout {
     public var isDirty = false
     public var shouldAnimateContentChange = true
 
-    public init(style: UITableView.Style, estimatedRowHeight: CGFloat = 44) {
-        super.init(frame: .init(x: 0, y: 0, width: 240, height: 128), style: style)
+    public override init(frame: CGRect, style: UITableView.Style) {
+        super.init(frame: frame, style: style)
 
         self.node = .new(for: self)
-        self.rowHeight = UITableView.automaticDimension
-        self.estimatedRowHeight = estimatedRowHeight
     }
 
     @available(*, unavailable)
