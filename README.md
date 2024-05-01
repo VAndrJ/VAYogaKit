@@ -41,8 +41,6 @@ Example:
 <summary>Row</summary>
 
 
-With `Row`:
-
 ```swift
 Row(spacing: 4) {
     orangeRectangleView
