@@ -121,6 +121,11 @@ public extension UIEdgeInsets {
             }
         }
 
-        self.init(top: top, left: left, bottom: bottom, right: right)
+        self.init(
+            top: top,
+            left: left,
+            bottom: bottom,
+            right: right
+        )
     }
 }
