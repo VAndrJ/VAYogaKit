@@ -18,3 +18,7 @@ public func mainAsync(
         DispatchQueue.main.async(execute: block)
     }
 }
+
+public func debugLine(in object: Any, function: String = #function, line: Int = #line) {
+    print("[ \(function) ] line: \(line) in \(type(of: object))")
+}
