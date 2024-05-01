@@ -28,10 +28,10 @@ final class MainScreenView: BaseScreenView<MainScreenViewModel> {
         SafeArea {
             if isGridView {
                 collectionView
-                    .flex(grow: 1)
+                    .flexGrow(1)
             } else {
                 tableView
-                    .flex(grow: 1)
+                    .flexGrow(1)
             }
         }
     }

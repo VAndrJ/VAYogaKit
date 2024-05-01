@@ -38,6 +38,6 @@ class MainCollectionViewCell: VAYogaCollectionViewCell {
             }
             .margin(.all(8))
         }
-        .flex(grow: 1)
+        .flexGrow(1)
     }
 }

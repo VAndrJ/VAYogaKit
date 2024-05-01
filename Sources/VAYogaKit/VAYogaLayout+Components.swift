@@ -225,26 +225,6 @@ public extension VAYogaLayout {
 
     @MainActor
     @discardableResult
-    func flex(
-        shrink: Float? = nil,
-        grow: Float? = nil,
-        basis: YGValue? = nil
-    ) -> Self {
-        if let shrink {
-            node.flexShrink = shrink
-        }
-        if let grow {
-            node.flexGrow = grow
-        }
-        if let basis {
-            node.flexBasis = basis
-        }
-
-        return self
-    }
-
-    @MainActor
-    @discardableResult
     func flexBasis(_ value: YGValue) -> Self {
         node.flexBasis = value
 

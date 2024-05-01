@@ -28,7 +28,7 @@ final class ColumnScreenView: BaseControllerView {
     override var layout: any VAYogaLayout {
         SafeArea {
             scrollView
-                .flex(grow: 1)
+                .flexGrow(1)
         }
     }
 
