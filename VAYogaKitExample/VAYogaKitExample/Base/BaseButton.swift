@@ -12,9 +12,10 @@ import VAYogaKit
 class BaseButton: VAYogaButton {
     var onTap: (() -> Void)?
 
-    convenience init(onTap: (() -> Void)? = nil) {
+    convenience init(title: String, onTap: (() -> Void)? = nil) {
         self.init(type: .system)
 
+        self.setTitle(title, for: .normal)
         self.onTap = onTap
     }
 
