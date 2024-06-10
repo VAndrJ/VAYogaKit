@@ -24,7 +24,7 @@ open class VAYogaScrollView: UIScrollView, VAYogaLayout {
     public var layoutType: VAYogaLayoutType = .containerView
     public var node: YGNodeRef!
     public var sublayouts: [any VAYogaLayout] = []
-    public var layout: any VAYogaLayout { layoutBlock?() ?? contentView }
+    open var layout: any VAYogaLayout { layoutBlock?() ?? contentView }
     public let contentView = VAYogaView(layoutType: .contentView)
     public var scrollableDirections: VAYogaScrollableDirection {
         didSet { 
