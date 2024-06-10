@@ -39,7 +39,7 @@ final class MainScreenView: BaseScreenView<MainScreenViewModel> {
         backgroundColor = .systemBackground
         controller?.title = "VAYogaKit examples"
         controller?.navigationItem.rightBarButtonItem = .init(
-            image: UIImage(systemName: "pencil"),
+            image: .init(systemName: "pencil"),
             style: .plain,
             target: self,
             action: #selector(onToggleGrid)
