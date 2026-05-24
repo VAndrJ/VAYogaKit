@@ -3,7 +3,6 @@ import XCTest
 import yoga
 
 final class VAYogaKitTests: XCTestCase {
-
     func test_ygValue_point() {
         let value: Float = 10
         let expected: YGValue = .init(value: value, unit: .point)
@@ -42,93 +41,6 @@ final class VAYogaKitTests: XCTestCase {
         XCTAssertEqual(.undefined, YGValue.undefined.unit)
         XCTAssertTrue(YGValue.auto.value.isNaN)
         XCTAssertEqual(.auto, YGValue.auto.unit)
-    }
-
-    func test_constants_align() {
-        XCTAssertEqual(YGAlignAuto, .auto)
-        XCTAssertEqual(YGAlignFlexStart, .start)
-        XCTAssertEqual(YGAlignCenter, .center)
-        XCTAssertEqual(YGAlignFlexEnd, .end)
-        XCTAssertEqual(YGAlignStretch, .stretch)
-        XCTAssertEqual(YGAlignBaseline, .baseline)
-        XCTAssertEqual(YGAlignSpaceBetween, .spaceBetween)
-        XCTAssertEqual(YGAlignSpaceAround, .spaceAround)
-        XCTAssertEqual(YGAlignSpaceEvenly, .spaceEvently)
-    }
-
-    func test_constants_positionType() {
-        XCTAssertEqual(YGPositionTypeStatic, .static)
-        XCTAssertEqual(YGPositionTypeRelative, .relative)
-        XCTAssertEqual(YGPositionTypeAbsolute, .absolute)
-    }
-
-    func test_constants_overflow() {
-        XCTAssertEqual(YGOverflowVisible, .visible)
-        XCTAssertEqual(YGOverflowHidden, .hidden)
-        XCTAssertEqual(YGOverflowScroll, .scroll)
-    }
-
-    func test_constants_display() {
-        XCTAssertEqual(YGDisplayFlex, .flex)
-        XCTAssertEqual(YGDisplayNone, .none)
-    }
-
-    func test_constants_dismension() {
-        XCTAssertEqual(YGDimensionWidth, .width)
-        XCTAssertEqual(YGDimensionHeight, .height)
-    }
-
-    func test_constants_unit() {
-        XCTAssertEqual(YGUnitAuto, .auto)
-        XCTAssertEqual(YGUnitPoint, .point)
-        XCTAssertEqual(YGUnitUndefined, .undefined)
-        XCTAssertEqual(YGUnitPercent, .percent)
-    }
-
-    func test_constants_measureMode() {
-        XCTAssertEqual(YGMeasureModeUndefined, .undefined)
-        XCTAssertEqual(YGMeasureModeExactly, .exactly)
-        XCTAssertEqual(YGMeasureModeAtMost, .atMost)
-    }
-
-    func test_constants_justify() {
-        XCTAssertEqual(YGJustifyFlexStart, .start)
-        XCTAssertEqual(YGJustifyCenter, .center)
-        XCTAssertEqual(YGJustifyFlexEnd, .end)
-        XCTAssertEqual(YGJustifySpaceBetween, .spaceBetween)
-        XCTAssertEqual(YGJustifySpaceAround, .spaceAround)
-        XCTAssertEqual(YGJustifySpaceEvenly, .spaceEvently)
-    }
-
-    func test_constants_flexDirection() {
-        XCTAssertEqual(YGFlexDirectionRow, .row)
-        XCTAssertEqual(YGFlexDirectionRowReverse, .rowReverse)
-        XCTAssertEqual(YGFlexDirectionColumn, .column)
-        XCTAssertEqual(YGFlexDirectionColumnReverse, .columnReverse)
-    }
-
-    func test_constants_direction() {
-        XCTAssertEqual(YGDirectionLTR, .ltr)
-        XCTAssertEqual(YGDirectionRTL, .rtl)
-        XCTAssertEqual(YGDirectionInherit, .inherit)
-    }
-
-    func test_constants_wrap() {
-        XCTAssertEqual(YGWrapWrap, .wrap)
-        XCTAssertEqual(YGWrapNoWrap, .noWrap)
-        XCTAssertEqual(YGWrapWrapReverse, .wrapReverse)
-    }
-
-    func test_constants_edge() {
-        XCTAssertEqual(YGEdgeAll, .all)
-        XCTAssertEqual(YGEdgeLeft, .left)
-        XCTAssertEqual(YGEdgeTop, .top)
-        XCTAssertEqual(YGEdgeRight, .right)
-        XCTAssertEqual(YGEdgeBottom, .bottom)
-        XCTAssertEqual(YGEdgeStart, .start)
-        XCTAssertEqual(YGEdgeEnd, .end)
-        XCTAssertEqual(YGEdgeHorizontal, .horizontal)
-        XCTAssertEqual(YGEdgeVertical, .vertical)
     }
 
     @MainActor

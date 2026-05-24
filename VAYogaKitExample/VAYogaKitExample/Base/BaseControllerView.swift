@@ -6,9 +6,9 @@
 //  Copyright © 2024 Volodymyr Andriienko. All rights reserved.
 //
 
+import Combine
 import UIKit
 import VAYogaKit
-import Combine
 
 class BaseControllerView: VAYogaView, ControllerView {
     weak var controller: UIViewController?
@@ -38,7 +38,7 @@ class BaseControllerView: VAYogaView, ControllerView {
 
     func bind() {}
 
-    deinit {
+    isolated deinit {
         debugLine(in: self)
     }
 }

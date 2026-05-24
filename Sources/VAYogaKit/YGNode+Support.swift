@@ -8,22 +8,20 @@
 import UIKit
 import yoga
 
-public extension YGNodeRef {
-
-    @MainActor
-    static func new(for object: AnyObject) -> YGNodeRef {
+extension YGNodeRef {
+    public static func new(for object: AnyObject) -> YGNodeRef {
         let node: YGNodeRef! = YGNodeNewWithConfig(VAYogaConfig.globalConfig)
-        YGNodeSetContext(node, Unmanaged.passUnretained(object).toOpaque())
+        node.setContext(object)
         node.addBaselineFuncIfNeeded(object: object)
 
         return node
     }
 
-    var childCount: Int { YGNodeGetChildCount(self) }
-    var parent: YGNodeRef? { YGNodeGetParent(self) }
-    var hasBaselineFunc: Bool { YGNodeHasBaselineFunc(self) }
-    var hasMeasureFunc: Bool { YGNodeHasMeasureFunc(self) }
-    var leftValue: CGFloat {
+    public var childCount: Int { YGNodeGetChildCount(self) }
+    public var parent: YGNodeRef? { YGNodeGetParent(self) }
+    public var hasBaselineFunc: Bool { YGNodeHasBaselineFunc(self) }
+    public var hasMeasureFunc: Bool { YGNodeHasMeasureFunc(self) }
+    public var leftValue: CGFloat {
         let value = YGNodeLayoutGetLeft(self)
         if value.isNaN {
             return .zero
@@ -31,7 +29,7 @@ public extension YGNodeRef {
             return value.cg
         }
     }
-    var topValue: CGFloat {
+    public var topValue: CGFloat {
         let value = YGNodeLayoutGetTop(self)
         if value.isNaN {
             return .zero
@@ -39,7 +37,7 @@ public extension YGNodeRef {
             return value.cg
         }
     }
-    var widthValue: CGFloat {
+    public var widthValue: CGFloat {
         let value = YGNodeLayoutGetWidth(self)
         if value.isNaN || value.isLess(than: .zero) {
             return .zero
@@ -47,7 +45,7 @@ public extension YGNodeRef {
             return value.cg
         }
     }
-    var heightValue: CGFloat {
+    public var heightValue: CGFloat {
         let value = YGNodeLayoutGetHeight(self)
         if value.isNaN || value.isLess(than: .zero) {
             return .zero
@@ -55,11 +53,11 @@ public extension YGNodeRef {
             return value.cg
         }
     }
-    var flexDirection: YGFlexDirection {
+    public var flexDirection: YGFlexDirection {
         get { YGNodeStyleGetFlexDirection(self) }
         set { YGNodeStyleSetFlexDirection(self, newValue) }
     }
-    var width: YGValue {
+    public var width: YGValue {
         get { YGNodeStyleGetWidth(self) }
         set {
             switch newValue.unit {
@@ -76,7 +74,7 @@ public extension YGNodeRef {
             }
         }
     }
-    var height: YGValue {
+    public var height: YGValue {
         get { YGNodeStyleGetHeight(self) }
         set {
             switch newValue.unit {
@@ -93,7 +91,7 @@ public extension YGNodeRef {
             }
         }
     }
-    var minWidth: YGValue {
+    public var minWidth: YGValue {
         get { YGNodeStyleGetMinWidth(self) }
         set {
             switch newValue.unit {
@@ -108,7 +106,7 @@ public extension YGNodeRef {
             }
         }
     }
-    var minHeight: YGValue {
+    public var minHeight: YGValue {
         get { YGNodeStyleGetMinHeight(self) }
         set {
             switch newValue.unit {
@@ -123,7 +121,7 @@ public extension YGNodeRef {
             }
         }
     }
-    var maxWidth: YGValue {
+    public var maxWidth: YGValue {
         get { YGNodeStyleGetMaxWidth(self) }
         set {
             switch newValue.unit {
@@ -138,7 +136,7 @@ public extension YGNodeRef {
             }
         }
     }
-    var maxHeight: YGValue {
+    public var maxHeight: YGValue {
         get { YGNodeStyleGetMaxHeight(self) }
         set {
             switch newValue.unit {
@@ -153,39 +151,39 @@ public extension YGNodeRef {
             }
         }
     }
-    var padding: YGValue {
+    public var padding: YGValue {
         get { getPadding(edge: .all) }
         set { setPadding(newValue: newValue, edge: .all) }
     }
-    var paddingVertical: YGValue {
+    public var paddingVertical: YGValue {
         get { getPadding(edge: .vertical) }
         set { setPadding(newValue: newValue, edge: .vertical) }
     }
-    var paddingHorizontal: YGValue {
+    public var paddingHorizontal: YGValue {
         get { getPadding(edge: .horizontal) }
         set { setPadding(newValue: newValue, edge: .horizontal) }
     }
-    var paddingEnd: YGValue {
+    public var paddingEnd: YGValue {
         get { getPadding(edge: .end) }
         set { setPadding(newValue: newValue, edge: .end) }
     }
-    var paddingStart: YGValue {
+    public var paddingStart: YGValue {
         get { getPadding(edge: .start) }
         set { setPadding(newValue: newValue, edge: .start) }
     }
-    var paddingBottom: YGValue {
+    public var paddingBottom: YGValue {
         get { getPadding(edge: .bottom) }
         set { setPadding(newValue: newValue, edge: .bottom) }
     }
-    var paddingRight: YGValue {
+    public var paddingRight: YGValue {
         get { getPadding(edge: .right) }
         set { setPadding(newValue: newValue, edge: .right) }
     }
-    var paddingTop: YGValue {
+    public var paddingTop: YGValue {
         get { getPadding(edge: .top) }
         set { setPadding(newValue: newValue, edge: .top) }
     }
-    var paddingLeft: YGValue {
+    public var paddingLeft: YGValue {
         get { getPadding(edge: .left) }
         set { setPadding(newValue: newValue, edge: .left) }
     }
@@ -207,39 +205,39 @@ public extension YGNodeRef {
         }
     }
 
-    var marginLeft: YGValue {
+    public var marginLeft: YGValue {
         get { getMargin(edge: .left) }
         set { setMargin(newValue: newValue, edge: .left) }
     }
-    var marginTop: YGValue {
+    public var marginTop: YGValue {
         get { getMargin(edge: .top) }
         set { setMargin(newValue: newValue, edge: .top) }
     }
-    var marginRight: YGValue {
+    public var marginRight: YGValue {
         get { getMargin(edge: .right) }
         set { setMargin(newValue: newValue, edge: .right) }
     }
-    var marginBottom: YGValue {
+    public var marginBottom: YGValue {
         get { getMargin(edge: .bottom) }
         set { setMargin(newValue: newValue, edge: .bottom) }
     }
-    var marginStart: YGValue {
+    public var marginStart: YGValue {
         get { getMargin(edge: .start) }
         set { setMargin(newValue: newValue, edge: .start) }
     }
-    var marginEnd: YGValue {
+    public var marginEnd: YGValue {
         get { getMargin(edge: .end) }
         set { setMargin(newValue: newValue, edge: .end) }
     }
-    var marginHorizontal: YGValue {
+    public var marginHorizontal: YGValue {
         get { getMargin(edge: .horizontal) }
         set { setMargin(newValue: newValue, edge: .horizontal) }
     }
-    var marginVertical: YGValue {
+    public var marginVertical: YGValue {
         get { getMargin(edge: .vertical) }
         set { setMargin(newValue: newValue, edge: .vertical) }
     }
-    var margin: YGValue {
+    public var margin: YGValue {
         get { getMargin(edge: .all) }
         set { setMargin(newValue: newValue, edge: .all) }
     }
@@ -263,55 +261,55 @@ public extension YGNodeRef {
         }
     }
 
-    var direction: YGDirection {
+    public var direction: YGDirection {
         get { YGNodeStyleGetDirection(self) }
         set { YGNodeStyleSetDirection(self, newValue) }
     }
-    var flexShrink: Float {
+    public var flexShrink: Float {
         get { YGNodeStyleGetFlexShrink(self) }
         set { YGNodeStyleSetFlexShrink(self, newValue) }
     }
-    var justifyContent: YGJustify {
+    public var justifyContent: YGJustify {
         get { YGNodeStyleGetJustifyContent(self) }
         set { YGNodeStyleSetJustifyContent(self, newValue) }
     }
-    var alignContent: YGAlign {
+    public var alignContent: YGAlign {
         get { YGNodeStyleGetAlignContent(self) }
         set { YGNodeStyleSetAlignContent(self, newValue) }
     }
-    var alignItems: YGAlign {
+    public var alignItems: YGAlign {
         get { YGNodeStyleGetAlignItems(self) }
         set { YGNodeStyleSetAlignItems(self, newValue) }
     }
-    var alignSelf: YGAlign {
+    public var alignSelf: YGAlign {
         get { YGNodeStyleGetAlignSelf(self) }
         set { YGNodeStyleSetAlignSelf(self, newValue) }
     }
-    var flexWrap: YGWrap {
+    public var flexWrap: YGWrap {
         get { YGNodeStyleGetFlexWrap(self) }
         set { YGNodeStyleSetFlexWrap(self, newValue) }
     }
-    var overflow: YGOverflow {
+    public var overflow: YGOverflow {
         get { YGNodeStyleGetOverflow(self) }
         set { YGNodeStyleSetOverflow(self, newValue) }
     }
-    var display: YGDisplay {
+    public var display: YGDisplay {
         get { YGNodeStyleGetDisplay(self) }
         set { YGNodeStyleSetDisplay(self, newValue) }
     }
-    var flex: Float {
+    public var flex: Float {
         get { YGNodeStyleGetFlex(self) }
         set { YGNodeStyleSetFlex(self, newValue) }
     }
-    var flexGrow: Float {
+    public var flexGrow: Float {
         get { YGNodeStyleGetFlexGrow(self) }
         set { YGNodeStyleSetFlexGrow(self, newValue) }
     }
-    var aspectRatio: Float {
+    public var aspectRatio: Float {
         get { YGNodeStyleGetAspectRatio(self) }
         set { YGNodeStyleSetAspectRatio(self, newValue) }
     }
-    var flexBasis: YGValue {
+    public var flexBasis: YGValue {
         get { YGNodeStyleGetFlexBasis(self) }
         set {
             switch newValue.unit {
@@ -328,29 +326,29 @@ public extension YGNodeRef {
             }
         }
     }
-    var left: YGValue {
-        get { getPosition(edge: YGEdgeLeft) }
-        set { setPosition(newValue: newValue, edge: YGEdgeLeft) }
+    public var left: YGValue {
+        get { getPosition(edge: .left) }
+        set { setPosition(newValue: newValue, edge: .left) }
     }
-    var top: YGValue {
-        get { getPosition(edge: YGEdgeTop) }
-        set { setPosition(newValue: newValue, edge: YGEdgeTop) }
+    public var top: YGValue {
+        get { getPosition(edge: .top) }
+        set { setPosition(newValue: newValue, edge: .top) }
     }
-    var right: YGValue {
-        get { getPosition(edge: YGEdgeRight) }
-        set { setPosition(newValue: newValue, edge: YGEdgeRight) }
+    public var right: YGValue {
+        get { getPosition(edge: .right) }
+        set { setPosition(newValue: newValue, edge: .right) }
     }
-    var bottom: YGValue {
-        get { getPosition(edge: YGEdgeBottom) }
-        set { setPosition(newValue: newValue, edge: YGEdgeBottom) }
+    public var bottom: YGValue {
+        get { getPosition(edge: .bottom) }
+        set { setPosition(newValue: newValue, edge: .bottom) }
     }
-    var start: YGValue {
-        get { getPosition(edge: YGEdgeStart) }
-        set { setPosition(newValue: newValue, edge: YGEdgeStart) }
+    public var start: YGValue {
+        get { getPosition(edge: .start) }
+        set { setPosition(newValue: newValue, edge: .start) }
     }
-    var end: YGValue {
-        get { getPosition(edge: YGEdgeEnd) }
-        set { setPosition(newValue: newValue, edge: YGEdgeEnd) }
+    public var end: YGValue {
+        get { getPosition(edge: .end) }
+        set { setPosition(newValue: newValue, edge: .end) }
     }
 
     @inline(__always) private func getPosition(edge: YGEdge) -> YGValue {
@@ -370,33 +368,33 @@ public extension YGNodeRef {
         }
     }
 
-    var borderLeftWidth: Float {
-        get { getBorder(edge: YGEdgeLeft) }
-        set { setBorder(newValue: newValue, edge: YGEdgeLeft) }
+    public var borderLeftWidth: Float {
+        get { getBorder(edge: .left) }
+        set { setBorder(newValue: newValue, edge: .left) }
     }
-    var borderTopWidth: Float {
-        get { getBorder(edge: YGEdgeTop) }
-        set { setBorder(newValue: newValue, edge: YGEdgeTop) }
+    public var borderTopWidth: Float {
+        get { getBorder(edge: .top) }
+        set { setBorder(newValue: newValue, edge: .top) }
     }
-    var borderRightWidth: Float {
-        get { getBorder(edge: YGEdgeRight) }
-        set { setBorder(newValue: newValue, edge: YGEdgeRight) }
+    public var borderRightWidth: Float {
+        get { getBorder(edge: .right) }
+        set { setBorder(newValue: newValue, edge: .right) }
     }
-    var borderBottomWidth: Float {
-        get { getBorder(edge: YGEdgeBottom) }
-        set { setBorder(newValue: newValue, edge: YGEdgeBottom) }
+    public var borderBottomWidth: Float {
+        get { getBorder(edge: .bottom) }
+        set { setBorder(newValue: newValue, edge: .bottom) }
     }
-    var borderStartWidth: Float {
-        get { getBorder(edge: YGEdgeStart) }
-        set { setBorder(newValue: newValue, edge: YGEdgeStart) }
+    public var borderStartWidth: Float {
+        get { getBorder(edge: .start) }
+        set { setBorder(newValue: newValue, edge: .start) }
     }
-    var borderEndWidth: Float {
-        get { getBorder(edge: YGEdgeEnd) }
-        set { setBorder(newValue: newValue, edge: YGEdgeEnd) }
+    public var borderEndWidth: Float {
+        get { getBorder(edge: .end) }
+        set { setBorder(newValue: newValue, edge: .end) }
     }
-    var borderWidth: Float {
-        get { getBorder(edge: YGEdgeAll) }
-        set { setBorder(newValue: newValue, edge: YGEdgeAll) }
+    public var borderWidth: Float {
+        get { getBorder(edge: .all) }
+        set { setBorder(newValue: newValue, edge: .all) }
     }
 
     @inline(__always) private func getBorder(edge: YGEdge) -> Float {
@@ -407,17 +405,17 @@ public extension YGNodeRef {
         YGNodeStyleSetBorder(self, edge, newValue)
     }
 
-    var columnGap: Float {
-        get { getGap(gutter: YGGutterColumn) }
-        set { setGap(newValue: newValue, gutter: YGGutterColumn) }
+    public var columnGap: Float {
+        get { getGap(gutter: .column) }
+        set { setGap(newValue: newValue, gutter: .column) }
     }
-    var rowGap: Float {
-        get { getGap(gutter: YGGutterRow) }
-        set { setGap(newValue: newValue, gutter: YGGutterRow) }
+    public var rowGap: Float {
+        get { getGap(gutter: .row) }
+        set { setGap(newValue: newValue, gutter: .row) }
     }
-    var gap: Float {
-        get { getGap(gutter: YGGutterAll) }
-        set { setGap(newValue: newValue, gutter: YGGutterAll) }
+    public var gap: Float {
+        get { getGap(gutter: .all) }
+        set { setGap(newValue: newValue, gutter: .all) }
     }
 
     @inline(__always) private func getGap(gutter: YGGutter) -> Float {
@@ -428,17 +426,16 @@ public extension YGNodeRef {
         YGNodeStyleSetGap(self, gutter, newValue)
     }
 
-    var positionType: YGPositionType {
+    public var positionType: YGPositionType {
         get { YGNodeStyleGetPositionType(self) }
         set { YGNodeStyleSetPositionType(self, newValue) }
     }
 
-    @MainActor
-    var absolutePosition: CGPoint {
+    public var absolutePosition: CGPoint {
         var absolutePosition = CGPoint(x: leftValue, y: topValue)
         var currentNode: YGNodeRef? = parent
         while let node = currentNode {
-            let layoutType = (Unmanaged<AnyObject>.fromOpaque(YGNodeGetContext(node)).takeUnretainedValue() as? VAYogaLayout)?.layoutType
+            let layoutType = (node.getContext() as? any VAYogaLayout)?.layoutType
             if layoutType == .layout {
                 absolutePosition.x += node.leftValue
                 absolutePosition.y += node.topValue
@@ -452,12 +449,11 @@ public extension YGNodeRef {
         return absolutePosition
     }
 
-    @inline(__always) func setBaselineFunc(_ baselineFunc: YGBaselineFunc) {
+    @inline(__always) public func setBaselineFunc(_ baselineFunc: YGBaselineFunc) {
         YGNodeSetBaselineFunc(self, baselineFunc)
     }
 
-    @MainActor
-    func addBaselineFuncIfNeeded(object: AnyObject) {
+    public func addBaselineFuncIfNeeded(object: AnyObject) {
         guard !hasBaselineFunc else { return }
 
         if object is UILabel {
@@ -469,56 +465,79 @@ public extension YGNodeRef {
         }
     }
 
-    @MainActor
-    @inline(__always) func getContext<T: AnyObject>() -> T {
-        Unmanaged<T>.fromOpaque(YGNodeGetContext(self)).takeUnretainedValue()
+    @inline(__always) public func setContext(_ object: AnyObject) {
+        YGNodeSetContext(self, Unmanaged.passUnretained(object).toOpaque())
     }
 
-    @inline(__always) func markDirty() {
+    @inline(__always) public func clearContext() {
+        YGNodeSetContext(self, nil)
+    }
+
+    @inline(__always) public func getContext() -> AnyObject? {
+        guard let context = YGNodeGetContext(self) else {
+            return nil
+        }
+
+        return Unmanaged<AnyObject>.fromOpaque(context).takeUnretainedValue()
+    }
+
+    @inline(__always) public func getContext<T: AnyObject>() -> T? {
+        getContext() as? T
+    }
+
+    public func prepareForFree() {
+        removeFromParent()
+        removeAllChildren()
+        clearContext()
+    }
+
+    public func freeSafely() {
+        prepareForFree()
+        YGNodeFree(self)
+    }
+
+    @inline(__always) public func markDirty() {
         YGNodeMarkDirty(self)
     }
 
-    @MainActor
-    func markDirtyIfAvailable() {
+    public func markDirtyIfAvailable() {
         if hasMeasureFunc {
             markDirty()
-            (Unmanaged<AnyObject>.fromOpaque(YGNodeGetContext(self)).takeUnretainedValue() as? VAYogaLayout)?.setNeedsRelayout()
         }
+        (getContext() as? any VAYogaLayout)?.setNeedsRelayout()
     }
 
-    @inline(__always) func setMeasureFunc(_ measureFunc: YGMeasureFunc) {
+    @inline(__always) public func setMeasureFunc(_ measureFunc: YGMeasureFunc) {
         YGNodeSetMeasureFunc(self, measureFunc)
     }
 
-    @inline(__always) func removeMeasureFunc() {
+    @inline(__always) public func removeMeasureFunc() {
         YGNodeSetMeasureFunc(self, nil)
     }
 
-    @inline(__always) func removeFromParent() {
+    @inline(__always) public func removeFromParent() {
         parent?.remove(child: self)
     }
 
-    @inline(__always) func remove(child: YGNodeRef?) {
+    @inline(__always) public func remove(child: YGNodeRef?) {
         YGNodeRemoveChild(self, child)
     }
 
-    @inline(__always) func removeAllChildren() {
+    @inline(__always) public func removeAllChildren() {
         YGNodeRemoveAllChildren(self)
     }
 
-    @inline(__always) func getGhild(at index: Int) -> YGNodeRef? {
+    @inline(__always) public func getGhild(at index: Int) -> YGNodeRef? {
         YGNodeGetChild(self, index)
     }
 
-    @inline(__always) func insert(child: YGNodeRef, at index: Int) {
+    @inline(__always) public func insert(child: YGNodeRef, at index: Int) {
         YGNodeInsertChild(self, child, index)
     }
 }
 
-public extension YGNodeRef? {
-
-    @MainActor
-    func hasSameChildren(sublayouts: [any VAYogaLayout]) -> Bool {
+extension YGNodeRef? {
+    public func hasSameChildren(sublayouts: [any VAYogaLayout]) -> Bool {
         // TODO: - Optimization for recreated instances like column?
         guard let self, self.childCount == sublayouts.count else {
             return false
@@ -534,74 +553,80 @@ public extension YGNodeRef? {
     }
 }
 
-@MainActor public var baselineLabelFunc: @convention(c) (
-    _ node: YGNodeRef?,
-    _ width: Float,
-    _ height: Float
-) -> Float = { node, _, _ in
-    guard let view: UILabel = node?.getContext() else {
-        return 0
-    }
+@MainActor public var baselineLabelFunc:
+    @convention(c) (
+        _ node: YGNodeRef?,
+        _ width: Float,
+        _ height: Float
+    ) -> Float = { node, _, _ in
+        guard let view: UILabel = node?.getContext() else {
+            return 0
+        }
 
-    return Float(view.font.ascender)
-}
-@MainActor public var baselineTextViewFunc: @convention(c) (
-    _ node: YGNodeRef?,
-    _ width: Float,
-    _ height: Float
-) -> Float = { node, _, _ in
-    guard let view: UITextView = node?.getContext() else {
-        return 0
+        return Float(view.font.ascender)
     }
+@MainActor public var baselineTextViewFunc:
+    @convention(c) (
+        _ node: YGNodeRef?,
+        _ width: Float,
+        _ height: Float
+    ) -> Float = { node, _, _ in
+        guard let view: UITextView = node?.getContext() else {
+            return 0
+        }
 
-    return Float((view.font?.ascender ?? 0) + view.contentInset.top + view.textContainerInset.top)
-}
-@MainActor public var baselineTextFieldFunc: @convention(c) (
-    _ node: YGNodeRef?,
-    _ width: Float,
-    _ height: Float
-) -> Float = { node, _, _ in
-    guard let view: UITextField = node?.getContext() else {
-        return 0
+        return Float((view.font?.ascender ?? 0) + view.contentInset.top + view.textContainerInset.top)
     }
+@MainActor public var baselineTextFieldFunc:
+    @convention(c) (
+        _ node: YGNodeRef?,
+        _ width: Float,
+        _ height: Float
+    ) -> Float = { node, _, _ in
+        guard let view: UITextField = node?.getContext() else {
+            return 0
+        }
 
-    let ascender = Float(view.font?.ascender ?? 0)
-    switch view.borderStyle {
-    case .none: return ascender
-    case .line: return ascender + 4
-    case .bezel, .roundedRect: return ascender + 7
-    @unknown default: return ascender
+        let ascender = Float(view.font?.ascender ?? 0)
+        switch view.borderStyle {
+        case .none: return ascender
+        case .line: return ascender + 4
+        case .bezel, .roundedRect: return ascender + 7
+        @unknown default: return ascender
+        }
     }
-}
-@MainActor public var measureViewFunc: @convention(c) (
-    _ node: YGNodeRef?,
-    _ width: Float,
-    _ widthMode: YGMeasureMode,
-    _ height: Float,
-    _ heightMode: YGMeasureMode
-) -> YGSize = { node, width, widthMode, height, heightMode in
-    guard let layout = Unmanaged<AnyObject>.fromOpaque(YGNodeGetContext(node)).takeUnretainedValue() as? any VAYogaLayout else {
-        return .init(width: .zero, height: .zero)
-    }
-    
-    let constrainedWidth = widthMode == .undefined ? .greatestFiniteMagnitude : width
-    let constrainedHeight = heightMode == .undefined ? .greatestFiniteMagnitude : height
-    var sizeThatFits: CGSize = .zero
-    if layout.layoutType == .selfSizedView {
-        sizeThatFits = layout.sizeThatFits(.init(
-            width: constrainedWidth.cg,
-            height: constrainedHeight.cg
-        ))
-    }
-    
-    return .init(
-        width: constrainedWidth.sanitize(
-            measured: sizeThatFits.width,
-            mode: widthMode
-        ),
-        height: constrainedHeight.sanitize(
-            measured: sizeThatFits.height,
-            mode: heightMode
+@MainActor public var measureViewFunc:
+    @convention(c) (
+        _ node: YGNodeRef?,
+        _ width: Float,
+        _ widthMode: YGMeasureMode,
+        _ height: Float,
+        _ heightMode: YGMeasureMode
+    ) -> YGSize = { (node: YGNodeRef?, width: Float, widthMode: YGMeasureMode, height: Float, heightMode: YGMeasureMode) in
+        guard let layout = node?.getContext() as? any VAYogaLayout else {
+            return .init(width: .zero, height: .zero)
+        }
+
+        let constrainedWidth = widthMode == .undefined ? .greatestFiniteMagnitude : width
+        let constrainedHeight = heightMode == .undefined ? .greatestFiniteMagnitude : height
+        var sizeThatFits: CGSize = .zero
+        if layout.layoutType == .selfSizedView {
+            sizeThatFits = layout.sizeThatFits(
+                .init(
+                    width: constrainedWidth.cg,
+                    height: constrainedHeight.cg
+                )
+            )
+        }
+
+        return .init(
+            width: constrainedWidth.sanitize(
+                measured: sizeThatFits.width,
+                mode: widthMode
+            ),
+            height: constrainedHeight.sanitize(
+                measured: sizeThatFits.height,
+                mode: heightMode
+            )
         )
-    )
-}
+    }

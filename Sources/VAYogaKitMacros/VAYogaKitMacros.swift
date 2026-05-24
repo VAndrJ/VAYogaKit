@@ -6,69 +6,69 @@
 //
 
 import SwiftCompilerPlugin
+import SwiftDiagnostics
 import SwiftSyntax
 import SwiftSyntaxBuilder
 import SwiftSyntaxMacros
-import SwiftDiagnostics
 
 public struct LayoutMacro: AccessorMacro {
-
     public static func expansion<Context, Declaration>(
         of node: AttributeSyntax,
         providingAccessorsOf declaration: Declaration,
         in context: Context
     ) throws -> [AccessorDeclSyntax] where Context: MacroExpansionContext, Declaration: DeclSyntaxProtocol {
         guard let varDecl = declaration.as(VariableDeclSyntax.self),
-              varDecl.isVar,
-              varDecl.isInstance,
-              let binding = varDecl.bindings.first,
-              binding.pattern.as(IdentifierPatternSyntax.self)?.identifier != nil else {
+            varDecl.isVar,
+            varDecl.isInstance,
+            let binding = varDecl.bindings.first,
+            binding.pattern.as(IdentifierPatternSyntax.self)?.identifier != nil
+        else {
             throw VAYogaKitMacroError.notVariable
         }
 
         return [
             AccessorDeclSyntax(accessorSpecifier: .keyword(.didSet)) {
                 "setNeedsUpdateLayout()"
-            },
+            }
         ]
     }
 }
 
 public struct ScrollLayoutMacro: AccessorMacro {
-
     public static func expansion<Context, Declaration>(
         of node: AttributeSyntax,
         providingAccessorsOf declaration: Declaration,
         in context: Context
     ) throws -> [AccessorDeclSyntax] where Context: MacroExpansionContext, Declaration: DeclSyntaxProtocol {
         guard let varDecl = declaration.as(VariableDeclSyntax.self),
-              varDecl.isVar,
-              varDecl.isInstance,
-              let binding = varDecl.bindings.first,
-              binding.pattern.as(IdentifierPatternSyntax.self)?.identifier != nil else {
+            varDecl.isVar,
+            varDecl.isInstance,
+            let binding = varDecl.bindings.first,
+            binding.pattern.as(IdentifierPatternSyntax.self)?.identifier != nil
+        else {
             throw VAYogaKitMacroError.notVariable
         }
 
         return [
             AccessorDeclSyntax(accessorSpecifier: .keyword(.didSet)) {
                 "scrollView.setNeedsUpdateLayout()"
-            },
+            }
         ]
     }
 }
 
 public struct DistinctLayoutMacro: AccessorMacro {
-
     public static func expansion<Context, Declaration>(
         of node: AttributeSyntax,
         providingAccessorsOf declaration: Declaration,
         in context: Context
     ) throws -> [AccessorDeclSyntax] where Context: MacroExpansionContext, Declaration: DeclSyntaxProtocol {
         guard let varDecl = declaration.as(VariableDeclSyntax.self),
-              varDecl.isVar,
-              varDecl.isInstance,
-              let binding = varDecl.bindings.first,
-              let identifier = binding.pattern.as(IdentifierPatternSyntax.self)?.identifier.trimmed else {
+            varDecl.isVar,
+            varDecl.isInstance,
+            let binding = varDecl.bindings.first,
+            let identifier = binding.pattern.as(IdentifierPatternSyntax.self)?.identifier.trimmed
+        else {
             throw VAYogaKitMacroError.notVariable
         }
 
@@ -87,17 +87,17 @@ public struct DistinctLayoutMacro: AccessorMacro {
 }
 
 public struct ScrollDistinctLayoutMacro: AccessorMacro {
-
     public static func expansion<Context, Declaration>(
         of node: AttributeSyntax,
         providingAccessorsOf declaration: Declaration,
         in context: Context
     ) throws -> [AccessorDeclSyntax] where Context: MacroExpansionContext, Declaration: DeclSyntaxProtocol {
         guard let varDecl = declaration.as(VariableDeclSyntax.self),
-              varDecl.isVar,
-              varDecl.isInstance,
-              let binding = varDecl.bindings.first,
-              let identifier = binding.pattern.as(IdentifierPatternSyntax.self)?.identifier.trimmed else {
+            varDecl.isVar,
+            varDecl.isInstance,
+            let binding = varDecl.bindings.first,
+            let identifier = binding.pattern.as(IdentifierPatternSyntax.self)?.identifier.trimmed
+        else {
             throw VAYogaKitMacroError.notVariable
         }
 

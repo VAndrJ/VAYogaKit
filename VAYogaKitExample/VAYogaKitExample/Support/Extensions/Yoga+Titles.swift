@@ -12,11 +12,11 @@ import yoga
 extension YGAlign {
     var title: String {
         switch self {
-        case .start: ".start"
-        case .end: ".end"
+        case .flexStart: ".start"
+        case .flexEnd: ".end"
         case .center: ".center"
         case .spaceBetween: ".spaceBetween"
-        case .spaceEvently: ".spaceEvently"
+        case .spaceEvenly: ".spaceEvenly"
         case .spaceAround: ".spaceAround"
         case .stretch: ".stretch"
         case .auto: ".auto"
@@ -29,11 +29,11 @@ extension YGAlign {
 extension YGJustify {
     var title: String {
         switch self {
-        case .start: ".start"
-        case .end: ".end"
+        case .flexStart: ".start"
+        case .flexEnd: ".end"
         case .center: ".center"
         case .spaceBetween: ".spaceBetween"
-        case .spaceEvently: ".spaceEvently"
+        case .spaceEvenly: ".spaceEvenly"
         case .spaceAround: ".spaceAround"
         default: ""
         }

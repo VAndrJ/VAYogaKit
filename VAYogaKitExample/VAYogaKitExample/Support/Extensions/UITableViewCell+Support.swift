@@ -27,15 +27,12 @@ class SpecializedCellViewModel<TableCell: UITableViewCell & VAIdentifiable, Coll
     func configure(cell: CollectionCell) {}
 }
 
-@MainActor
 class AnyCellViewModel: CellViewModel<UITableViewCell, UICollectionViewCell> {
-
     func configure(cell: UITableViewCell & VAIdentifiable) {}
 
     func configure(cell: UICollectionViewCell & VAIdentifiable) {}
 }
 
-@MainActor
 class CellViewModel<TableCell: AnyObject, CollectionCell: AnyObject>: Equatable {
     nonisolated static func == (lhs: CellViewModel, rhs: CellViewModel) -> Bool {
         type(of: lhs) == type(of: rhs) && lhs.isEqual(to: rhs)
@@ -46,6 +43,8 @@ class CellViewModel<TableCell: AnyObject, CollectionCell: AnyObject>: Equatable 
 
     var tableCellType: TableCell.Type { Self.tableCellType }
     var collectionCellType: CollectionCell.Type { Self.collectionCellType }
+
+    init() {}
 
     nonisolated func isEqual(to other: CellViewModel) -> Bool {
         ObjectIdentifier(self) == ObjectIdentifier(other)

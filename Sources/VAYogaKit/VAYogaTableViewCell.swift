@@ -45,24 +45,50 @@ open class VAYogaTableViewCell: UITableViewCell, VAYogaLayout {
 
         guard isDirty else { return }
 
-        flattenLayoutIfNeeded(in: contentView)
-        applyLayoutToTableCellHierarchy(width: contentView.frame.width) { height in
-            frame.size.height = height
-        }
+        frame.size.height = calculateLayoutHeight(width: contentView.bounds.width)
         isDirty = false
     }
 
     public override func sizeThatFits(_ size: CGSize) -> CGSize {
-        flattenLayoutIfNeeded(in: contentView)
-        applyLayoutToTableCellHierarchy(width: contentView.frame.width) { height in
-            frame.size.height = height
-        }
+        let width = resolvedFittingWidth(for: size)
+        let height = calculateLayoutHeight(width: width)
         isDirty = false
 
-        return frame.size
+        return .init(width: width, height: height)
     }
 
-    deinit {
-        YGNodeFree(node)
+    private func calculateLayoutHeight(width: CGFloat) -> CGFloat {
+        var calculatedHeight: CGFloat = 0
+
+        flattenLayoutIfNeeded(in: contentView)
+        applyLayoutToTableCellHierarchy(width: width) { height in
+            calculatedHeight = height
+        }
+
+        return calculatedHeight
+    }
+
+    private func resolvedFittingWidth(for size: CGSize) -> CGFloat {
+        if size.width.isValidYogaConstraint {
+            return size.width
+        }
+        if contentView.bounds.width.isValidYogaConstraint {
+            return contentView.bounds.width
+        }
+        if bounds.width.isValidYogaConstraint {
+            return bounds.width
+        }
+
+        return 0
+    }
+
+    isolated deinit {
+        node.freeSafely()
+    }
+}
+
+private extension CGFloat {
+    var isValidYogaConstraint: Bool {
+        isFinite && self > 0 && self < .greatestFiniteMagnitude
     }
 }
