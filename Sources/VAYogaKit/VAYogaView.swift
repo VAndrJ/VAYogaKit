@@ -37,6 +37,14 @@ open class VAYogaView: UIView, VAYogaLayout {
         }
     }
 
+    open override func safeAreaInsetsDidChange() {
+        super.safeAreaInsetsDidChange()
+
+        if layoutType == .root {
+            setNeedsUpdateLayout()
+        }
+    }
+
     private func flattenLayout() {
         if [.view, .root].contains(layoutType)  {
             flattenLayoutIfNeeded(in: self)

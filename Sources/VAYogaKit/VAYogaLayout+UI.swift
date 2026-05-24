@@ -26,39 +26,24 @@ extension VAYogaLayout where Self: UIView {
     }
 
     public func SafeArea(edges: VASafeAreaEdge = .all, _ sublayout: () -> VAYogaLayout) -> Self {
-        if edges.contains(.top) {
-            node.paddingTop = .point(safeAreaInsets.top)
-        }
-        if edges.contains(.left) {
-            node.paddingLeft = .point(safeAreaInsets.left)
-        }
-        if edges.contains(.bottom) {
-            node.paddingBottom = .point(safeAreaInsets.bottom)
-        }
-        if edges.contains(.right) {
-            node.paddingRight = .point(safeAreaInsets.right)
-        }
+        applySafeArea(edges: edges)
         sublayouts = [sublayout()]
 
         return self
     }
 
     public func SafeArea(edgesToIgnore: VASafeAreaEdge, _ sublayout: () -> VAYogaLayout) -> Self {
-        if !edgesToIgnore.contains(.top) {
-            node.paddingTop = .point(safeAreaInsets.top)
-        }
-        if !edgesToIgnore.contains(.left) {
-            node.paddingLeft = .point(safeAreaInsets.left)
-        }
-        if !edgesToIgnore.contains(.bottom) {
-            node.paddingBottom = .point(safeAreaInsets.bottom)
-        }
-        if !edgesToIgnore.contains(.right) {
-            node.paddingRight = .point(safeAreaInsets.right)
-        }
+        applySafeArea(edges: .all.subtracting(edgesToIgnore))
         sublayouts = [sublayout()]
 
         return self
+    }
+
+    private func applySafeArea(edges: VASafeAreaEdge) {
+        node.paddingTop = edges.contains(.top) ? .point(safeAreaInsets.top) : .zero
+        node.paddingLeft = edges.contains(.left) ? .point(safeAreaInsets.left) : .zero
+        node.paddingBottom = edges.contains(.bottom) ? .point(safeAreaInsets.bottom) : .zero
+        node.paddingRight = edges.contains(.right) ? .point(safeAreaInsets.right) : .zero
     }
 }
 
