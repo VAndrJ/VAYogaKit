@@ -19,7 +19,71 @@ open class VAYogaLabel: UILabel, VAYogaLayout {
         get { super.text }
         set {
             super.text = newValue
-            node.markDirtyIfAvailable()
+            invalidateMeasuredSize()
+        }
+    }
+
+    open override var attributedText: NSAttributedString? {
+        get { super.attributedText }
+        set {
+            super.attributedText = newValue
+            invalidateMeasuredSize()
+        }
+    }
+
+    open override var font: UIFont! {
+        get { super.font }
+        set {
+            super.font = newValue
+            invalidateMeasuredSize()
+        }
+    }
+
+    open override var numberOfLines: Int {
+        get { super.numberOfLines }
+        set {
+            super.numberOfLines = newValue
+            invalidateMeasuredSize()
+        }
+    }
+
+    open override var lineBreakMode: NSLineBreakMode {
+        get { super.lineBreakMode }
+        set {
+            super.lineBreakMode = newValue
+            invalidateMeasuredSize()
+        }
+    }
+
+    open override var adjustsFontSizeToFitWidth: Bool {
+        get { super.adjustsFontSizeToFitWidth }
+        set {
+            super.adjustsFontSizeToFitWidth = newValue
+            invalidateMeasuredSize()
+        }
+    }
+
+    open override var minimumScaleFactor: CGFloat {
+        get { super.minimumScaleFactor }
+        set {
+            super.minimumScaleFactor = newValue
+            invalidateMeasuredSize()
+        }
+    }
+
+    open override var allowsDefaultTighteningForTruncation: Bool {
+        get { super.allowsDefaultTighteningForTruncation }
+        set {
+            super.allowsDefaultTighteningForTruncation = newValue
+            invalidateMeasuredSize()
+        }
+    }
+
+    open override var preferredMaxLayoutWidth: CGFloat {
+        get { super.preferredMaxLayoutWidth }
+        set {
+            super.preferredMaxLayoutWidth = newValue
+            invalidateMeasuredSize()
         }
     }
 
@@ -36,5 +100,9 @@ open class VAYogaLabel: UILabel, VAYogaLayout {
 
     isolated deinit {
         YGNodeFree(node)
+    }
+
+    private func invalidateMeasuredSize() {
+        node?.markDirtyIfAvailable()
     }
 }

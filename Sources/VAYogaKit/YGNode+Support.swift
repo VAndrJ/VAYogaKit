@@ -476,8 +476,8 @@ extension YGNodeRef {
     public func markDirtyIfAvailable() {
         if hasMeasureFunc {
             markDirty()
-            (Unmanaged<AnyObject>.fromOpaque(YGNodeGetContext(self)).takeUnretainedValue() as? VAYogaLayout)?.setNeedsRelayout()
         }
+        (Unmanaged<AnyObject>.fromOpaque(YGNodeGetContext(self)).takeUnretainedValue() as? VAYogaLayout)?.setNeedsRelayout()
     }
 
     @inline(__always) public func setMeasureFunc(_ measureFunc: YGMeasureFunc) {
