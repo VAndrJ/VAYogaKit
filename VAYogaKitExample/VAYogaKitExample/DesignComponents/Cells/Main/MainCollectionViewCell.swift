@@ -32,7 +32,7 @@ class MainCollectionViewCell: VAYogaCollectionViewCell {
     override var layout: any VAYogaLayout {
         Column(spacing: 8, cross: .stretch) {
             headerView
-            Column(spacing: 4, main: .end, cross: .stretch) {
+            Column(spacing: 4, main: .flexEnd, cross: .stretch) {
                 titleLabel
                 descriptionLabel
             }

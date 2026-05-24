@@ -16,14 +16,14 @@ final class RowScreenView: BaseControllerView {
     private let scrollView = VAYogaScrollView(scrollableDirections: .vertical).apply {
         $0.alwaysBounceVertical = true
     }
-    private let startStartExampleView = RowExampleView(main: .start, cross: .start)
-    private let endStartExampleView = RowExampleView(main: .end, cross: .start)
-    private let centerStartExampleView = RowExampleView(main: .center, cross: .start)
-    private let spaceBetweenStartExampleView = RowExampleView(main: .spaceBetween, cross: .start)
-    private let spaceAroundStartExampleView = RowExampleView(main: .spaceAround, cross: .start)
-    private let spaceEventlyStartExampleView = RowExampleView(main: .spaceEvently, cross: .start)
-    private let startEndExampleView = RowExampleView(main: .start, cross: .end)
-    private let startCenterExampleView = RowExampleView(main: .start, cross: .center)
+    private let startStartExampleView = RowExampleView(main: .flexStart, cross: .flexStart)
+    private let endStartExampleView = RowExampleView(main: .flexEnd, cross: .flexStart)
+    private let centerStartExampleView = RowExampleView(main: .center, cross: .flexStart)
+    private let spaceBetweenStartExampleView = RowExampleView(main: .spaceBetween, cross: .flexStart)
+    private let spaceAroundStartExampleView = RowExampleView(main: .spaceAround, cross: .flexStart)
+    private let spaceEventlyStartExampleView = RowExampleView(main: .spaceEvenly, cross: .flexStart)
+    private let startEndExampleView = RowExampleView(main: .flexStart, cross: .flexEnd)
+    private let startCenterExampleView = RowExampleView(main: .flexStart, cross: .center)
 
     override var layout: any VAYogaLayout {
         SafeArea {
@@ -91,7 +91,7 @@ private final class RowExampleView: BaseView {
 
     private func getSize(index: Int) -> CGSize {
         switch (main, cross) {
-        case (_, .end), (_, .center): .init(same: 9 * CGFloat(index))
+        case (_, .flexEnd), (_, .center): .init(same: 9 * CGFloat(index))
         default: .init(same: 36)
         }
     }

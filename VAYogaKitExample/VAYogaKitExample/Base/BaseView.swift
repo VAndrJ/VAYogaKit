@@ -10,7 +10,6 @@ import UIKit
 import VAYogaKit
 
 class BaseView: VAYogaView {
-
     override init(layoutType: VAYogaLayoutType = .view) {
         super.init(layoutType: layoutType)
 

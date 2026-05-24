@@ -8,9 +8,7 @@
 
 import UIKit
 
-@MainActor
 protocol ControllerView: UIView {
-
     func controllerInitialized(_ controller: UIViewController)
     func viewDidLoad()
     func viewWillAppear(_ animated: Bool)
@@ -21,7 +19,6 @@ protocol ControllerView: UIView {
 }
 
 extension ControllerView {
-
     func controllerInitialized(_ controller: UIViewController) {}
 
     func viewDidLoad() {}
@@ -47,7 +44,7 @@ class BaseViewController<V: ControllerView>: UIViewController {
 
         view.controllerInitialized(self)
     }
-    
+
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

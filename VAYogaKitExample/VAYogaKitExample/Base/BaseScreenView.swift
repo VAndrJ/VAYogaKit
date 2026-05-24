@@ -20,5 +20,4 @@ class BaseScreenView<VM: ViewModel>: BaseControllerView, @unchecked Sendable {
 
 class BaseViewModel: NSObject, ViewModel, @unchecked Sendable {}
 
-@MainActor
 protocol ViewModel {}

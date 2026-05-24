@@ -6,10 +6,10 @@
 //  Copyright © 2024 Volodymyr Andriienko. All rights reserved.
 //
 
+import Combine
+import Differ
 import UIKit
 import VAYogaKit
-import Differ
-import Combine
 
 class BaseCollectionView<Item: AnyCellViewModel>: VAYogaCollectionView, @unchecked Sendable {
     private var collectionDataSourceDelegate: CollectionDataSourceDelegate<Item>!

@@ -25,8 +25,8 @@ final class RelativeScreenView: BaseControllerView {
     private let exampleView = FrameChangeAnimationView().apply {
         $0.backgroundColor = .systemOrange
     }
-    @Layout @Published private var horizontal: YGAlign = .start
-    @Layout @Published private var vertical: YGJustify = .start
+    @Layout @Published private var horizontal: YGAlign = .flexStart
+    @Layout @Published private var vertical: YGJustify = .flexStart
 
     override func configureLayout() {
         positionLabel
@@ -73,9 +73,9 @@ final class RelativeScreenView: BaseControllerView {
 extension YGAlign {
     var toggled: YGAlign {
         switch self {
-        case .start: .center
-        case .center: .end
-        default: .start
+        case .flexStart: .center
+        case .center: .flexEnd
+        default: .flexStart
         }
     }
 
@@ -87,9 +87,9 @@ extension YGAlign {
 extension YGJustify {
     var toggled: YGJustify {
         switch self {
-        case .start: .center
-        case .center: .end
-        default: .start
+        case .flexStart: .center
+        case .center: .flexEnd
+        default: .flexStart
         }
     }
 
