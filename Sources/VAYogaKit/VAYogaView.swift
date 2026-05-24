@@ -21,8 +21,6 @@ open class VAYogaView: UIView, VAYogaLayout {
         super.init(frame: .init(x: 0, y: 0, width: 240, height: 128))
 
         self.node = .new(for: self)
-
-        flattenLayout()
     }
 
     @available(*, unavailable)

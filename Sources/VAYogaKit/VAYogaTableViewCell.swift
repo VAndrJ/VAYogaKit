@@ -19,7 +19,6 @@ open class VAYogaTableViewCell: UITableViewCell, VAYogaLayout {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         self.node = .new(for: self)
-        flattenLayoutIfNeeded(in: contentView)
     }
 
     @available(*, unavailable)
