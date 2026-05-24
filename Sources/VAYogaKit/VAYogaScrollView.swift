@@ -80,7 +80,7 @@ open class VAYogaScrollView: UIScrollView, VAYogaLayout {
         isDirty = false
     }
 
-    deinit {
+    isolated deinit {
         YGNodeFree(node)
     }
 }

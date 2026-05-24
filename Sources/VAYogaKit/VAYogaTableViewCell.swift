@@ -62,7 +62,7 @@ open class VAYogaTableViewCell: UITableViewCell, VAYogaLayout {
         return frame.size
     }
 
-    deinit {
+    isolated deinit {
         YGNodeFree(node)
     }
 }

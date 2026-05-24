@@ -45,7 +45,7 @@ open class VAYogaView: UIView, VAYogaLayout {
         }
     }
 
-    deinit {
+    isolated deinit {
         YGNodeFree(node)
     }
 }

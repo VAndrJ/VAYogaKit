@@ -37,7 +37,7 @@ open class VAYogaTableView: UITableView, VAYogaLayout {
         }
     }
 
-    deinit {
+    isolated deinit {
         YGNodeFree(node)
     }
 }

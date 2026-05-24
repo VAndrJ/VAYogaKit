@@ -10,7 +10,6 @@ import XCTest
 import yoga
 
 final class YGNodeTests: XCTestCase {
-
     @MainActor
     func test_node_flexShrink() {
         var node = createNode()
@@ -38,7 +37,7 @@ final class YGNodeTests: XCTestCase {
     @MainActor
     func test_node_alignContent() {
         var node = createNode()
-        let expected: YGAlign = .end
+        let expected: YGAlign = .flexEnd
 
         XCTAssertNotEqual(expected, node.alignContent)
 
@@ -50,7 +49,7 @@ final class YGNodeTests: XCTestCase {
     @MainActor
     func test_node_alignItems() {
         var node = createNode()
-        let expected: YGAlign = .end
+        let expected: YGAlign = .flexEnd
 
         XCTAssertNotEqual(expected, node.alignItems)
 
@@ -62,7 +61,7 @@ final class YGNodeTests: XCTestCase {
     @MainActor
     func test_node_alignSelf() {
         var node = createNode()
-        let expected: YGAlign = .end
+        let expected: YGAlign = .flexEnd
 
         XCTAssertNotEqual(expected, node.alignSelf)
 
@@ -369,7 +368,7 @@ final class YGNodeTests: XCTestCase {
     @MainActor
     func test_node_direction() {
         var node = createNode()
-        let expected: YGDirection = .rtl
+        let expected: YGDirection = .RTL
 
         XCTAssertNotEqual(expected, node.direction)
 

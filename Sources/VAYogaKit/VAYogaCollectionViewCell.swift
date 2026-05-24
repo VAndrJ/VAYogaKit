@@ -51,7 +51,7 @@ open class VAYogaCollectionViewCell: UICollectionViewCell, VAYogaLayout {
         return contentView.frame.size
     }
 
-    deinit {
+    isolated deinit {
         YGNodeFree(node)
     }
 }

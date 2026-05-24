@@ -1,4 +1,4 @@
-// swift-tools-version: 5.10
+// swift-tools-version: 6.2
 
 import PackageDescription
 import CompilerPluginSupport
@@ -28,14 +28,17 @@ let package = Package(
                 .product(name: "SwiftCompilerPlugin", package: "swift-syntax"),
             ]
         ),
-        .target(name: "VAYogaKitMacro", dependencies: ["VAYogaKitMacros"]),
+        .target(
+            name: "VAYogaKitMacro",
+            dependencies: ["VAYogaKitMacros"]
+        ),
         .target(
             name: "VAYogaKit",
             dependencies: [
                 .product(name: "yoga", package: "yoga"),
-            ], 
+            ],
             swiftSettings: [
-                .enableExperimentalFeature("StrictConcurrency")
+                .defaultIsolation(MainActor.self),
             ]
         ),
         .testTarget(

@@ -30,7 +30,7 @@ public extension YGValue {
     }
 }
 
-extension YGValue: @retroactive Equatable {
+nonisolated extension YGValue: @retroactive Equatable {
     public static func == (lhs: YGValue, rhs: YGValue) -> Bool {
         lhs.value.isEqual(to: rhs.value) && lhs.unit == rhs.unit
     }
