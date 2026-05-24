@@ -5,7 +5,7 @@ import CompilerPluginSupport
 
 let package = Package(
     name: "VAYogaKit",
-    platforms: [.macOS(.v11), .iOS(.v13)],
+    platforms: [.iOS(.v13)],
     products: [
         .library(
             name: "VAYogaKit",
@@ -45,5 +45,6 @@ let package = Package(
             name: "VAYogaKitTests",
             dependencies: ["VAYogaKit"]
         ),
-    ]
+    ],
+    swiftLanguageModes: [.v6]
 )

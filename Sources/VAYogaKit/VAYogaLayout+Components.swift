@@ -16,7 +16,6 @@ public class Column: VAYogaLayout {
     public var layout: any VAYogaLayout { self }
     public var isDirty = false
 
-    @MainActor
     public init(
         spacing: Float = 0,
         main: YGJustify = .flexStart,
@@ -44,7 +43,7 @@ public class Column: VAYogaLayout {
     }
 
     public func sizeThatFits(_ size: CGSize) -> CGSize {
-        .zero
+        return .zero
     }
 
     public func setNeedsLayout() {}
@@ -62,7 +61,6 @@ public class Row: VAYogaLayout {
     public var layout: any VAYogaLayout { self }
     public var isDirty = false
 
-    @MainActor
     public init(
         spacing: Float = 0,
         main: YGJustify = .flexStart,
@@ -90,7 +88,7 @@ public class Row: VAYogaLayout {
     }
 
     public func sizeThatFits(_ size: CGSize) -> CGSize {
-        .zero
+        return .zero
     }
 
     public func setNeedsLayout() {}
@@ -108,7 +106,6 @@ public class RelativeLayout: VAYogaLayout {
     public var layout: any VAYogaLayout { self }
     public var isDirty = false
 
-    @MainActor
     public init(
         element: any VAYogaLayout,
         justify: YGJustify = .flexStart,
@@ -125,7 +122,7 @@ public class RelativeLayout: VAYogaLayout {
     }
 
     public func sizeThatFits(_ size: CGSize) -> CGSize {
-        .zero
+        return .zero
     }
 
     public func setNeedsLayout() {}
@@ -135,10 +132,8 @@ public class RelativeLayout: VAYogaLayout {
     }
 }
 
-public extension VAYogaLayout {
-
-    @MainActor
-    func relatively(
+extension VAYogaLayout {
+    public func relatively(
         horizontal: YGAlign = .flexStart,
         vertical: YGJustify = .flexStart
     ) -> any VAYogaLayout {
@@ -149,8 +144,7 @@ public extension VAYogaLayout {
         )
     }
 
-    @MainActor
-    func padding(_ paddings: VAIndentation...) -> Self {
+    public func padding(_ paddings: VAIndentation...) -> Self {
         let insets = UIEdgeInsets(indentation: paddings)
         node.paddingTop = .point(insets.top)
         node.paddingLeft = .point(insets.left)
@@ -160,9 +154,8 @@ public extension VAYogaLayout {
         return self
     }
 
-    @MainActor
     @discardableResult
-    func margin(_ margins: VAIndentation...) -> Self {
+    public func margin(_ margins: VAIndentation...) -> Self {
         let insets = UIEdgeInsets(indentation: margins)
         node.marginTop = .point(insets.top)
         node.marginLeft = .point(insets.left)
@@ -172,76 +165,67 @@ public extension VAYogaLayout {
         return self
     }
 
-    @MainActor
     @discardableResult
-    func aspect(_ ratio: Float) -> Self {
+    public func aspect(_ ratio: Float) -> Self {
         node.aspectRatio = ratio
 
         return self
     }
 
-    @MainActor
     @discardableResult
-    func sized(_ size: CGSize) -> Self {
+    public func sized(_ size: CGSize) -> Self {
         node.width = .point(size.width)
         node.height = .point(size.height)
 
         return self
     }
 
-    @MainActor
     @discardableResult
-    func sized(width: CGFloat, height: CGFloat) -> Self {
+    public func sized(width: CGFloat, height: CGFloat) -> Self {
         node.width = .point(width)
         node.height = .point(height)
 
         return self
     }
 
-    @MainActor
     @discardableResult
-    func sized(height: CGFloat) -> Self {
+    public func sized(height: CGFloat) -> Self {
         node.height = .point(height)
 
         return self
     }
 
-    @MainActor
     @discardableResult
-    func sized(width: CGFloat) -> Self {
+    public func sized(width: CGFloat) -> Self {
         node.width = .point(width)
 
         return self
     }
 
-    @MainActor
     @discardableResult
-    func minSized(_ size: CGSize) -> Self {
+    public func minSized(_ size: CGSize) -> Self {
         node.minWidth = .point(size.width)
         node.minHeight = .point(size.height)
 
         return self
     }
 
-    @MainActor
     @discardableResult
-    func flexBasis(_ value: YGValue) -> Self {
+    public func flexBasis(_ value: YGValue) -> Self {
         node.flexBasis = value
 
         return self
     }
 
-    @MainActor
     @discardableResult
-    func flexShrink(_ value: Float) -> Self {
+    public func flexShrink(_ value: Float) -> Self {
         node.flexShrink = value
 
         return self
     }
 
-    @MainActor
     @discardableResult
-    func flexGrow(_ value: Float) -> Self {
+    public func flexGrow(_ value: Float) -> Self {
         node.flexGrow = value
 
         return self

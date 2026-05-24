@@ -8,24 +8,24 @@
 import Foundation
 import yoga
 
-public extension YGValue {
-    static let zero: YGValue = .point(value: .zero)
-    static let undefined: YGValue = .init(value: .nan, unit: .undefined)
-    static let auto: YGValue = .init(value: .nan, unit: .auto)
+extension YGValue {
+    public static let zero: YGValue = .point(value: .zero)
+    public static let undefined: YGValue = .init(value: .nan, unit: .undefined)
+    public static let auto: YGValue = .init(value: .nan, unit: .auto)
 
-    @inline(__always) static func point(value: Float) -> YGValue {
+    @inline(__always) public static func point(value: Float) -> YGValue {
         YGValue(value: value, unit: .point)
     }
 
-    @inline(__always) static func point(_ value: CGFloat) -> YGValue {
+    @inline(__always) public static func point(_ value: CGFloat) -> YGValue {
         YGValue(value: Float(value), unit: .point)
     }
 
-    @inline(__always) static func percent(value: Float) -> YGValue {
+    @inline(__always) public static func percent(value: Float) -> YGValue {
         YGValue(value: value, unit: .percent)
     }
 
-    @inline(__always) static func percent(_ value: CGFloat) -> YGValue {
+    @inline(__always) public static func percent(_ value: CGFloat) -> YGValue {
         YGValue(value: Float(value), unit: .percent)
     }
 }
@@ -37,8 +37,8 @@ nonisolated extension YGValue: @retroactive Equatable {
 }
 
 public struct VAYogaFlexibility: RawRepresentable, OptionSet {
-    @MainActor public static let flexibleWidth = VAYogaFlexibility(rawValue: 1 << 0)
-    @MainActor public static let flexibleHeight = VAYogaFlexibility(rawValue: 1 << 1)
+    public static let flexibleWidth = VAYogaFlexibility(rawValue: 1 << 0)
+    public static let flexibleHeight = VAYogaFlexibility(rawValue: 1 << 1)
 
     public let rawValue: UInt8
 
@@ -47,10 +47,10 @@ public struct VAYogaFlexibility: RawRepresentable, OptionSet {
     }
 }
 
-public extension Float {
-    @inline(__always) var cg: CGFloat { CGFloat(self) }
+extension Float {
+    @inline(__always) public var cg: CGFloat { CGFloat(self) }
 
-    @inline(__always) func sanitize(measured: CGFloat, mode: YGMeasureMode) -> Float {
+    @inline(__always) public func sanitize(measured: CGFloat, mode: YGMeasureMode) -> Float {
         switch mode {
         case .exactly: self
         case .atMost: min(self, Float(measured))

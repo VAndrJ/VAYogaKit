@@ -9,18 +9,15 @@ import UIKit
 import yoga
 
 public protocol VAYogaLayout: AnyObject {
-    @MainActor var layoutType: VAYogaLayoutType { get }
-    @MainActor var node: YGNodeRef! { get set }
-    @MainActor var frame: CGRect { get set }
-    @MainActor var sublayouts: [any VAYogaLayout] { get set }
-    @MainActor var layout: any VAYogaLayout { get }
-    @MainActor var isDirty: Bool { get set }
+    var layoutType: VAYogaLayoutType { get }
+    var node: YGNodeRef! { get set }
+    var frame: CGRect { get set }
+    var sublayouts: [any VAYogaLayout] { get set }
+    var layout: any VAYogaLayout { get }
+    var isDirty: Bool { get set }
 
-    @MainActor
     func sizeThatFits(_ size: CGSize) -> CGSize
-    @MainActor
     func setNeedsLayout()
-    @MainActor
     func setNeedsUpdateLayout()
 }
 
@@ -39,24 +36,21 @@ public enum VAYogaLayoutMode {
     case adjustWidth
 }
 
-public extension VAYogaLayout {
-    @MainActor var isLeaf: Bool { sublayouts.isEmpty }
+extension VAYogaLayout {
+    public var isLeaf: Bool { sublayouts.isEmpty }
 
-    @MainActor
     @discardableResult
-    func yoga(_ confgiure: (YGNodeRef) -> Void) -> Self {
+    public func yoga(_ confgiure: (YGNodeRef) -> Void) -> Self {
         confgiure(node)
 
         return self
     }
 
-    @MainActor
-    func setNeedsUpdateLayout() {
+    public func setNeedsUpdateLayout() {
         setNeedsRelayout()
     }
 
-    @MainActor
-    func calculateLayout(for size: CGSize) {
+    public func calculateLayout(for size: CGSize) {
         assertMain()
         buildNodesHierarchy()
         YGNodeCalculateLayout(
@@ -67,8 +61,7 @@ public extension VAYogaLayout {
         )
     }
 
-    @MainActor
-    func calculateLayout(width: Float, height: Float) {
+    public func calculateLayout(width: Float, height: Float) {
         assertMain()
         buildNodesHierarchy()
         YGNodeCalculateLayout(
@@ -79,8 +72,7 @@ public extension VAYogaLayout {
         )
     }
 
-    @MainActor
-    func buildNodesHierarchy() {
+    public func buildNodesHierarchy() {
         if isLeaf {
             node.removeAllChildren()
             if !node.hasMeasureFunc {
@@ -103,8 +95,7 @@ public extension VAYogaLayout {
         }
     }
 
-    @MainActor
-    func layout(mode: VAYogaLayoutMode = .fitContainer) {
+    public func layout(mode: VAYogaLayoutMode = .fitContainer) {
         switch mode {
         case .fitContainer:
             applyLayout(keepingOrigin: true)
@@ -115,14 +106,12 @@ public extension VAYogaLayout {
         }
     }
 
-    @MainActor
-    func applyLayout(keepingOrigin: Bool) {
+    public func applyLayout(keepingOrigin: Bool) {
         calculateLayout(for: frame.size)
         applyLayoutToHierarchy(keepingOrigin: keepingOrigin)
     }
 
-    @MainActor
-    func applyLayout(keepingOrigin: Bool, flexibility: VAYogaFlexibility) {
+    public func applyLayout(keepingOrigin: Bool, flexibility: VAYogaFlexibility) {
         var size = frame.size
         if flexibility.contains(.flexibleWidth) {
             size.width = .nan
@@ -134,8 +123,7 @@ public extension VAYogaLayout {
         applyLayoutToHierarchy(keepingOrigin: keepingOrigin)
     }
 
-    @MainActor
-    func applyLayoutToHierarchy(keepingOrigin: Bool) {
+    public func applyLayoutToHierarchy(keepingOrigin: Bool) {
         assertMain()
         switch layoutType {
         case .view, .selfSizedView, .containerView:
@@ -159,8 +147,7 @@ public extension VAYogaLayout {
         }
     }
 
-    @MainActor
-    func applyLayoutToTableCellHierarchy(width: CGFloat, calculated: (CGFloat) -> Void) {
+    public func applyLayoutToTableCellHierarchy(width: CGFloat, calculated: (CGFloat) -> Void) {
         assertMain()
         calculateLayout(width: Float(width), height: .nan)
         calculated(node.heightValue)
@@ -169,8 +156,7 @@ public extension VAYogaLayout {
         }
     }
 
-    @MainActor
-    func applyLayoutToCollectionCellHierarchy(size: CGSize) {
+    public func applyLayoutToCollectionCellHierarchy(size: CGSize) {
         assertMain()
         calculateLayout(width: Float(size.width), height: Float(size.height))
         if !isLeaf {
@@ -178,8 +164,7 @@ public extension VAYogaLayout {
         }
     }
 
-    @MainActor
-    func applyLayoutToScrollHierarchy(
+    public func applyLayoutToScrollHierarchy(
         size: CGSize,
         scrollableDirections: VAYogaScrollableDirection,
         calculated: (CGSize) -> Void
@@ -206,8 +191,6 @@ public extension VAYogaLayout {
 }
 
 extension VAYogaLayout {
-
-    @MainActor
     func setNeedsRelayout() {
         if layoutType == .root || layoutType == .containerView {
             setNeedsLayout()

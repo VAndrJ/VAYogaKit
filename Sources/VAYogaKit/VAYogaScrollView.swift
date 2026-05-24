@@ -9,9 +9,9 @@ import UIKit
 import yoga
 
 public struct VAYogaScrollableDirection: RawRepresentable, OptionSet, Sendable {
-    @MainActor public static let vertical = VAYogaScrollableDirection(rawValue: 1 << 0)
-    @MainActor public static let horizontal = VAYogaScrollableDirection(rawValue: 1 << 1)
-    @MainActor public static let all: VAYogaScrollableDirection = [.vertical, .horizontal]
+    public static let vertical = VAYogaScrollableDirection(rawValue: 1 << 0)
+    public static let horizontal = VAYogaScrollableDirection(rawValue: 1 << 1)
+    public static let all: VAYogaScrollableDirection = [.vertical, .horizontal]
 
     public var rawValue: UInt8
 
@@ -27,7 +27,7 @@ open class VAYogaScrollView: UIScrollView, VAYogaLayout {
     open var layout: any VAYogaLayout { layoutBlock?() ?? contentView }
     public let contentView = VAYogaView(layoutType: .contentView)
     public var scrollableDirections: VAYogaScrollableDirection {
-        didSet { 
+        didSet {
             node.markDirtyIfAvailable()
             setNeedsUpdateLayout()
         }
@@ -44,7 +44,7 @@ open class VAYogaScrollView: UIScrollView, VAYogaLayout {
         addSubview(contentView)
         flattenIfNeeded(layout: layout, in: contentView)
     }
-    
+
     @available(*, unavailable)
     public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -53,8 +53,9 @@ open class VAYogaScrollView: UIScrollView, VAYogaLayout {
     open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
-        if previousTraitCollection?.horizontalSizeClass != traitCollection.horizontalSizeClass ||
-            previousTraitCollection?.verticalSizeClass != traitCollection.verticalSizeClass {
+        if previousTraitCollection?.horizontalSizeClass != traitCollection.horizontalSizeClass
+            || previousTraitCollection?.verticalSizeClass != traitCollection.verticalSizeClass
+        {
             setNeedsUpdateLayout()
         }
     }

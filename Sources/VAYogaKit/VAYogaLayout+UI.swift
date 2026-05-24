@@ -1,13 +1,12 @@
 //
 //  VAYogaLayout+UI.swift
-//  
+//
 //
 //  Created by VAndrJ on 28.04.2024.
 //
 
 import UIKit
 
-@MainActor
 func flattenIfNeeded(layout: VAYogaLayout, in root: UIView & VAYogaLayout) {
     if layout !== root {
         root.sublayouts = [layout]
@@ -39,10 +38,8 @@ func flattenIfNeeded(layout: VAYogaLayout, in root: UIView & VAYogaLayout) {
     viewToAppend.forEach { root.addSubview($0) }
 }
 
-public extension VAYogaLayout where Self: UIView {
-
-    @MainActor
-    func flattenLayoutIfNeeded(in root: UIView) {
+extension VAYogaLayout where Self: UIView {
+    public func flattenLayoutIfNeeded(in root: UIView) {
         let layout = self.layout
         if layout !== self {
             sublayouts = [layout]
@@ -74,8 +71,7 @@ public extension VAYogaLayout where Self: UIView {
         viewToAppend.forEach { root.addSubview($0) }
     }
 
-    @MainActor
-    func SafeArea(edges: VASafeAreaEdge = .all, _ sublayout: () -> VAYogaLayout) -> Self {
+    public func SafeArea(edges: VASafeAreaEdge = .all, _ sublayout: () -> VAYogaLayout) -> Self {
         if edges.contains(.top) {
             node.paddingTop = .point(safeAreaInsets.top)
         }
@@ -93,8 +89,7 @@ public extension VAYogaLayout where Self: UIView {
         return self
     }
 
-    @MainActor
-    func SafeArea(edgesToIgnore: VASafeAreaEdge, _ sublayout: () -> VAYogaLayout) -> Self {
+    public func SafeArea(edgesToIgnore: VASafeAreaEdge, _ sublayout: () -> VAYogaLayout) -> Self {
         if !edgesToIgnore.contains(.top) {
             node.paddingTop = .point(safeAreaInsets.top)
         }
