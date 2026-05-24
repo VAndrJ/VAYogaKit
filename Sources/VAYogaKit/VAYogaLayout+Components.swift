@@ -35,7 +35,7 @@ public class Column: VAYogaLayout {
             node.flexDirection = .column
         }
         node.rowGap = spacing
-        node.columnGap = spacing
+        node.columnGap = column
         node.justifyContent = main
         node.alignItems = cross
         node.flexWrap = wrap
