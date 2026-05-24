@@ -83,7 +83,7 @@ open class VAYogaTableViewCell: UITableViewCell, VAYogaLayout {
     }
 
     isolated deinit {
-        YGNodeFree(node)
+        node.freeSafely()
     }
 }
 

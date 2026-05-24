@@ -11,7 +11,7 @@ import yoga
 extension YGNodeRef {
     public static func new(for object: AnyObject) -> YGNodeRef {
         let node: YGNodeRef! = YGNodeNewWithConfig(VAYogaConfig.globalConfig)
-        YGNodeSetContext(node, Unmanaged.passUnretained(object).toOpaque())
+        node.setContext(object)
         node.addBaselineFuncIfNeeded(object: object)
 
         return node
@@ -435,7 +435,7 @@ extension YGNodeRef {
         var absolutePosition = CGPoint(x: leftValue, y: topValue)
         var currentNode: YGNodeRef? = parent
         while let node = currentNode {
-            let layoutType = (Unmanaged<AnyObject>.fromOpaque(YGNodeGetContext(node)).takeUnretainedValue() as? VAYogaLayout)?.layoutType
+            let layoutType = (node.getContext() as? any VAYogaLayout)?.layoutType
             if layoutType == .layout {
                 absolutePosition.x += node.leftValue
                 absolutePosition.y += node.topValue
@@ -465,8 +465,35 @@ extension YGNodeRef {
         }
     }
 
-    @inline(__always) public func getContext<T: AnyObject>() -> T {
-        return Unmanaged<T>.fromOpaque(YGNodeGetContext(self)).takeUnretainedValue()
+    @inline(__always) public func setContext(_ object: AnyObject) {
+        YGNodeSetContext(self, Unmanaged.passUnretained(object).toOpaque())
+    }
+
+    @inline(__always) public func clearContext() {
+        YGNodeSetContext(self, nil)
+    }
+
+    @inline(__always) public func getContext() -> AnyObject? {
+        guard let context = YGNodeGetContext(self) else {
+            return nil
+        }
+
+        return Unmanaged<AnyObject>.fromOpaque(context).takeUnretainedValue()
+    }
+
+    @inline(__always) public func getContext<T: AnyObject>() -> T? {
+        getContext() as? T
+    }
+
+    public func prepareForFree() {
+        removeFromParent()
+        removeAllChildren()
+        clearContext()
+    }
+
+    public func freeSafely() {
+        prepareForFree()
+        YGNodeFree(self)
     }
 
     @inline(__always) public func markDirty() {
@@ -477,7 +504,7 @@ extension YGNodeRef {
         if hasMeasureFunc {
             markDirty()
         }
-        (Unmanaged<AnyObject>.fromOpaque(YGNodeGetContext(self)).takeUnretainedValue() as? VAYogaLayout)?.setNeedsRelayout()
+        (getContext() as? any VAYogaLayout)?.setNeedsRelayout()
     }
 
     @inline(__always) public func setMeasureFunc(_ measureFunc: YGMeasureFunc) {
@@ -575,8 +602,8 @@ extension YGNodeRef? {
         _ widthMode: YGMeasureMode,
         _ height: Float,
         _ heightMode: YGMeasureMode
-    ) -> YGSize = { node, width, widthMode, height, heightMode in
-        guard let layout = Unmanaged<AnyObject>.fromOpaque(YGNodeGetContext(node)).takeUnretainedValue() as? any VAYogaLayout else {
+    ) -> YGSize = { (node: YGNodeRef?, width: Float, widthMode: YGMeasureMode, height: Float, heightMode: YGMeasureMode) in
+        guard let layout = node?.getContext() as? any VAYogaLayout else {
             return .init(width: .zero, height: .zero)
         }
 

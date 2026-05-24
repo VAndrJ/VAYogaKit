@@ -788,6 +788,57 @@ final class YGNodeTests: XCTestCase {
     }
 
     @MainActor
+    func test_node_contextCanBeClearedBeforeFree() {
+        let object = NSObject()
+        let node = createNode(object: object)
+        let context: NSObject? = node.getContext()
+
+        XCTAssertTrue(context === object)
+
+        node.clearContext()
+
+        let clearedContext: NSObject? = node.getContext()
+        XCTAssertNil(clearedContext)
+
+        node.freeSafely()
+    }
+
+    @MainActor
+    func test_node_prepareForFreeDetachesChildrenAndClearsContext() {
+        let parentObject = NSObject()
+        let childObject = NSObject()
+        let parentNode = createNode(object: parentObject)
+        let childNode = createNode(object: childObject)
+        parentNode.insert(child: childNode, at: 0)
+
+        parentNode.prepareForFree()
+
+        let parentContext: NSObject? = parentNode.getContext()
+        let childContext: NSObject? = childNode.getContext()
+        XCTAssertNil(parentNode.parent)
+        XCTAssertEqual(parentNode.childCount, 0)
+        XCTAssertNil(childNode.parent)
+        XCTAssertNil(parentContext)
+        XCTAssertTrue(childContext === childObject)
+
+        parentNode.freeSafely()
+        childNode.freeSafely()
+    }
+
+    @MainActor
+    func test_node_freeSafelyDetachesFromParent() {
+        let parentNode = createNode()
+        let childNode = createNode()
+        parentNode.insert(child: childNode, at: 0)
+
+        childNode.freeSafely()
+
+        XCTAssertEqual(parentNode.childCount, 0)
+
+        parentNode.freeSafely()
+    }
+
+    @MainActor
     func test_node_childAddingAndRemoving() {
         let position = 0
         let (parentNode, childNode) = generateSUT()

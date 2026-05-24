@@ -79,7 +79,7 @@ open class VAYogaButton: UIButton, VAYogaLayout {
     }
 
     isolated deinit {
-        YGNodeFree(node)
+        node.freeSafely()
     }
 
     private func invalidateMeasuredSize() {

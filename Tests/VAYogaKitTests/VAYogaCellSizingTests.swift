@@ -103,6 +103,6 @@ private final class CellSizingProbeView: UIView, VAYogaLayout {
     }
 
     isolated deinit {
-        YGNodeFree(node)
+        node.freeSafely()
     }
 }

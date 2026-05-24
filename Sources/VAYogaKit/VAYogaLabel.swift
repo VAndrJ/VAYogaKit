@@ -99,7 +99,7 @@ open class VAYogaLabel: UILabel, VAYogaLayout {
     }
 
     isolated deinit {
-        YGNodeFree(node)
+        node.freeSafely()
     }
 
     private func invalidateMeasuredSize() {

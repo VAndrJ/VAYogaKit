@@ -49,7 +49,7 @@ public class Column: VAYogaLayout {
     public func setNeedsLayout() {}
 
     isolated deinit {
-        YGNodeFree(node)
+        node.freeSafely()
     }
 }
 
@@ -94,7 +94,7 @@ public class Row: VAYogaLayout {
     public func setNeedsLayout() {}
 
     isolated deinit {
-        YGNodeFree(node)
+        node.freeSafely()
     }
 }
 
@@ -128,7 +128,7 @@ public class RelativeLayout: VAYogaLayout {
     public func setNeedsLayout() {}
 
     isolated deinit {
-        YGNodeFree(node)
+        node.freeSafely()
     }
 }
 

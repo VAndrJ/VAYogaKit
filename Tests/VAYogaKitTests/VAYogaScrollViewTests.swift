@@ -135,6 +135,6 @@ private final class ScrollSizingProbeView: UIView, VAYogaLayout {
     }
 
     isolated deinit {
-        YGNodeFree(node)
+        node.freeSafely()
     }
 }

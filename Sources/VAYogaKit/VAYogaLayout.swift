@@ -195,8 +195,8 @@ extension VAYogaLayout {
         if layoutType == .root || layoutType == .containerView {
             setNeedsLayout()
         } else {
-            let parent: AnyObject? = node?.parent?.getContext()
-            (parent as? VAYogaLayout)?.setNeedsUpdateLayout()
+            let parentLayout = node?.parent?.getContext() as? any VAYogaLayout
+            parentLayout?.setNeedsUpdateLayout()
         }
     }
 }

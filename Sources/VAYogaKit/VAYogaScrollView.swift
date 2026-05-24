@@ -97,7 +97,7 @@ open class VAYogaScrollView: UIScrollView, VAYogaLayout {
     }
 
     isolated deinit {
-        YGNodeFree(node)
+        node.freeSafely()
     }
 }
 

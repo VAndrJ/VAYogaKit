@@ -27,6 +27,6 @@ open class VAYogaCollectionView: UICollectionView, VAYogaLayout {
     }
 
     isolated deinit {
-        YGNodeFree(node)
+        node.freeSafely()
     }
 }
