@@ -5,7 +5,7 @@ import CompilerPluginSupport
 
 let package = Package(
     name: "VAYogaKit",
-    platforms: [.macOS(.v11), .iOS(.v13)],
+    platforms: [.macOS(.v11), .iOS(.v13)], // macOS target only for proper Macro compilation
     products: [
         .library(
             name: "VAYogaKit",

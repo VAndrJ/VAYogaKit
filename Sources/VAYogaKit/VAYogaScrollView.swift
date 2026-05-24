@@ -34,6 +34,7 @@ open class VAYogaScrollView: UIScrollView, VAYogaLayout {
     }
     public var layoutBlock: (() -> (any VAYogaLayout)?)?
     public var isDirty = true
+    private var lastLayoutMetrics: LayoutMetrics?
 
     public init(scrollableDirections: VAYogaScrollableDirection) {
         self.scrollableDirections = scrollableDirections
@@ -60,6 +61,18 @@ open class VAYogaScrollView: UIScrollView, VAYogaLayout {
         }
     }
 
+    open override func adjustedContentInsetDidChange() {
+        super.adjustedContentInsetDidChange()
+
+        setNeedsLayout()
+    }
+
+    open override func safeAreaInsetsDidChange() {
+        super.safeAreaInsetsDidChange()
+
+        setNeedsLayout()
+    }
+
     public func setNeedsUpdateLayout() {
         isDirty = true
         setNeedsLayout()
@@ -68,20 +81,45 @@ open class VAYogaScrollView: UIScrollView, VAYogaLayout {
     open override func layoutSubviews() {
         super.layoutSubviews()
 
-        guard isDirty else { return }
+        let metrics = LayoutMetrics(scrollView: self)
+        guard isDirty || metrics != lastLayoutMetrics else { return }
 
         flattenIfNeeded(layout: layout, in: contentView)
         contentView.applyLayoutToScrollHierarchy(
-            size: frame.size,
+            size: metrics.layoutSize,
             scrollableDirections: scrollableDirections
         ) {
             contentView.frame.size = $0
             contentSize = $0
         }
+        lastLayoutMetrics = metrics
         isDirty = false
     }
 
     isolated deinit {
         YGNodeFree(node)
+    }
+}
+
+private struct LayoutMetrics: Equatable {
+    let boundsSize: CGSize
+    let contentInset: UIEdgeInsets
+    let adjustedContentInset: UIEdgeInsets
+    let safeAreaInsets: UIEdgeInsets
+    let scrollableDirections: VAYogaScrollableDirection
+
+    init(scrollView: VAYogaScrollView) {
+        boundsSize = scrollView.bounds.size
+        contentInset = scrollView.contentInset
+        adjustedContentInset = scrollView.adjustedContentInset
+        safeAreaInsets = scrollView.safeAreaInsets
+        scrollableDirections = scrollView.scrollableDirections
+    }
+
+    var layoutSize: CGSize {
+        .init(
+            width: max(0, boundsSize.width - adjustedContentInset.left - adjustedContentInset.right),
+            height: max(0, boundsSize.height - adjustedContentInset.top - adjustedContentInset.bottom)
+        )
     }
 }
