@@ -19,6 +19,7 @@ open class VAYogaCollectionViewCell: UICollectionViewCell, VAYogaLayout {
         super.init(frame: frame)
 
         self.node = .new(for: self)
+        flattenLayoutIfNeeded(in: contentView)
     }
 
     @available(*, unavailable)

@@ -43,6 +43,7 @@ open class VAYogaScrollView: UIScrollView, VAYogaLayout {
 
         self.node = .new(for: self)
         addSubview(contentView)
+        flattenIfNeeded(layout: layout, in: contentView)
     }
 
     @available(*, unavailable)
