@@ -329,28 +329,28 @@ public extension YGNodeRef {
         }
     }
     var left: YGValue {
-        get { getPosition(edge: YGEdgeLeft) }
-        set { setPosition(newValue: newValue, edge: YGEdgeLeft) }
+        get { getPosition(edge: .left) }
+        set { setPosition(newValue: newValue, edge: .left) }
     }
     var top: YGValue {
-        get { getPosition(edge: YGEdgeTop) }
-        set { setPosition(newValue: newValue, edge: YGEdgeTop) }
+        get { getPosition(edge: .top) }
+        set { setPosition(newValue: newValue, edge: .top) }
     }
     var right: YGValue {
-        get { getPosition(edge: YGEdgeRight) }
-        set { setPosition(newValue: newValue, edge: YGEdgeRight) }
+        get { getPosition(edge: .right) }
+        set { setPosition(newValue: newValue, edge: .right) }
     }
     var bottom: YGValue {
-        get { getPosition(edge: YGEdgeBottom) }
-        set { setPosition(newValue: newValue, edge: YGEdgeBottom) }
+        get { getPosition(edge: .bottom) }
+        set { setPosition(newValue: newValue, edge: .bottom) }
     }
     var start: YGValue {
-        get { getPosition(edge: YGEdgeStart) }
-        set { setPosition(newValue: newValue, edge: YGEdgeStart) }
+        get { getPosition(edge: .start) }
+        set { setPosition(newValue: newValue, edge: .start) }
     }
     var end: YGValue {
-        get { getPosition(edge: YGEdgeEnd) }
-        set { setPosition(newValue: newValue, edge: YGEdgeEnd) }
+        get { getPosition(edge: .end) }
+        set { setPosition(newValue: newValue, edge: .end) }
     }
 
     @inline(__always) private func getPosition(edge: YGEdge) -> YGValue {
@@ -371,32 +371,32 @@ public extension YGNodeRef {
     }
 
     var borderLeftWidth: Float {
-        get { getBorder(edge: YGEdgeLeft) }
-        set { setBorder(newValue: newValue, edge: YGEdgeLeft) }
+        get { getBorder(edge: .left) }
+        set { setBorder(newValue: newValue, edge: .left) }
     }
     var borderTopWidth: Float {
-        get { getBorder(edge: YGEdgeTop) }
-        set { setBorder(newValue: newValue, edge: YGEdgeTop) }
+        get { getBorder(edge: .top) }
+        set { setBorder(newValue: newValue, edge: .top) }
     }
     var borderRightWidth: Float {
-        get { getBorder(edge: YGEdgeRight) }
-        set { setBorder(newValue: newValue, edge: YGEdgeRight) }
+        get { getBorder(edge: .right) }
+        set { setBorder(newValue: newValue, edge: .right) }
     }
     var borderBottomWidth: Float {
-        get { getBorder(edge: YGEdgeBottom) }
-        set { setBorder(newValue: newValue, edge: YGEdgeBottom) }
+        get { getBorder(edge: .bottom) }
+        set { setBorder(newValue: newValue, edge: .bottom) }
     }
     var borderStartWidth: Float {
-        get { getBorder(edge: YGEdgeStart) }
-        set { setBorder(newValue: newValue, edge: YGEdgeStart) }
+        get { getBorder(edge: .start) }
+        set { setBorder(newValue: newValue, edge: .start) }
     }
     var borderEndWidth: Float {
-        get { getBorder(edge: YGEdgeEnd) }
-        set { setBorder(newValue: newValue, edge: YGEdgeEnd) }
+        get { getBorder(edge: .end) }
+        set { setBorder(newValue: newValue, edge: .end) }
     }
     var borderWidth: Float {
-        get { getBorder(edge: YGEdgeAll) }
-        set { setBorder(newValue: newValue, edge: YGEdgeAll) }
+        get { getBorder(edge: .all) }
+        set { setBorder(newValue: newValue, edge: .all) }
     }
 
     @inline(__always) private func getBorder(edge: YGEdge) -> Float {
@@ -408,16 +408,16 @@ public extension YGNodeRef {
     }
 
     var columnGap: Float {
-        get { getGap(gutter: YGGutterColumn) }
-        set { setGap(newValue: newValue, gutter: YGGutterColumn) }
+        get { getGap(gutter: .column) }
+        set { setGap(newValue: newValue, gutter: .column) }
     }
     var rowGap: Float {
-        get { getGap(gutter: YGGutterRow) }
-        set { setGap(newValue: newValue, gutter: YGGutterRow) }
+        get { getGap(gutter: .row) }
+        set { setGap(newValue: newValue, gutter: .row) }
     }
     var gap: Float {
-        get { getGap(gutter: YGGutterAll) }
-        set { setGap(newValue: newValue, gutter: YGGutterAll) }
+        get { getGap(gutter: .all) }
+        set { setGap(newValue: newValue, gutter: .all) }
     }
 
     @inline(__always) private func getGap(gutter: YGGutter) -> Float {

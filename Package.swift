@@ -17,7 +17,7 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/facebook/yoga.git", exact: "3.0.4"),
+        .package(url: "https://github.com/facebook/yoga.git", exact: "3.2.1"),
         .package(url: "https://github.com/apple/swift-syntax.git", from: "509.0.0"),
     ],
     targets: [

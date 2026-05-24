@@ -19,11 +19,11 @@ public class Column: VAYogaLayout {
     @MainActor
     public init(
         spacing: Float = 0,
-        main: YGJustify = .start,
-        cross: YGAlign = .start,
+        main: YGJustify = .flexStart,
+        cross: YGAlign = .flexStart,
         wrap: YGWrap = .noWrap,
         column: Float = 0,
-        alignContent: YGAlign = .start,
+        alignContent: YGAlign = .flexStart,
         isReversed: Bool = false,
         @VAYogaLayoutBuilder content: () -> [VAYogaLayout]
     ) {
@@ -65,11 +65,11 @@ public class Row: VAYogaLayout {
     @MainActor
     public init(
         spacing: Float = 0,
-        main: YGJustify = .start,
-        cross: YGAlign = .start,
+        main: YGJustify = .flexStart,
+        cross: YGAlign = .flexStart,
         wrap: YGWrap = .noWrap,
         row: Float = 0,
-        alignContent: YGAlign = .start,
+        alignContent: YGAlign = .flexStart,
         isReversed: Bool = false,
         @VAYogaLayoutBuilder content: () -> [VAYogaLayout]
     ) {
@@ -111,8 +111,8 @@ public class RelativeLayout: VAYogaLayout {
     @MainActor
     public init(
         element: any VAYogaLayout,
-        justify: YGJustify = .start,
-        align: YGAlign = .start
+        justify: YGJustify = .flexStart,
+        align: YGAlign = .flexStart
     ) {
         self.sublayouts = [element]
 
@@ -139,8 +139,8 @@ public extension VAYogaLayout {
 
     @MainActor
     func relatively(
-        horizontal: YGAlign = .start,
-        vertical: YGJustify = .start
+        horizontal: YGAlign = .flexStart,
+        vertical: YGJustify = .flexStart
     ) -> any VAYogaLayout {
         RelativeLayout(
             element: self,
