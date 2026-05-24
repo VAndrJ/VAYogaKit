@@ -5,7 +5,7 @@ import CompilerPluginSupport
 
 let package = Package(
     name: "VAYogaKit",
-    platforms: [.iOS(.v13)],
+    platforms: [.macOS(.v11), .iOS(.v13)],
     products: [
         .library(
             name: "VAYogaKit",

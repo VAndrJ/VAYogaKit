@@ -1,6 +1,6 @@
 //
 //  VAYogaCollectionViewCell.swift
-//  
+//
 //
 //  Created by VAndrJ on 29.04.2024.
 //
@@ -37,21 +37,47 @@ open class VAYogaCollectionViewCell: UICollectionViewCell, VAYogaLayout {
 
         guard isDirty else { return }
 
-        flattenLayoutIfNeeded(in: contentView)
-        // TODO: - For different sizings
-        applyLayoutToCollectionCellHierarchy(size: contentView.frame.size)
-        isDirty = true
+        calculateLayoutSize(size: contentView.bounds.size)
+        isDirty = false
     }
 
     public override func sizeThatFits(_ size: CGSize) -> CGSize {
-        flattenLayoutIfNeeded(in: contentView)
-        applyLayoutToCollectionCellHierarchy(size: contentView.frame.size)
+        let calculatedSize = calculateLayoutSize(size: resolvedFittingSize(for: size))
         isDirty = false
 
-        return contentView.frame.size
+        return calculatedSize
+    }
+
+    @discardableResult
+    private func calculateLayoutSize(size: CGSize) -> CGSize {
+        flattenLayoutIfNeeded(in: contentView)
+        applyLayoutToCollectionCellHierarchy(size: size)
+
+        return .init(width: node.widthValue, height: node.heightValue)
+    }
+
+    private func resolvedFittingSize(for size: CGSize) -> CGSize {
+        return .init(
+            width: size.width.validYogaConstraint(or: contentView.bounds.width),
+            height: size.height.validYogaConstraint(or: contentView.bounds.height)
+        )
     }
 
     isolated deinit {
         YGNodeFree(node)
+    }
+}
+
+extension CGFloat {
+    fileprivate func validYogaConstraint(or fallback: CGFloat) -> CGFloat {
+        if isFinite && self > 0 && self < .greatestFiniteMagnitude {
+            return self
+        }
+
+        if fallback.isFinite && fallback > 0 && fallback < .greatestFiniteMagnitude {
+            return fallback
+        }
+
+        return .nan
     }
 }
