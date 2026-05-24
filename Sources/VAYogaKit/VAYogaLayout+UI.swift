@@ -11,31 +11,8 @@ func flattenIfNeeded(layout: VAYogaLayout, in root: UIView & VAYogaLayout) {
     if layout !== root {
         root.sublayouts = [layout]
     }
-    var sublayoutViews: [UIView] = []
 
-    func appendSubviews(sublayout: VAYogaLayout) {
-        if let view = sublayout as? UIView {
-            sublayoutViews.append(view)
-        } else {
-            sublayout.sublayouts.forEach(appendSubviews(sublayout:))
-        }
-    }
-
-    root.sublayouts.forEach(appendSubviews(sublayout:))
-    var viewsToDelete: [UIView] = []
-    var viewToAppend: [UIView] = []
-    for view in sublayoutViews {
-        if !root.subviews.contains(view) {
-            viewToAppend.append(view)
-        }
-    }
-    for view in root.subviews {
-        if !sublayoutViews.contains(view) {
-            viewsToDelete.append(view)
-        }
-    }
-    viewsToDelete.forEach { $0.removeFromSuperview() }
-    viewToAppend.forEach { root.addSubview($0) }
+    syncSubviews(flattenedSubviews(from: root.sublayouts), in: root)
 }
 
 extension VAYogaLayout where Self: UIView {
@@ -44,31 +21,8 @@ extension VAYogaLayout where Self: UIView {
         if layout !== self {
             sublayouts = [layout]
         }
-        var sublayoutViews: [UIView] = []
 
-        func appendSubviews(sublayout: VAYogaLayout) {
-            if let view = sublayout as? UIView {
-                sublayoutViews.append(view)
-            } else {
-                sublayout.sublayouts.forEach(appendSubviews(sublayout:))
-            }
-        }
-
-        sublayouts.forEach(appendSubviews(sublayout:))
-        var viewsToDelete: [UIView] = []
-        var viewToAppend: [UIView] = []
-        for view in sublayoutViews {
-            if !root.subviews.contains(view) {
-                viewToAppend.append(view)
-            }
-        }
-        for view in root.subviews {
-            if !sublayoutViews.contains(view) {
-                viewsToDelete.append(view)
-            }
-        }
-        viewsToDelete.forEach { $0.removeFromSuperview() }
-        viewToAppend.forEach { root.addSubview($0) }
+        syncSubviews(flattenedSubviews(from: sublayouts), in: root)
     }
 
     public func SafeArea(edges: VASafeAreaEdge = .all, _ sublayout: () -> VAYogaLayout) -> Self {
@@ -105,5 +59,39 @@ extension VAYogaLayout where Self: UIView {
         sublayouts = [sublayout()]
 
         return self
+    }
+}
+
+private func flattenedSubviews(from sublayouts: [any VAYogaLayout]) -> [UIView] {
+    var subviews: [UIView] = []
+
+    func appendSubviews(sublayout: any VAYogaLayout) {
+        if let view = sublayout as? UIView {
+            subviews.append(view)
+        } else {
+            sublayout.sublayouts.forEach(appendSubviews(sublayout:))
+        }
+    }
+
+    sublayouts.forEach(appendSubviews(sublayout:))
+
+    return subviews
+}
+
+private func syncSubviews(_ desiredSubviews: [UIView], in root: UIView) {
+    root.subviews
+        .filter { subview in
+            !desiredSubviews.contains { desiredSubview in
+                desiredSubview === subview
+            }
+        }
+        .forEach { $0.removeFromSuperview() }
+
+    for (index, subview) in desiredSubviews.enumerated() {
+        if root.subviews.indices.contains(index), root.subviews[index] === subview {
+            continue
+        }
+
+        root.insertSubview(subview, at: min(index, root.subviews.count))
     }
 }
